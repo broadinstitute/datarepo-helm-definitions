@@ -13,11 +13,6 @@ helminstallsecrets () {
 helm namespace install ${NAMESPACE} datarepo-helm/vault-secrets --namespace ${NAMESPACE} -f ${WD}/../${ENVIRONMENT}/${NAMESPACE}/${NAMESPACE}Secrets.yaml --debug
 }
 
-# upgrade secrets deploy
-helmupdatesecrets () {
-helm upgrade jade datarepo-helm/datarepo --namespace ${NAMESPACE} -f ${WD}/../${ENVIRONMENT}/${NAMESPACE}/${NAMESPACE}Secrets.yaml
-}
-
 # delete secrets deploy
 helmdeletesecrets () {
 helm delete ${NAMESPACE} --namespace ${NAMESPACE}

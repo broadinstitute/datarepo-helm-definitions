@@ -49,7 +49,7 @@ else
 fi
 }
 
-helmall () {
+helminstallall () {
 helminstall
 helmrepoinstall
 helmplugininstall
