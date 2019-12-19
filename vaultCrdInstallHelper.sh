@@ -25,12 +25,13 @@ helm delete ${VAULTCRD_NAMESPACE} vault-crd/vault-crd --namespace ${VAULTCRD_NAM
 
 cleanupmanual () {
 kubectl delete namespace ${VAULTCRD_NAMESPACE}
+kubectl delete PodSecurityPolicy secrets-vault-crd-pod-running-policy
 kubectl delete clusterrole vault-crd-clusterrole
 kubectl delete ClusterRoleBinding vault-crd-clusterrole-binding
 }
 
 ## run install
-vaultcrdinstall ()
+vaultcrdinstall
 ### clean up if bad install uncomment below
 ## cleanuphelm
 ## cleanupmanual
