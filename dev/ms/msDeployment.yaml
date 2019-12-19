@@ -15,7 +15,7 @@ gcloud-sqlproxy:
   networkPolicy:
     enabled: false
   existingSecret: sqlproxy-sa-ms
-  existingSecretKey: sqlproxyreposerviceaccount
+  existingSecretKey: sa
 
 datarepo-api:
   enabled: true

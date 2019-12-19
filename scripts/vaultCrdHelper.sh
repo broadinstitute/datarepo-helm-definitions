@@ -7,8 +7,9 @@ set -e
 : ${VAULTCRD_NAMESPACE:=secrets}
 : ${VAULT_PATH:=https://clotho.broadinstitute.org:8200}
 
+
 # helm CRD check and install
-vaultcrdinstall () {
+helmvaultcrdinstall () {
 if kubectl get pods --all-namespaces | grep "vault-crd"; then
     echo "vaultCRD install found"
 else
@@ -19,19 +20,24 @@ else
 fi
 }
 
-cleanuphelm () {
+helmdeletevaultcrd () {
 helm delete ${VAULTCRD_NAMESPACE} vault-crd/vault-crd --namespace ${VAULTCRD_NAMESPACE}
 }
 
-cleanupmanual () {
+manualvaultcrdcleanup() {
 kubectl delete namespace ${VAULTCRD_NAMESPACE}
 kubectl delete PodSecurityPolicy secrets-vault-crd-pod-running-policy
 kubectl delete clusterrole vault-crd-clusterrole
 kubectl delete ClusterRoleBinding vault-crd-clusterrole-binding
 }
 
-## run install
-vaultcrdinstall
-### clean up if bad install uncomment below
-## cleanuphelm
-## cleanupmanual
+helmvaultcrdtokenupdate () {
+set -e
+: ${VAULTPOLICY:?}
+NEWTOKEN=$(vault token create -policy=${VAULTPOLICY} -display-name=devtesttoken -ttl=43800m  | sed -n '3 s/token//p' | sed -e 's/\s\s*/\n/g')
+helm upgrade ${VAULTCRD_NAMESPACE} vault-crd/vault-crd --namespace ${VAULTCRD_NAMESPACE} \
+--set vaultCRD.vaultUrl=${VAULT_PATH} \
+--set vaultCRD.vaultToken=${NEWTOKEN} \
+--recreate-pods \
+--debug
+}

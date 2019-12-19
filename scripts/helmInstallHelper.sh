@@ -12,7 +12,7 @@ fi
 }
 
 # helm repo install mac
-helmrepocheck () {
+helmrepoinstall () {
 if helm repo list | grep -q "https://kubernetes-charts.storage.googleapis.com/"; then
     echo "stable repo found"
 else
@@ -51,8 +51,6 @@ fi
 
 helmall () {
 helminstall
-helmrepocheck
+helmrepoinstall
 helmplugininstall
 }
-
-helmall
