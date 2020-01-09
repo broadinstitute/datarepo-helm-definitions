@@ -10,12 +10,12 @@ WD=$( dirname "${BASH_SOURCE[0]}" )
 
 # installs secrets
 helminstallsecrets () {
-helm namespace install ${NAMESPACE} datarepo-helm/vault-secrets --namespace ${NAMESPACE} -f ${WD}/../${ENVIRONMENT}/${NAMESPACE}/${NAMESPACE}Secrets.yaml --debug
+helm namespace install ${NAMESPACE}-secrets datarepo-helm/create-secret-manager-secret --namespace ${NAMESPACE} -f ${WD}/../${ENVIRONMENT}/${NAMESPACE}/${NAMESPACE}Secrets.yaml --debug
 }
 
 # delete secrets deploy
 helmdeletesecrets () {
-helm delete ${NAMESPACE} --namespace ${NAMESPACE}
+helm delete ${NAMESPACE}-secrets --namespace ${NAMESPACE}
 }
 
 # installs datarepo charts
