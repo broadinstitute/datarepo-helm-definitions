@@ -1,0 +1,14 @@
+---
+createCRD: true
+helm:
+  versions: v3
+configureRepositories:
+  enable: true
+  volumeName: repositories-yaml
+  secretName: flux-helm-repositories
+  cacheVolumeName: repositories-cache
+  repositories:
+     - name: datarepo-helm
+       url: https://broadinstitute.github.io/datarepo-helm
+rbac:
+  pspEnabled: true
