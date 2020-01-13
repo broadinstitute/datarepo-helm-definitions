@@ -9,22 +9,12 @@ set -e
 : ${VAULT_PATH:=https://clotho.broadinstitute.org:8200}
 
 
-# helm CRD check and install
-helmvaultcrdinstall () {
-if kubectl get pods --all-namespaces | grep "secrets-manager"; then
-    echo "vaultCRD install found"
-else
-    helm namespace install jade datarepo-helm/install-secrets-manager  --namespace ${VAULTCRD_NAMESPACE} \
-    --set vaultLocation=${VAULT_PATH} \
-    --set serviceAccount.create=true \
-    --set rbac.create=true \
-    --set vaultVersion=kv1 \
-    --set secretsgeneric.roleId=${DATAREPO_VAULT_ROLE_ID} \
-    --set secretsgeneric.secretId=${DATAREPO_VAULT_SECRET_ID}
-    #    --debug --dependency-update
-fi
-}
 
-helmdeletevaultcrd () {
-helm delete jade datarepo-helm/install-secrets-manager --namespace ${VAULTCRD_NAMESPACE}
-}
+helm namespace install jade-secrets datarepo-helm/install-secrets-manager  --namespace ${VAULTCRD_NAMESPACE} \
+--set vaultLocation=${VAULT_PATH} \
+--set serviceAccount.create=true \
+--set rbac.create=true \
+--set vaultVersion=kv1 \
+--set secretsgeneric.roleId=${DATAREPO_VAULT_ROLE_ID} \
+--set secretsgeneric.secretId=${DATAREPO_VAULT_SECRET_ID}
+    #    --debug --dependency-update

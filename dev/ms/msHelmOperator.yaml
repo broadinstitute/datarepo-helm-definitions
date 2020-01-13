@@ -16,11 +16,7 @@ spec:
     version: 0.0.4
   valuesFrom:
   - externalSourceRef:
-      # URL of the values.yaml
-      url: https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/ms/msSecrets.yaml # mandatory
-      # If set to true successful retrieval of the values file is no
-      # longer mandatory
-      optional: true
+      url: https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/ms/msSecrets.yaml 
 ---
 apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
@@ -39,8 +35,4 @@ spec:
     version: 0.0.4
   valuesFrom:
   - externalSourceRef:
-      # URL of the values.yaml
-      url: https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/ms/msDeployment.yaml # mandatory
-      # If set to true successful retrieval of the values file is no
-      # longer mandatory
-      optional: true
+      url: https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/ms/msDeployment.yaml 

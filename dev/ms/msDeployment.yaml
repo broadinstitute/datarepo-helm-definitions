@@ -3,9 +3,9 @@ gcloud-sqlproxy:
   cloudsql:
     instances:
      # GCP instance name.
-    - instance: "jade-postgres-101-a7c2b664318192e5"
+    - instance: "jade-postgres-101-987f0c3b501aeabf"
      # GCP project where the instance exists.
-      project: "broad-jade-ms"
+      project: "broad-jade-dev"
      # GCP region where the instance exists.
       region: "us-central1"
      # Port number for the proxy to expose for this instance.
@@ -66,7 +66,7 @@ oidc-proxy:
   ingress:
     enabled: true
     annotations:
-      globalStaticIpName: jade-k8-100
+      globalStaticIpName: jade-dev-ms
   serviceAccount:
     create: true
   rbac:
