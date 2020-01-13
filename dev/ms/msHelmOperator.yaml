@@ -16,7 +16,7 @@ spec:
     version: 0.0.4
   valuesFrom:
   - externalSourceRef:
-      url: https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/ms/msSecrets.yaml 
+      url: https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/ms/msSecrets.yaml
 ---
 apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
@@ -24,7 +24,7 @@ metadata:
   name: ms-datarepo
   namespace: ms
 spec:
-  releaseName: jade
+  releaseName: ms-jade
   targetNamespace: ms
   timeout: 300
   resetValues: false
@@ -35,4 +35,4 @@ spec:
     version: 0.0.4
   valuesFrom:
   - externalSourceRef:
-      url: https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/ms/msDeployment.yaml 
+      url: https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/ms/msDeployment.yaml

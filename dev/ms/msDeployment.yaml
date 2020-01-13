@@ -22,12 +22,12 @@ datarepo-api:
   image:
     version: latest
   env:
-    googleProjectid:  broad-jade-ms
+    googleProjectid:  broad-jade-dev
     dbDatarepoUsername:  drmanager
     springProfilesActive:  google,cloudsql,ms
     dbStairwayUsername:  drmanager
-    dbStairwayUri: jdbc:postgresql://jade-gcloud-sqlproxy.ms:5432/datarepo
-    dbDatarepoUri: jdbc:postgresql://jade-gcloud-sqlproxy.ms:5432/stairway
+    dbStairwayUri: jdbc:postgresql://ms-jade-gcloud-sqlproxy.ms:5432/datarepo-ms
+    dbDatarepoUri: jdbc:postgresql://ms-jade-gcloud-sqlproxy.ms:5432/stairway-ms
   serviceAccount:
     create: true
   rbac:
@@ -44,9 +44,9 @@ datarepo-ui:
   image:
     version: broad-jade-ms_2019-12-05_13-23-33
   proxyPass:
-    status: http://jade-datarepo-api.ms:8080/status
-    swagger: http://jade-datarepo-api.ms:8080/swagger-ui.html
-    api: http://jade-datarepo-api.ms:8080
+    status: http://ms-jade-datarepo-api.ms:8080/status
+    swagger: http://ms-jade-datarepo-api.ms:8080/swagger-ui.html
+    api: http://ms-jade-datarepo-api.ms:8080
   serviceAccount:
     create: true
   rbac:
@@ -55,9 +55,9 @@ datarepo-ui:
 oidc-proxy:
   enabled: true
   env:
-    proxyUrl: http://jade-datarepo-ui.ms:80/
-    proxyUrl2: http://jade-datarepo-api.ms:8080/api
-    proxyUrl3: http://jade-datarepo-api.ms:8080/register
+    proxyUrl: http://ms-jade-datarepo-ui.ms:80/
+    proxyUrl2: http://ms-jade-datarepo-api.ms:8080/api
+    proxyUrl3: http://ms-jade-datarepo-api.ms:8080/register
     logLevel: debug
     serverName: jade.datarepo-dev.broadinstitute.org
     remoteUserClaim: sub
