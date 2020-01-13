@@ -54,3 +54,5 @@ helminstall
 helmrepoinstall
 helmplugininstall
 }
+
+helminstallall 
