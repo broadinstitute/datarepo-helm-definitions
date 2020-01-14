@@ -31,7 +31,16 @@ This repository contains helm files for every Jade team member and environment. 
 
 #### Create namespaces
 - helm 3 no longer support the creation of namespaces before the helm-operator can deploy, every namespace must exist
-- for dev a simple `kubectl apply -f scripts/crds/secret-manager/devNamespaces.yaml` can be ran to create namespaces
+- namespace will be created by
+
+```
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: dev
+```
+At the start of every helm operator config
 
 #### Deploy helm-operator kubernetes yaml
 - Once the crds and namespaces are deployed you are ready to deploy some helm charts or in this case the [helm-operator](https://github.com/fluxcd/helm-operator) will do this for you
@@ -121,8 +130,6 @@ values:
     - [installSecretManager.sh](https://github.com/broadinstitute/datarepo-helm-definitions/blob/master/scripts/crds/helm-operator/installHelmOperator.sh)
   - `sh ./scripts/crds/helm-operator/installHelmOperator.sh`
     - [installHelmOperator.sh](https://github.com/broadinstitute/datarepo-helm-definitions/blob/master/scripts/crds/secret-manager/installSecretManager.sh)
-- ##### create namespaces
-  - `kubectl apply -f scripts/crds/secret-manager/devNamespaces.yaml`
 - ##### deploy helm-operator yaml
   - `kubectl apply -f < environment >/< initials >/< initials >HelmOperator.yaml --namepace < initials >`
 
