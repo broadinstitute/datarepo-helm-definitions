@@ -1,10 +1,18 @@
 ## This directory is full of helper scripts
 
 ### Scripts
-- helmInstallHelper.sh
-- helmChartHelper.sh
-- vaultCrdHelper.sh
-- vaultbase64toplaintxt.sh
+```
+├── crds
+│   ├── helm-operator
+│   │   ├── helm-operator.yaml <--- helm chart yaml to install crd
+│   │   └── installHelmOperator.sh <--- installation wrapper script for helm-operator
+│   └── secret-manager
+│       ├── devNamespaces.yaml <--- manual kubernetes dev namespace creation yaml
+│       └── installSecretManager.sh <--- installation wrapper for secret-manager
+├── helmChartHelper.sh <--- no longer used helm wrapper script
+└── helmInstallHelper.sh <--- one shot helm installation script
+```
+
 
 ### helmInstallHelper.sh
 `This Script contains functions that will install helm, helm repos and plugins needed to deploy Datarepo helm charts`
@@ -18,46 +26,25 @@
 - helmisntallall
   - installs all of the above
 ##### Usage
-first source the script
+run the script
 ```
-source ./helmInstallHelper.sh
-```
-Then call a functions from the list above
-```
-helmisntallall
+sh ./helmInstallHelper.sh
 ```
 
-### helmChartHelper.sh
-`This script helps install charts for this repository ie: secrets and deployment charts`
-##### Prerequisites
-- [vault-crd](https://github.com/broadinstitute/vault-crd-helm) must be installed
--  see vaultCrdHelper.sh
+### installHelmOperator.sh
+`This script installs the helm-operator crd`
 
-##### Functions
-- helminstallsecrets
-  - creates namespace, helm deployment and syncs secrets from `<initials>Secrets.yaml` in users folder
-- helmdeletesecrets
-  - Deletes helm Secrets deployment
-- helminstalldeploy
-  - must be ran with existing kubernetes secrets in place see `helminstallsecrets`
-  - creates namespace, helm deployment for a Datarepo deployment
-- helmupgradedeploy
-  - upgrades an existing Deployment
-- helmdeletedeploy
-  - deletes an existing deployment
-  ##### Usage
-  Set ENVIRONMENT vars
-  ```
-export NAMESPACE=<initials>
-export ENVIRONMENT=<dev, integration, prod>
-  ```
-  first source the script
-  ```
-  source ./helmChartHelper.sh
-  ```
-  Then call a functions from the list above
-  ```
-  helminstallsecrets
-  helminstalldeploy
-  ```
-### vaultCrdHelper.sh
+##### Usage
+```
+sh ./installHelmOperator.sh
+```
+
+### installSecretManager.sh
+`This script requires approle_id and approle_secret values from vault`
+[Vault Approle Docs](https://www.vaultproject.io/docs/auth/approle.html)
+##### Usage
+```
+export DATAREPO_VAULT_ROLE_ID=<some_role_id>; export DATAREPO_VAULT_SECRET_ID=<some_secret_id>;
+
+sh installSecretManager.sh
+```

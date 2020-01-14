@@ -33,6 +33,10 @@ spec:
     repository: https://broadinstitute.github.io/datarepo-helm/
     name: datarepo
     version: 0.0.4
+  values:
+    datarepo-api:
+      image:
+        version: fake-jade-ms_2019-12-05_13-20-26
   valuesFrom:
   - externalSourceRef:
       url: https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/ms/msDeployment.yaml
