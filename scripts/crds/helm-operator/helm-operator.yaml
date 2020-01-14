@@ -1,5 +1,5 @@
 ---
-createCRD: true
+createCRD: false
 helm:
   versions: v3
 configureRepositories:
