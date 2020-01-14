@@ -80,28 +80,28 @@ spec:
     repository: https://broadinstitute.github.io/datarepo-helm/
     name: datarepo
     version: 0.0.4
-  values:
-    datarepo-api:
-      image:
-        version: fake-jade-ms_2019-12-05_13-20-26
+  values: <------------------------------------------- Override field
+    datarepo-api: <----------------------------------- Override field
+      image: <---------------------------------------- Override field
+        version: fake-jade-ms_2019-12-05_13-20-26 <--- Override field
   valuesFrom:
   - externalSourceRef:
       url: https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/ms/msDeployment.yaml
 ```
 This values field accepts any input a helm chart would accept
-
-### TLDR deployment process
-- ##### install crd secret-manager and helm-operator
-- ##### create namespaces
-- ##### deploy helm-operator yaml
-
 ```  
 values:
   datarepo-api:
     image:
       version: fake-jade-ms_2019-12-05_13-20-26
 ```
+
 [See the Helm-Operator documentation for information here](https://docs.fluxcd.io/projects/helm-operator/en/latest/references/helmrelease-custom-resource.html)
+### TLDR deployment process
+- ##### install crd secret-manager and helm-operator
+- ##### create namespaces
+- ##### deploy helm-operator yaml
+
 
 ## One click helm install script for osx
 Run [`$sh ./helmInstallHelper.sh`](https://github.com/broadinstitute/datarepo-helm-definitions/blob/master/scripts/helmInstallHelper.sh)
