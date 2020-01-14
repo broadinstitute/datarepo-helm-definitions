@@ -114,12 +114,17 @@ values:
 - < initials >Deployment.yaml will be installed second
 
 ### TLDR deployment process
-- ##### install crd secret-manager and helm-operator
-- ##### create namespaces
-- ##### deploy helm-operator yaml
-  - Create secrets before datarepo helm chart deploy
-  - Create datarepo deploy
+- ##### [Script Documentation](https://github.com/broadinstitute/datarepo-helm-definitions/blob/master/scripts/README.md)
 
+- ##### install crd secret-manager and helm-operator
+  - `sh ./scripts/crds/secret-manager/installSecretManager.sh`
+    - [installSecretManager.sh](https://github.com/broadinstitute/datarepo-helm-definitions/blob/master/scripts/crds/helm-operator/installHelmOperator.sh)
+  - `sh ./scripts/crds/helm-operator/installHelmOperator.sh`
+    - [installHelmOperator.sh](https://github.com/broadinstitute/datarepo-helm-definitions/blob/master/scripts/crds/secret-manager/installSecretManager.sh)
+- ##### create namespaces
+  - `kubectl apply -f scripts/crds/secret-manager/devNamespaces.yaml`
+- ##### deploy helm-operator yaml
+  - `kubectl apply -f < environment >/< initials >/< initials >HelmOperator.yaml --namepace < initials >`
 
 ## One click helm install script for osx
 Run [`$sh ./helmInstallHelper.sh`](https://github.com/broadinstitute/datarepo-helm-definitions/blob/master/scripts/helmInstallHelper.sh)
