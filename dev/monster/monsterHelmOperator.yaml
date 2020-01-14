@@ -1,0 +1,38 @@
+---
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: monster-secrets
+  namespace: monster
+spec:
+  releaseName: secrets
+  targetNamespace: monster
+  timeout: 300
+  resetValues: false
+  forceUpgrade: false
+  chart:
+    repository: https://broadinstitute.github.io/datarepo-helm/
+    name: create-secret-manager-secret
+    version: 0.0.4
+  valuesFrom:
+  - externalSourceRef:
+      url: https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/monster/monsterSecrets.yaml 
+---
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: monster-datarepo
+  namespace: monster
+spec:
+  releaseName: jade
+  targetNamespace: monster
+  timeout: 300
+  resetValues: false
+  forceUpgrade: false
+  chart:
+    repository: https://broadinstitute.github.io/datarepo-helm/
+    name: datarepo
+    version: 0.0.4
+  valuesFrom:
+  - externalSourceRef:
+      url: https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/monster/monsterDeployment.yaml 

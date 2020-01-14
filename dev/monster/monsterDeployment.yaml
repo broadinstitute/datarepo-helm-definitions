@@ -1,0 +1,75 @@
+gcloud-sqlproxy:
+  enabled: true
+  cloudsql:
+    instances:
+     # GCP instance name.
+    - instance: "jade-postgres-101-987f0c3b501aeabf"
+     # GCP project where the instance exists.
+      project: "broad-jade-dev"
+     # GCP region where the instance exists.
+      region: "us-central1"
+     # Port number for the proxy to expose for this instance.
+      port: 5432
+  rbac:
+    create: true
+  networkPolicy:
+    enabled: false
+  existingSecret: sqlproxy-sa-monster
+  existingSecretKey: sa
+
+datarepo-api:
+  enabled: true
+  image:
+    version: latest
+  env:
+    googleProjectid:  broad-jade-dev
+    dbDatarepoUsername:  drmanager
+    springProfilesActive:  google,cloudsql,monster
+    dbStairwayUsername:  drmanager
+    dbStairwayUri: jdbc:postgresql://monster-jade-gcloud-sqlproxy.monster:5432/datarepo-monster
+    dbDatarepoUri: jdbc:postgresql://monster-jade-gcloud-sqlproxy.monster:5432/stairway-monster
+  serviceAccount:
+    create: true
+  rbac:
+    create: true
+    pspEnabled: true
+  existingSecretDB: "database-pwd-monster"
+  existingDatarepoDbSecretKey: "datarepopassword"
+  existingStairwayDbSecretKey: "stairwaypassword"
+  existingSecretSA: "jade-sa"
+  existingServiceAccountSecretKey: "datareposerviceaccount"
+
+datarepo-ui:
+  enabled: true
+  image:
+    version: broad-jade-monster_2019-12-05_13-23-33
+  proxyPass:
+    status: http://monster-jade-datarepo-api.monster:8080/status
+    swagger: http://monster-jade-datarepo-api.monster:8080/swagger-ui.html
+    api: http://monster-jade-datarepo-api.monster:8080
+  serviceAccount:
+    create: true
+  rbac:
+    create: true
+
+oidc-proxy:
+  enabled: true
+  env:
+    proxyUrl: http://monster-jade-datarepo-ui.monster:80/
+    proxyUrl2: http://monster-jade-datarepo-api.monster:8080/api
+    proxyUrl3: http://monster-jade-datarepo-api.monster:8080/register
+    logLevel: debug
+    serverName: jade.datarepo-dev.broadinstitute.org
+    remoteUserClaim: sub
+    enableStackdriver: yes
+    filter2: AddOutputFilterByType DEFLATE application/json text/plain text/html application/javascript application/x-javascript
+  ingress:
+    enabled: true
+    annotations:
+      globalStaticIpName: jade-dev-monster
+  serviceAccount:
+    create: true
+  rbac:
+    create: true
+    pspEnabled: true
+  existingTlsSecret: oidc-tls-key
