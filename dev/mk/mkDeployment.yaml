@@ -42,7 +42,7 @@ datarepo-api:
 datarepo-ui:
   enabled: true
   image:
-    version: broad-jade-mk_2019-12-05_13-23-33
+    version: broad-jade-ms_2019-12-18_10-18-43
   proxyPass:
     status: http://mk-jade-datarepo-api.mk:8080/status
     swagger: http://mk-jade-datarepo-api.mk:8080/swagger-ui.html
