@@ -1,7 +1,7 @@
 # datarepo-helm-definitions
 
 ## Overview
-This repository contains helm files for every Jade team member and environment. The core philosophy for the deployment is following [GITOPS](https://www.weave.works/blog/what-is-gitops-really) which means that the source of truth for the deployments will be this repository. The 3 key files each team member will have to track for their indivdual deployment are  `<initials>Deployment.yaml`,`<initials>HelmOperator.yaml` and `<initials>Secrets.yaml`  These are end state definitions and may require some prerequisites.
+This repository contains helm files for every Jade team member and environment. The core philosophy for the deployment is following [GITOPS](https://www.weave.works/blog/what-is-gitops-really) which means that the source of truth for the deployments will be this repository. The 3 key files each team member will have to track for their indivdual deployment are  `< initials >Deployment.yaml`,`< initials >HelmOperator.yaml` and `< initials >Secrets.yaml`  These are end state definitions and may require some prerequisites.
 
 ### Prerequisites
 - CRDS
@@ -37,7 +37,7 @@ This repository contains helm files for every Jade team member and environment. 
 - Once the crds and namespaces are deployed you are ready to deploy some helm charts or in this case the [helm-operator](https://github.com/fluxcd/helm-operator) will do this for you
 - <b>The [helm-operator](https://github.com/fluxcd/helm-operator) yaml config not is a Helm chart yaml it is a kubernetes yaml</b>
 
-- `kubectl apply -f <initials>HelmOperator.yaml --namespace <initials>`
+- `kubectl apply -f < initials >HelmOperator.yaml --namespace < initials >`
 
 ### Sample [helm-operator](https://github.com/fluxcd/helm-operator)  config file
 
@@ -97,10 +97,28 @@ values:
 ```
 
 [See the Helm-Operator documentation for information here](https://docs.fluxcd.io/projects/helm-operator/en/latest/references/helmrelease-custom-resource.html)
+
+### Deployment files
+
+#### < initials >Secrets.yaml
+- Contains all secret locations in vault and uses the secret-manager crd to sync between vault and [kubernetes secrets](https://kubernetes.io/docs/concepts/configuration/secret/)
+- ##### THIS MUST BE INSTALLED  BEFORE THE < initials >Deployment.yaml IF MANUALLY INSTALLED
+
+#### < initials >Deployment.yaml
+- Contains all values for the complete [datarepo helm chart](https://github.com/broadinstitute/datarepo-helm/tree/master/charts/datarepo)
+-  This chart references 4 sub charts
+
+#### < initials >HelmOperator.yaml
+- Contains helm-operator configuration to point to two helm deployments
+- < initials >Secrets.yaml will be installed first
+- < initials >Deployment.yaml will be installed second
+
 ### TLDR deployment process
 - ##### install crd secret-manager and helm-operator
 - ##### create namespaces
 - ##### deploy helm-operator yaml
+  - Create secrets before datarepo helm chart deploy
+  - Create datarepo deploy
 
 
 ## One click helm install script for osx
