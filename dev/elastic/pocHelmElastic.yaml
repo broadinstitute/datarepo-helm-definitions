@@ -1,0 +1,9 @@
+---
+image: "docker.elastic.co/elasticsearch/elasticsearch"
+imageTag: "7.5.1"
+
+rbac:
+  create: true
+
+podSecurityPolicy:
+  create: true
