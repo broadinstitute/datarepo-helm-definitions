@@ -26,8 +26,8 @@ datarepo-api:
     dbDatarepoUsername:  drmanager
     springProfilesActive:  google,cloudsql,monster
     dbStairwayUsername:  drmanager
-    dbStairwayUri: jdbc:postgresql://monster-jade-gcloud-sqlproxy.monster:5432/datarepo-monster
-    dbDatarepoUri: jdbc:postgresql://monster-jade-gcloud-sqlproxy.monster:5432/stairway-monster
+    dbStairwayUri: jdbc:postgresql://monster-jade-gcloud-sqlproxy.monster:5432/stairway-monster
+    dbDatarepoUri: jdbc:postgresql://monster-jade-gcloud-sqlproxy.monster:5432/datarepo-monster
   serviceAccount:
     create: true
   rbac:
