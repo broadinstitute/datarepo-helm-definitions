@@ -26,8 +26,8 @@ datarepo-api:
     dbDatarepoUsername:  drmanager
     springProfilesActive:  google,cloudsql,dev
     dbStairwayUsername:  drmanager
-    dbStairwayUri: jdbc:postgresql://dev-jade-gcloud-sqlproxy.dev:5432/datarepo
-    dbDatarepoUri: jdbc:postgresql://dev-jade-gcloud-sqlproxy.dev:5432/stairway
+    dbStairwayUri: jdbc:postgresql://dev-jade-gcloud-sqlproxy.dev:5432/stairway
+    dbDatarepoUri: jdbc:postgresql://dev-jade-gcloud-sqlproxy.dev:5432/datarepo
   serviceAccount:
     create: true
   rbac:
