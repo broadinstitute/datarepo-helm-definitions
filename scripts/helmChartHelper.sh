@@ -4,31 +4,37 @@ set -e
 
 # check to make sure vault and cloud env vars are set correctly
 # set namespace to your initials
-: ${NAMESPACE:?}
-: ${ENVIRONMENT:?}
+#: ${NAMESPACE:?}
+: ${ENVIRONMENT:=dev}
 WD=$( dirname "${BASH_SOURCE[0]}" )
 
 # installs secrets
-helminstallsecrets () {
-helm namespace install ${NAMESPACE}-secrets datarepo-helm/create-secret-manager-secret --namespace ${NAMESPACE} -f ${WD}/../${ENVIRONMENT}/${NAMESPACE}/${NAMESPACE}Secrets.yaml --debug
+installsecrets () {
+helm namespace upgrade ${NAMESPACE}-secrets datarepo-helm/create-secret-manager-secret --version=0.0.4 --install --namespace ${NAMESPACE} -f ${WD}/../${ENVIRONMENT}/${NAMESPACE}/${NAMESPACE}Secrets.yaml
 }
 
+
 # delete secrets deploy
-helmdeletesecrets () {
+deletesecrets () {
 helm delete ${NAMESPACE}-secrets --namespace ${NAMESPACE}
 }
 
 # installs datarepo charts
-helminstalldeploy () {
-helm namespace install jade datarepo-helm/datarepo --namespace ${NAMESPACE} -f ${WD}/../${ENVIRONMENT}/${NAMESPACE}/${NAMESPACE}Deployment.yaml --debug
+installdatarepo () {
+helm namespace upgrade ${NAMESPACE}-jade datarepo-helm/datarepo --version=0.0.4 --install --namespace ${NAMESPACE} -f ${WD}/../${ENVIRONMENT}/${NAMESPACE}/${NAMESPACE}Deployment.yaml
 }
 
-# upgrade charts
-helmupgradedeploy () {
-helm upgrade jade datarepo-helm/datarepo --namespace ${NAMESPACE} -f ${WD}/../${ENVIRONMENT}/${NAMESPACE}/${NAMESPACE}Deployment.yaml
-}
 
 # delete helm
-helmdeletedeploy () {
-helm delete jade --namespace ${NAMESPACE}
+deletedatarepo () {
+helm delete ${NAMESPACE}-jade --namespace ${NAMESPACE}
 }
+
+function main () {
+
+local -r NAMESPACE=$2
+$1
+
+}
+
+main ${@}
