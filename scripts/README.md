@@ -6,6 +6,7 @@ If this is your first time running any of these I would recommend running `Insta
 
 ### helmInstallHelper.sh
 `This Script contains functions that will install helm, helm repos and plugins needed to deploy Datarepo helm charts`
+
 ##### Usage
 run the script
 ```
@@ -13,6 +14,7 @@ sh ./InstallHelmv3.sh
 ```
 ### helmChartHelper.sh
 `This script is a helm wrapper that requires a NAMESPACE variable to run. The Namespace var will be the users initials and the second args after the script. The script contains 4 functions that can be called installsecrets, installdatarepo, deletesecrets and deletedatarepo`
+
 ##### helmInstallHelper Function list
 - `installsecrets`: installs vault secrets
 - `installdatarepo`: installs a datarepo deploy
