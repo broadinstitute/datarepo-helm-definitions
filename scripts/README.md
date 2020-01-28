@@ -4,7 +4,7 @@
 If this is your first time running any of these I would recommend running `InstallHelmv3.sh` then move on to running `helmChartHelper.sh` for pushing a deployment or deleting it.
 ##### The CRDs scripts are only required for a fresh Kubernertes deployment.
 
-### helmInstallHelper.sh
+### InstallHelmv3.sh
 `This Script contains functions that will install helm, helm repos and plugins needed to deploy Datarepo helm charts`
 
 ##### Usage
