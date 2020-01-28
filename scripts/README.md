@@ -12,15 +12,23 @@ run the script
 sh ./InstallHelmv3.sh
 ```
 ### helmChartHelper.sh
-`This script is a helm wrapper that requires a NAMESPACE variable to run the Namespace var will be the users initials. The script contains 4 functions that can be called installsecrets, installdatarepo, deletesecrets and deletedatarepo`
+`This script is a helm wrapper that requires a NAMESPACE variable to run. The Namespace var will be the users initials and the second args after the script. The script contains 4 functions that can be called installsecrets, installdatarepo, deletesecrets and deletedatarepo`
+##### helmInstallHelper Function list
+- `installsecrets`: installs vault secrets
+- `installdatarepo`: installs a datarepo deploy
+- `deletesecrets`: deletes Kubernertes secrets
+- `deletedatarepo`: deletes a datarepo deployment
+
 ##### Usage
+
 ```
 sh ./helmChartHelper.sh <function> <userInitials>
----
+--------------------------------------------------
 sh ./helmChartHelper.sh installsecrets ms
 sh ./helmChartHelper.sh installdatarepo ms
 sh ./helmChartHelper.sh deletesecrets ms
 sh ./helmChartHelper.sh deletedatarepo ms
+
 ```
 
 ### installHelmOperator.sh
