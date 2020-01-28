@@ -1,34 +1,22 @@
 ## This directory is full of helper scripts
 
-### Scripts
-```
-├── crds
-│   ├── helm-operator
-│   │   ├── helm-operator.yaml <--- helm chart yaml to install crd
-│   │   └── installHelmOperator.sh <--- installation wrapper script for helm-operator
-│   └── secret-manager
-│       ├── devNamespaces.yaml <--- manual kubernetes dev namespace creation yaml
-│       └── installSecretManager.sh <--- installation wrapper for secret-manager
-├── helmChartHelper.sh <--- no longer used helm wrapper script
-└── helmInstallHelper.sh <--- one shot helm installation script
-```
-
-
 ### helmInstallHelper.sh
 `This Script contains functions that will install helm, helm repos and plugins needed to deploy Datarepo helm charts`
-##### Functions
-- helminstall
-  - installs helm
-- helmrepoinstall
-  - installs helm repos stable, datarepo-helm, vault-crd and updates repos
-- helmplugininstall
-  - installs namespace creation helm pluin
-- helmisntallall
-  - installs all of the above
 ##### Usage
 run the script
 ```
-sh ./helmInstallHelper.sh
+sh ./InstallHelmv3.sh
+```
+### helmChartHelper.sh
+`This script is a helm wrapper that requires a NAMESPACE variable to run the Namespace var will be the users initials. The script contains 4 functions that can be called installsecrets, installdatarepo, deletesecrets and deletedatarepo`
+##### Usage
+```
+sh ./helmChartHelper.sh <function> <userInitials>
+---
+sh ./helmChartHelper.sh installsecrets ms
+sh ./helmChartHelper.sh installdatarepo ms
+sh ./helmChartHelper.sh deletesecrets ms
+sh ./helmChartHelper.sh deletedatarepo ms
 ```
 
 ### installHelmOperator.sh
