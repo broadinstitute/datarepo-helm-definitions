@@ -1,0 +1,43 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: fb
+---
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: fb-secrets
+  namespace: fb
+spec:
+  releaseName: secrets
+  targetNamespace: fb
+  timeout: 300
+  resetValues: false
+  forceUpgrade: false
+  chart:
+    repository: https://broadinstitute.github.io/datarepo-helm/
+    name: create-secret-manager-secret
+    version: 0.0.4
+  valuesFrom:
+  - externalSourceRef:
+      url: https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/fb/fbSecrets.yaml
+---
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: fb-datarepo
+  namespace: fb
+spec:
+  releaseName: fb-jade
+  targetNamespace: fb
+  timeout: 300
+  resetValues: false
+  forceUpgrade: false
+  chart:
+    repository: https://broadinstitute.github.io/datarepo-helm/
+    name: datarepo
+    version: 0.0.4
+  valuesFrom:
+  - externalSourceRef:
+      url: https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/fb/fbDeployment.yaml
