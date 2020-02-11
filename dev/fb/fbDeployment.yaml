@@ -20,11 +20,11 @@ gcloud-sqlproxy:
 datarepo-api:
   enabled: true
   image:
-    version: latest
+    version: sha256:77cf0b6fcc12ab5bf7ba92f4843f52077636f41fd24327d69b418015f30db4b9
   env:
     googleProjectid:  broad-jade-dev
     dbDatarepoUsername:  drmanager
-    springProfilesActive:  google,cloudsql,fb
+    springProfilesActive:  google,cloudsql,dev,fb
     dbStairwayUsername:  drmanager
     dbStairwayUri: jdbc:postgresql://fb-jade-gcloud-sqlproxy.fb:5432/stairway-fb
     dbDatarepoUri: jdbc:postgresql://fb-jade-gcloud-sqlproxy.fb:5432/datarepo-fb
