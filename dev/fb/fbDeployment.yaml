@@ -20,7 +20,7 @@ gcloud-sqlproxy:
 datarepo-api:
   enabled: true
   image:
-    version: jade-fb-dev-02.11.20
+    version: jade-fb-dev-02.12.20
   env:
     googleProjectid:  broad-jade-dev
     dbDatarepoUsername:  drmanager
