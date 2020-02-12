@@ -24,7 +24,7 @@ datarepo-api:
   env:
     googleProjectid:  broad-jade-dev
     dbDatarepoUsername:  drmanager
-    springProfilesActive:  google,cloudsql,fb
+    springProfilesActive:  google,cloudsql,dev,fb
     dbStairwayUsername:  drmanager
     dbStairwayUri: jdbc:postgresql://fb-jade-gcloud-sqlproxy.fb:5432/stairway-fb
     dbDatarepoUri: jdbc:postgresql://fb-jade-gcloud-sqlproxy.fb:5432/datarepo-fb
