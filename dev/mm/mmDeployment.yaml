@@ -20,16 +20,14 @@ gcloud-sqlproxy:
 datarepo-api:
   enabled: true
   image:
-    version: latest
+    version: jade-mm-dev-02.12.20
   env:
     googleProjectid:  broad-jade-mm
     dbDatarepoUsername:  drmanager
-    springProfilesActive:  google,cloudsql,mm
+    springProfilesActive:  google,cloudsql,dev,mm
     dbStairwayUsername:  drmanager
     dbStairwayUri: jdbc:postgresql://mm-jade-gcloud-sqlproxy.mm:5432/stairway-mm
     dbDatarepoUri: jdbc:postgresql://mm-jade-gcloud-sqlproxy.mm:5432/datarepo-mm
-    dbStairwayForceclean: true
-    dbMigrateDropallonstart: true
   serviceAccount:
     create: true
   rbac:
