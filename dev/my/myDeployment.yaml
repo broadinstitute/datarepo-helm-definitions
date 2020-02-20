@@ -22,7 +22,7 @@ datarepo-api:
   image:
     tag: 1ae0923
   env:
-    googleProjectid:  broad-jade-dev
+    googleProjectid:  broad-jade-my
     dbDatarepoUsername:  drmanager
     springProfilesActive:  google,cloudsql,my
     dbStairwayUsername:  drmanager
