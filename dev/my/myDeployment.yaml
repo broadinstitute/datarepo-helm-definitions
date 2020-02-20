@@ -1,0 +1,75 @@
+gcloud-sqlproxy:
+  enabled: true
+  cloudsql:
+    instances:
+     # GCP instance name.
+    - instance: "jade-postgres-101-987f0c3b501aeabf"
+     # GCP project where the instance exists.
+      project: "broad-jade-dev"
+     # GCP region where the instance exists.
+      region: "us-central1"
+     # Port number for the proxy to expose for this instance.
+      port: 5432
+  rbac:
+    create: true
+  networkPolicy:
+    enabled: false
+  existingSecret: sqlproxy-sa-my
+  existingSecretKey: sa
+
+datarepo-api:
+  enabled: true
+  image:
+    version: 1ae0923
+  env:
+    googleProjectid:  broad-jade-dev
+    dbDatarepoUsername:  drmanager
+    springProfilesActive:  google,cloudsql,my
+    dbStairwayUsername:  drmanager
+    dbStairwayUri: jdbc:postgresql://my-jade-gcloud-sqlproxy.my:5432/stairway-my
+    dbDatarepoUri: jdbc:postgresql://my-jade-gcloud-sqlproxy.my:5432/datarepo-my
+  serviceAccount:
+    create: true
+  rbac:
+    create: true
+    pspEnabled: true
+  existingSecretDB: "database-pwd-my"
+  existingDatarepoDbSecretKey: "datarepopassword"
+  existingStairwayDbSecretKey: "stairwaypassword"
+  existingSecretSA: "jade-sa"
+  existingServiceAccountSecretKey: "datareposerviceaccount"
+
+datarepo-ui:
+  enabled: true
+  image:
+    version: broad-jade-my_2020-02-14_15-04-11
+  proxyPass:
+    status: http://my-jade-datarepo-api.my:8080/status
+    swagger: http://my-jade-datarepo-api.my:8080/swagger-ui.html
+    api: http://my-jade-datarepo-api.my:8080
+  serviceAccount:
+    create: true
+  rbac:
+    create: true
+
+oidc-proxy:
+  enabled: true
+  env:
+    proxyUrl: http://my-jade-datarepo-ui.my:80/
+    proxyUrl2: http://my-jade-datarepo-api.my:8080/api
+    proxyUrl3: http://my-jade-datarepo-api.my:8080/register
+    logLevel: debug
+    serverName: jade.datarepo-dev.broadinstitute.org
+    remoteUserClaim: sub
+    enableStackdriver: yes
+    filter2: AddOutputFilterByType DEFLATE application/json text/plain text/html application/javascript application/x-javascript
+  ingress:
+    enabled: true
+    annotations:
+      globalStaticIpName: jade-dev-my
+  serviceAccount:
+    create: true
+  rbac:
+    create: true
+    pspEnabled: true
+  existingTlsSecret: oidc-tls-key
