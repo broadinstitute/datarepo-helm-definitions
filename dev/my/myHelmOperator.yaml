@@ -1,0 +1,43 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: my
+---
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: my-secrets
+  namespace: my
+spec:
+  releaseName: secrets
+  targetNamespace: my
+  timeout: 300
+  resetValues: false
+  forceUpgrade: false
+  chart:
+    repository: https://broadinstitute.github.io/datarepo-helm/
+    name: create-secret-manager-secret
+    version: 0.0.4
+  valuesFrom:
+  - externalSourceRef:
+      url: https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/my/mySecrets.yaml
+---
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: my-datarepo
+  namespace: my
+spec:
+  releaseName: my-jade
+  targetNamespace: my
+  timeout: 300
+  resetValues: false
+  forceUpgrade: false
+  chart:
+    repository: https://broadinstitute.github.io/datarepo-helm/
+    name: datarepo
+    version: 0.0.4
+  valuesFrom:
+  - externalSourceRef:
+      url: https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/my/myDeployment.yaml
