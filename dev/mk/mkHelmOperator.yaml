@@ -37,7 +37,7 @@ spec:
   chart:
     repository: https://broadinstitute.github.io/datarepo-helm/
     name: datarepo
-    version: 0.0.4
+    version: 0.0.6
   valuesFrom:
   - externalSourceRef:
       url: https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/mk/mkDeployment.yaml
