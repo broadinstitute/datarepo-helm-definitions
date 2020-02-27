@@ -1,0 +1,75 @@
+gcloud-sqlproxy:
+  enabled: true
+  cloudsql:
+    instances:
+     # GCP instance name.
+    - instance: "jade-postgres-101-d0e234edfe378f09"
+     # GCP project where the instance exists.
+      project: "broad-jade-integration"
+     # GCP region where the instance exists.
+      region: "us-central1"
+     # Port number for the proxy to expose for this instance.
+      port: 5432
+  rbac:
+    create: true
+  networkPolicy:
+    enabled: false
+  existingSecret: sqlproxy-sa-temp
+  existingSecretKey: sa
+
+datarepo-api:
+  enabled: true
+  image:
+    tag: ca1aab2
+  env:
+    googleProjectid:  broad-jade-temp
+    dbDatarepoUsername:  drmanager
+    springProfilesActive:  google,cloudsql,temp
+    dbStairwayUsername:  drmanager
+    dbStairwayUri: jdbc:postgresql://temp-jade-gcloud-sqlproxy.temp:5432/stairway
+    dbDatarepoUri: jdbc:postgresql://temp-jade-gcloud-sqlproxy.temp:5432/datarepo
+  serviceAccount:
+    create: true
+  rbac:
+    create: true
+    pspEnabled: true
+  existingSecretDB: "database-pwd-temp"
+  existingDatarepoDbSecretKey: "datarepopassword"
+  existingStairwayDbSecretKey: "stairwaypassword"
+  existingSecretSA: "jade-sa"
+  existingServiceAccountSecretKey: "datareposerviceaccount"
+
+datarepo-ui:
+  enabled: true
+  image:
+    tag: broad-jade-my_2020-02-14_15-04-11
+  proxyPass:
+    status: http://temp-jade-datarepo-api.temp:8080/status
+    swagger: http://temp-jade-datarepo-api.temp:8080/swagger-ui.html
+    api: http://temp-jade-datarepo-api.temp:8080
+  serviceAccount:
+    create: true
+  rbac:
+    create: true
+
+oidc-proxy:
+  enabled: true
+  env:
+    proxyUrl: http://temp-jade-datarepo-ui.temp:80/
+    proxyUrl2: http://temp-jade-datarepo-api.temp:8080/api
+    proxyUrl3: http://temp-jade-datarepo-api.temp:8080/register
+    logLevel: debug
+    serverName: jade.datarepo-integration.broadinstitute.org
+    remoteUserClaim: sub
+    enableStackdriver: yes
+    filter2: AddOutputFilterByType DEFLATE application/json text/plain text/html application/javascript application/x-javascript
+  ingress:
+    enabled: true
+    annotations:
+      globalStaticIpName: jade-k8-100-temp
+  serviceAccount:
+    create: true
+  rbac:
+    create: true
+    pspEnabled: true
+  existingTlsSecret: oidc-tls-key
