@@ -8,9 +8,9 @@ set -e
 : ${VAULTCRD_NAMESPACE:=secrets}
 : ${VAULT_PATH:=https://clotho.broadinstitute.org:8200}
 
-#kubectl apply -f https://raw.githubusercontent.com/tuenti/secrets-manager/master/config/crd/bases/secrets-manager.tuenti.io_secretdefinitions.yaml
+kubectl apply -f https://raw.githubusercontent.com/tuenti/secrets-manager/master/config/crd/bases/secrets-manager.tuenti.io_secretdefinitions.yaml
 
-helm namespace install dev datarepo-helm/install-secrets-manager  --namespace ${VAULTCRD_NAMESPACE} \
+helm namespace install integration datarepo-helm/install-secrets-manager  --namespace ${VAULTCRD_NAMESPACE} \
 --set vaultLocation=${VAULT_PATH} \
 --set serviceAccount.create=true \
 --set rbac.create=true \

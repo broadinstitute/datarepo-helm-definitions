@@ -28,14 +28,6 @@ else
     helm repo add datarepo-helm https://broadinstitute.github.io/datarepo-helm
 fi
 
-# helm vaultCRD repo install mac
-if helm repo list | grep -q "https://raw.githubusercontent.com/broadinstitute/vault-crd-helm/master"; then
-    echo "vault-crd repo found"
-else
-    echo "vault-crd repo not found installing"
-    helm repo add vault-crd https://raw.githubusercontent.com/broadinstitute/vault-crd-helm/master
-fi
-
 helm repo update
 }
 
@@ -55,4 +47,4 @@ helmrepoinstall
 helmplugininstall
 }
 
-helminstallall 
+helminstallall

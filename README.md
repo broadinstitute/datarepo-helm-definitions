@@ -1,11 +1,10 @@
 # datarepo-helm-definitions
 
 ## Overview
-This repository contains helm files for every Jade team member and environment. The core philosophy for the deployment is following [GITOPS](https://www.weave.works/blog/what-is-gitops-really) which means that the source of truth for the deployments will be this repository. The 3 key files each team member will have to track for their indivdual deployment are  `< initials >Deployment.yaml`,`< initials >HelmOperator.yaml` and `< initials >Secrets.yaml`  These are end state definitions and may require some prerequisites.
+This repository contains helm files for every Jade team member and environment. The core philosophy for the deployment is following [GITOPS](https://www.weave.works/blog/what-is-gitops-really) which means that the source of truth for the deployments will be this repository. The 3 key files each team member will have to track for their indivdual deployment are  `< initials >Deployment.yaml` and `< initials >Secrets.yaml`  These are end state definitions and may require some prerequisites.
 
 ### Prerequisites
 - CRDS
-  - [helm-operator](https://github.com/fluxcd/helm-operator)
   - [secrets-manager](https://github.com/tuenti/secrets-manager)
   - [Datarepo-helm repositories](https://github.com/broadinstitute/datarepo-helm)
 - [helmv3](https://helm.sh/)
@@ -17,95 +16,14 @@ This repository contains helm files for every Jade team member and environment. 
 
 - If Vault token is close to expire and if that's the case, renewing it. If it can't renew, it will try to re-login.
 - It will re-queue SecretsDefinition events and in every event loop it will verify if the current Kubernetes secret it is in the desired state by comparing it with the data in Vault and creating/updating them accordingly
-#### [helm-operator](https://github.com/fluxcd/helm-operator)
-- The Helm Operator provides an extension to Flux that automates Helm Chart releases
-- declarative helm install/upgrade/delete of charts
-- pulls charts from public or private Helm repositories over HTTPS
-- pulls charts from public or private Git repositories over SSH
-- chart release values can be specified inline in the - HelmRelease object or via secrets, configmaps or URLs
-- automated chart upgrades based on container image tag policies (requires Flux)
-- automatic purging on chart install failures
-- automatic rollback on chart upgrade failures
-- supports both Helm v2 and v3
-![GitOps Helm Operator](https://github.com/fluxcd/helm-operator/raw/master/docs/_files/fluxcd-helm-operator-diagram.png)
+
 
 #### Create namespaces
-- helm 3 no longer support the creation of namespaces before the helm-operator can deploy, every namespace must exist
-- namespace will be created by
+- helm 3 no longer support the creation of namespaces
+- namespace will be created by [namepace plugin required](https://github.com/thomastaylor312/helm-namespace)
 
-```
----
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: dev
-```
-At the start of every helm operator config
 
-#### Deploy helm-operator kubernetes yaml
-- Once the crds and namespaces are deployed you are ready to deploy some helm charts or in this case the [helm-operator](https://github.com/fluxcd/helm-operator) will do this for you
-- <b>The [helm-operator](https://github.com/fluxcd/helm-operator) yaml config not is a Helm chart yaml it is a kubernetes yaml</b>
-
-- `kubectl apply -f < initials >HelmOperator.yaml --namespace < initials >`
-
-### Sample [helm-operator](https://github.com/fluxcd/helm-operator)  config file
-
-```
----
-apiVersion: helm.fluxcd.io/v1 <-- kubernetes api
-kind: HelmRelease <-------------- kind of config
-metadata:
-  name: ms-secrets <------------- crd metadata name
-  namespace: ms <---------------- namespace for crd deployment
-spec:
-  releaseName: secrets <--------- helm deploy release name
-  targetNamespace: ms <---------- namespace to deploy chart to
-  timeout: 300
-  resetValues: false
-  forceUpgrade: false
-  chart:
-    repository: https://broadinstitute.github.io/datarepo-helm/ <-- helm repository
-    name: create-secret-manager-secret <-- helm chart name
-    version: 0.0.4 <---------------------- helm chart version
-  valuesFrom:
-  - externalSourceRef: <--------- helm values.yaml external reference file
-      url: https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/ms/msSecrets.yaml
-```
 Helm values are derived from the URL as a source of truth for the deployment if you would like to manually over write a field without commiting to master you can set the following field in the yaml
-```
----
-apiVersion: helm.fluxcd.io/v1
-kind: HelmRelease
-metadata:
-  name: ms-datarepo
-  namespace: ms
-spec:
-  releaseName: ms-jade
-  targetNamespace: ms
-  timeout: 300
-  resetValues: false
-  forceUpgrade: false
-  chart:
-    repository: https://broadinstitute.github.io/datarepo-helm/
-    name: datarepo
-    version: 0.0.4
-  values: <------------------------------------------- Override field
-    datarepo-api: <----------------------------------- Override field
-      image: <---------------------------------------- Override field
-        version: fake-jade-ms_2019-12-05_13-20-26 <--- Override field
-  valuesFrom:
-  - externalSourceRef:
-      url: https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/ms/msDeployment.yaml
-```
-This values field accepts any input a helm chart would accept
-```  
-values:
-  datarepo-api:
-    image:
-      version: fake-jade-ms_2019-12-05_13-20-26
-```
-
-[See the Helm-Operator documentation for information here](https://docs.fluxcd.io/projects/helm-operator/en/latest/references/helmrelease-custom-resource.html)
 
 ### Deployment files
 
@@ -117,21 +35,15 @@ values:
 - Contains all values for the complete [datarepo helm chart](https://github.com/broadinstitute/datarepo-helm/tree/master/charts/datarepo)
 -  This chart references 4 sub charts
 
-#### < initials >HelmOperator.yaml
-- Contains helm-operator configuration to point to two helm deployments
 - < initials >Secrets.yaml will be installed first
 - < initials >Deployment.yaml will be installed second
 
 ### TLDR deployment process
 - ##### [Script Documentation](https://github.com/broadinstitute/datarepo-helm-definitions/blob/master/scripts/README.md)
 
-- ##### install crd secret-manager and helm-operator
+- ##### install crd secret-manager
   - `sh ./scripts/crds/secret-manager/installSecretManager.sh`
-    - [installSecretManager.sh](https://github.com/broadinstitute/datarepo-helm-definitions/blob/master/scripts/crds/helm-operator/installHelmOperator.sh)
-  - `sh ./scripts/crds/helm-operator/installHelmOperator.sh`
-    - [installHelmOperator.sh](https://github.com/broadinstitute/datarepo-helm-definitions/blob/master/scripts/crds/secret-manager/installSecretManager.sh)
-- ##### deploy helm-operator yaml
-  - `kubectl apply -f < environment >/< initials >/< initials >HelmOperator.yaml --namepace < initials >`
+    - [installSecretManager.sh](https://github.com/broadinstitute/datarepo-helm-definitions/blob/master/scripts/crds/secrets-manager/installSecretManager.sh)
 
 ## One click helm install script for osx
 Run [`$sh ./helmInstallHelper.sh`](https://github.com/broadinstitute/datarepo-helm-definitions/blob/master/scripts/helmInstallHelper.sh)
@@ -148,7 +60,6 @@ Run [`$sh ./helmInstallHelper.sh`](https://github.com/broadinstitute/datarepo-he
 │   ├── mm
 │   ├── ms  <--- user initials set $ENVIRONMENT to this for helper script
 │       ├── msDeployment.yaml  <--- Datarepo Helm Deployment Values
-│       ├── msHelmOperator.yaml <--- Kubernetes yaml for helm-operator crd
 |       └── msSecrets.yaml  <--- Datarepo Helm Secrets Values
 │  
 │  
@@ -164,7 +75,6 @@ Run [`$sh ./helmInstallHelper.sh`](https://github.com/broadinstitute/datarepo-he
 ### Helm Repositories
 - [Datarepo-helm](https://github.com/broadinstitute/datarepo-helm)
 - [helm Stable](https://github.com/helm/charts/tree/master/stable)
-- [vault-crtd](https://github.com/broadinstitute/vault-crd-helm)
 
 ## Deleting a namespace or deployment manually is not advised as it will leave Rbac and Psp articfacts behind and they will need to be manually deleted
 
@@ -173,13 +83,11 @@ Run [`$sh ./helmInstallHelper.sh`](https://github.com/broadinstitute/datarepo-he
 #### Helm list deployment
 `helm ls -n <SomeNamspace>`
 
-#### Helm manual installs Examples
-`helm install <MyDeployName> datarepo-helm/vault-secrets --namespace <SomeNamspace> -f Secrets.yaml`
+#### Helm manual installs Examples ([namepace plugin required](https://github.com/thomastaylor312/helm-namespace) below)
+`helm namespace upgrade temp-secrets datarepo-helm/create-secret-manager-secret --version=0.0.4 --install --namespace temp -f tempSecrets.yaml`
 
-`helm install <MyDeployName> datarepo-helm/datarepo --namespace <SomeNamspace> -f Deployment.yaml --debug
+`helm namespace upgrade temp-jade datarepo-helm/datarepo --version=0.0.6 --install --namespace temp -f tempDeployment.yaml
 `
-#### Helm manual upgrade Examples
-`helm upgrade <MyDeployName> datarepo-helm/datarepo --namespace <SomeNamspace> -f Deployment.yaml`
 #### Helm manual delete Examples
 `helm delete <SomeDeploy> --namespace <SomeNamspace>`
 

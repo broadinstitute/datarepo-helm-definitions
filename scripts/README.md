@@ -33,14 +33,6 @@ sh ./helmChartHelper.sh deletedatarepo ms
 
 ```
 
-### installHelmOperator.sh
-`This script installs the helm-operator crd`
-
-##### Usage
-```
-sh ./installHelmOperator.sh
-```
-
 ### installSecretManager.sh
 `This script requires approle_id and approle_secret values from vault`
 [Vault Approle Docs](https://www.vaultproject.io/docs/auth/approle.html)
