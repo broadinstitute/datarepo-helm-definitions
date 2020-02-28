@@ -21,7 +21,7 @@ helm delete ${NAMESPACE}-secrets --namespace ${NAMESPACE}
 
 # installs datarepo charts
 installdatarepo () {
-helm namespace upgrade ${NAMESPACE}-jade datarepo-helm/datarepo --version=0.0.4 --install --namespace ${NAMESPACE} -f ${WD}/../${ENVIRONMENT}/${NAMESPACE}/${NAMESPACE}Deployment.yaml
+helm namespace upgrade ${NAMESPACE}-jade datarepo-helm/datarepo --version=0.0.6 --install --namespace ${NAMESPACE} -f ${WD}/../${ENVIRONMENT}/${NAMESPACE}/${NAMESPACE}Deployment.yaml
 }
 
 
