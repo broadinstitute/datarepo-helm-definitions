@@ -22,7 +22,7 @@ datarepo-api:
   image:
     tag: ca1aab2
   env:
-    googleProjectid:  broad-jade-temp
+    googleProjectid:  broad-jade-integration
     dbDatarepoUsername:  drmanager
     springProfilesActive:  google,cloudsql,temp
     dbStairwayUsername:  drmanager
