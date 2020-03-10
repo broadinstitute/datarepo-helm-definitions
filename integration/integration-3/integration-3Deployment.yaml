@@ -66,7 +66,7 @@ oidc-proxy:
   ingress:
     enabled: true
     annotations:
-      globalStaticIpName: jade-k8-100-integration-3
+      globalStaticIpName: integration-ip-3
   serviceAccount:
     create: true
   rbac:
