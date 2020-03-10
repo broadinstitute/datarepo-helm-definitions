@@ -1,4 +1,4 @@
-#/bin/#!/usr/bin/env bash
+#!/bin/bash
 
 NAMESPACES=("integration-1" "integration-2" "integration-3" "integration-4" "integration-5" )
 
