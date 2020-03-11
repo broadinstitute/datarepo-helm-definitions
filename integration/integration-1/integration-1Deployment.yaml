@@ -28,6 +28,7 @@ datarepo-api:
     dbStairwayUsername:  drmanager
     dbStairwayUri: jdbc:postgresql://integration-1-jade-gcloud-sqlproxy.integration-1:5432/stairway-1
     dbDatarepoUri: jdbc:postgresql://integration-1-jade-gcloud-sqlproxy.integration-1:5432/datarepo-1
+    itJadeApiUrl: https://jade-1.datarepo-integration.broadinstitute.org
   serviceAccount:
     create: true
   rbac:
@@ -38,7 +39,6 @@ datarepo-api:
   existingStairwayDbSecretKey: "stairwaypassword"
   existingSecretSA: "jade-sa"
   existingServiceAccountSecretKey: "datareposerviceaccount"
-
 datarepo-ui:
   enabled: true
   image:
