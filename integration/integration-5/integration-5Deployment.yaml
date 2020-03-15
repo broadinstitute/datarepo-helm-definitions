@@ -55,6 +55,7 @@ datarepo-ui:
 
 oidc-proxy:
   enabled: true
+  replicaCount: 3
   env:
     proxyUrl: http://integration-5-jade-datarepo-ui.integration-5:80/
     proxyUrl2: http://integration-5-jade-datarepo-api.integration-5:8080/api
