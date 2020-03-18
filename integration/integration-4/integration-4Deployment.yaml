@@ -20,7 +20,7 @@ gcloud-sqlproxy:
 datarepo-api:
   enabled: true
   image:
-    tag: 5bd8d82
+    tag: 492a5bf-develop
   env:
     googleProjectid:  broad-jade-int-4
     dbDatarepoUsername:  drmanager
@@ -54,7 +54,7 @@ datarepo-ui:
     create: true
 
 oidc-proxy:
-  replicaCount: 3
+  replicaCount: 1
   enabled: true
   env:
     proxyUrl: http://integration-4-jade-datarepo-ui.integration-4:80/
