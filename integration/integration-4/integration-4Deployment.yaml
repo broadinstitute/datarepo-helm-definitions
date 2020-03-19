@@ -20,11 +20,11 @@ gcloud-sqlproxy:
 datarepo-api:
   enabled: true
   image:
-    tag: 5bd8d82
+    tag: 492a5bf-develop
   env:
-    googleProjectid:  broad-jade-integration
+    googleProjectid:  broad-jade-int-4
     dbDatarepoUsername:  drmanager
-    springProfilesActive:  google,cloudsql,integration-4
+    springProfilesActive:  google,cloudsql,integration
     dbStairwayUsername:  drmanager
     dbStairwayUri: jdbc:postgresql://integration-4-jade-gcloud-sqlproxy.integration-4:5432/stairway-4
     dbDatarepoUri: jdbc:postgresql://integration-4-jade-gcloud-sqlproxy.integration-4:5432/datarepo-4
@@ -54,7 +54,7 @@ datarepo-ui:
     create: true
 
 oidc-proxy:
-  replicaCount: 3
+  replicaCount: 1
   enabled: true
   env:
     proxyUrl: http://integration-4-jade-datarepo-ui.integration-4:80/
