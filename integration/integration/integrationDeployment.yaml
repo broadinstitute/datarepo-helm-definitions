@@ -24,7 +24,7 @@ datarepo-api:
   env:
     googleProjectid:  broad-jade-integration
     dbDatarepoUsername:  drmanager
-    springProfilesActive:  google,cloudsql,integration
+    springProfilesActive:  google,cloudsql
     dbStairwayUsername:  drmanager
     dbStairwayUri: jdbc:postgresql://integration-jade-gcloud-sqlproxy.integration:5432/stairway-integration
     dbDatarepoUri: jdbc:postgresql://integration-jade-gcloud-sqlproxy.integration:5432/datarepo-integration
