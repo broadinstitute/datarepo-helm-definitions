@@ -1,0 +1,77 @@
+gcloud-sqlproxy:
+  enabled: true
+  cloudsql:
+    instances:
+     # GCP instance name.
+    - instance: "jade-postgres-101-d0e234edfe378f09"
+     # GCP project where the instance exists.
+      project: "broad-jade-integration"
+     # GCP region where the instance exists.
+      region: "us-central1"
+     # Port number for the proxy to expose for this instance.
+      port: 5432
+  rbac:
+    create: true
+  networkPolicy:
+    enabled: false
+  existingSecret: sqlproxy-sa-integration-7
+  existingSecretKey: sa
+
+datarepo-api:
+  enabled: true
+  image:
+    tag: 492a5bf-develop
+  env:
+    googleProjectid:  broad-jade-int-7
+    dbDatarepoUsername:  drmanager
+    springProfilesActive:  google,cloudsql,integration
+    dbStairwayUsername:  drmanager
+    dbStairwayUri: jdbc:postgresql://integration-7-jade-gcloud-sqlproxy.integration-7:5432/stairway-7
+    dbDatarepoUri: jdbc:postgresql://integration-7-jade-gcloud-sqlproxy.integration-7:5432/datarepo-7
+    itJadeApiUrl: https://jade-7.datarepo-integration.broadinstitute.org
+  serviceAccount:
+    create: true
+  rbac:
+    create: true
+    pspEnabled: true
+  existingSecretDB: "database-pwd-integration-7"
+  existingDatarepoDbSecretKey: "datarepopassword"
+  existingStairwayDbSecretKey: "stairwaypassword"
+  existingSecretSA: "jade-sa"
+  existingServiceAccountSecretKey: "datareposerviceaccount"
+
+datarepo-ui:
+  enabled: true
+  image:
+    tag: broad-jade-my_2020-02-14_15-04-11
+  proxyPass:
+    status: http://integration-7-jade-datarepo-api.integration-7:8080/status
+    swagger: http://integration-7-jade-datarepo-api.integration-7:8080/swagger-ui.html
+    api: http://integration-7-jade-datarepo-api.integration-7:8080
+  serviceAccount:
+    create: true
+  rbac:
+    create: true
+
+oidc-proxy:
+  enabled: true
+  replicaCount: 1
+  env:
+    proxyUrl: http://integration-7-jade-datarepo-ui.integration-7:80/
+    proxyUrl2: http://integration-7-jade-datarepo-api.integration-7:8080/api
+    proxyUrl3: http://integration-7-jade-datarepo-api.integration-7:8080/register
+    logLevel: debug
+    serverName: jade.datarepo-integration.broadinstitute.org
+    remoteUserClaim: sub
+    enableStackdriver: yes
+    filter2: AddOutputFilterByType DEFLATE application/json text/plain text/html application/javascript application/x-javascript
+  ingress:
+    enabled: true
+    annotations:
+      globalStaticIpName: integration-ip-7
+  serviceAccount:
+    create: true
+  rbac:
+    create: true
+    pspEnabled: true
+  existingTlsSecret: oidc-tls-key
