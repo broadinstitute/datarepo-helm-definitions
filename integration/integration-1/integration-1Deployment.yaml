@@ -2,13 +2,13 @@ gcloud-sqlproxy:
   enabled: true
   cloudsql:
     instances:
-     # GCP instance name.
-    - instance: "jade-postgres-101-d0e234edfe378f09"
-     # GCP project where the instance exists.
+    - # GCP instance name.
+      instance: "jade-postgres-101-d0e234edfe378f09"
+      # GCP project where the instance exists.
       project: "broad-jade-integration"
-     # GCP region where the instance exists.
+      # GCP region where the instance exists.
       region: "us-central1"
-     # Port number for the proxy to expose for this instance.
+      # Port number for the proxy to expose for this instance.
       port: 5432
   rbac:
     create: true
@@ -16,16 +16,15 @@ gcloud-sqlproxy:
     enabled: false
   existingSecret: sqlproxy-sa-integration-1
   existingSecretKey: sa
-
 datarepo-api:
   enabled: true
   image:
-    tag: 492a5bf-develop
+    tag: 5304bd3
   env:
-    googleProjectid:  broad-jade-int-1
-    dbDatarepoUsername:  drmanager
-    springProfilesActive:  google,cloudsql,integration
-    dbStairwayUsername:  drmanager
+    googleProjectid: broad-jade-int-1
+    dbDatarepoUsername: drmanager
+    springProfilesActive: google,cloudsql,integration
+    dbStairwayUsername: drmanager
     dbStairwayUri: jdbc:postgresql://integration-1-jade-gcloud-sqlproxy.integration-1:5432/stairway-1
     dbDatarepoUri: jdbc:postgresql://integration-1-jade-gcloud-sqlproxy.integration-1:5432/datarepo-1
     itJadeApiUrl: https://jade-1.datarepo-integration.broadinstitute.org
@@ -40,7 +39,6 @@ datarepo-api:
   existingStairwayDbSecretKey: "stairwaypassword"
   existingSecretSA: "jade-sa"
   existingServiceAccountSecretKey: "datareposerviceaccount"
-
 datarepo-ui:
   enabled: true
   image:
@@ -53,7 +51,6 @@ datarepo-ui:
     create: true
   rbac:
     create: true
-
 oidc-proxy:
   enabled: true
   replicaCount: 1
@@ -65,7 +62,8 @@ oidc-proxy:
     serverName: jade.datarepo-integration.broadinstitute.org
     remoteUserClaim: sub
     enableStackdriver: yes
-    filter2: AddOutputFilterByType DEFLATE application/json text/plain text/html application/javascript application/x-javascript
+    filter2: AddOutputFilterByType DEFLATE application/json text/plain text/html application/javascript
+      application/x-javascript
   ingress:
     enabled: true
     annotations:
