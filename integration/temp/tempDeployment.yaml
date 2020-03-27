@@ -29,6 +29,7 @@ datarepo-api:
     dbStairwayUri: jdbc:postgresql://temp-jade-gcloud-sqlproxy.temp:5432/stairway
     dbDatarepoUri: jdbc:postgresql://temp-jade-gcloud-sqlproxy.temp:5432/datarepo
     itJadeApiUrl: https://jade-temp.datarepo-integration.broadinstitute.org
+    datarepoGcsAllowreuseexistingbuckets: true
   serviceAccount:
     create: true
   rbac:
