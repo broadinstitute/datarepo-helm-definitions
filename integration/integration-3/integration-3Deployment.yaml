@@ -2,8 +2,7 @@ gcloud-sqlproxy:
   enabled: true
   cloudsql:
     instances:
-    - # GCP instance name.
-      instance: "jade-postgres-101-d0e234edfe378f09"
+    - instance: "jade-postgres-101-d0e234edfe378f09" # GCP instance name.
       # GCP project where the instance exists.
       project: "broad-jade-integration"
       # GCP region where the instance exists.
@@ -19,7 +18,7 @@ gcloud-sqlproxy:
 datarepo-api:
   enabled: true
   image:
-    tag: 5304bd3
+    tag: ead727b
   env:
     googleProjectid: broad-jade-int-3
     dbDatarepoUsername: drmanager
