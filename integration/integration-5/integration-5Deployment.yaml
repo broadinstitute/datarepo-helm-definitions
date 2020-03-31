@@ -20,9 +20,9 @@ datarepo-api:
   image:
     tag: 97a9830
   env:
-    googleProjectid: broad-jade-int-5
+    googleProjectid: broad-jade-integration
     dbDatarepoUsername: drmanager
-    springProfilesActive: google,cloudsql,integration
+    springProfilesActive: google,cloudsql
     dbStairwayUsername: drmanager
     dbStairwayUri: jdbc:postgresql://integration-5-jade-gcloud-sqlproxy.integration-5:5432/stairway-5
     dbDatarepoUri: jdbc:postgresql://integration-5-jade-gcloud-sqlproxy.integration-5:5432/datarepo-5
