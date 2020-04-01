@@ -1,0 +1,20 @@
+enabled: true
+env:
+  proxyUrl: http://chart-test-datarepo-ui.temp:80/
+  proxyUrl2: http://chart-test-datarepo-api.temp:8080/api
+  proxyUrl3: http://chart-test-datarepo-api.temp:8080/register
+  logLevel: debug
+  serverName: jade.datarepo-integration.broadinstitute.org
+  remoteUserClaim: sub
+  enableStackdriver: yes
+  filter2: AddOutputFilterByType DEFLATE application/json text/plain text/html application/javascript application/x-javascript
+ingress:
+  enabled: true
+  annotations:
+    globalStaticIpName: k8-100-temp
+serviceAccount:
+  create: true
+rbac:
+  create: true
+  pspEnabled: true
+existingTlsSecret: oidc-tls-key

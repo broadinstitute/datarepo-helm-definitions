@@ -1,0 +1,22 @@
+enabled: true
+image:
+  tag: 97a9830
+env:
+  googleProjectid:  broad-jade-integration
+  dbDatarepoUsername:  drmanager
+  springProfilesActive:  google,cloudsql,temp
+  dbStairwayUsername:  drmanager
+  dbStairwayUri: jdbc:postgresql://chart-test-gcloud-sqlproxy.temp:5432/stairway-temp
+  dbDatarepoUri: jdbc:postgresql://chart-test-gcloud-sqlproxy.temp:5432/datarepo-temp
+  itJadeApiUrl: https://jade-temp.datarepo-integration.broadinstitute.org
+  datarepoGcsAllowreuseexistingbuckets: true
+serviceAccount:
+  create: true
+rbac:
+  create: true
+  pspEnabled: true
+existingSecretDB: "database-pwd-temp"
+existingDatarepoDbSecretKey: "datarepopassword"
+existingStairwayDbSecretKey: "stairwaypassword"
+existingSecretSA: "jade-sa"
+existingServiceAccountSecretKey: "datareposerviceaccount"

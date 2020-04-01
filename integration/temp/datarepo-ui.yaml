@@ -1,0 +1,11 @@
+enabled: true
+image:
+  tag: ac48455
+proxyPass:
+  status: http://chart-test-datarepo-api.temp:8080/status
+  swagger: http://chart-test-datarepo-api.temp:8080/swagger-ui.html
+  api: http://chart-test-datarepo-api.temp:8080
+serviceAccount:
+  create: true
+rbac:
+  create: true

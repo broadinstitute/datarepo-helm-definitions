@@ -20,14 +20,14 @@ gcloud-sqlproxy:
 datarepo-api:
   enabled: true
   image:
-    tag: 492a5bf-develop
+    tag: 97a9830
   env:
     googleProjectid:  broad-jade-integration
     dbDatarepoUsername:  drmanager
     springProfilesActive:  google,cloudsql,temp
     dbStairwayUsername:  drmanager
-    dbStairwayUri: jdbc:postgresql://temp-jade-gcloud-sqlproxy.temp:5432/stairway
-    dbDatarepoUri: jdbc:postgresql://temp-jade-gcloud-sqlproxy.temp:5432/datarepo
+    dbStairwayUri: jdbc:postgresql://temp-jade-gcloud-sqlproxy.temp:5432/stairway-temp
+    dbDatarepoUri: jdbc:postgresql://temp-jade-gcloud-sqlproxy.temp:5432/datarepo-temp
     itJadeApiUrl: https://jade-temp.datarepo-integration.broadinstitute.org
     datarepoGcsAllowreuseexistingbuckets: true
   serviceAccount:
@@ -44,7 +44,7 @@ datarepo-api:
 datarepo-ui:
   enabled: true
   image:
-    tag: broad-jade-my_2020-02-14_15-04-11
+    tag: ac48455
   proxyPass:
     status: http://temp-jade-datarepo-api.temp:8080/status
     swagger: http://temp-jade-datarepo-api.temp:8080/swagger-ui.html
