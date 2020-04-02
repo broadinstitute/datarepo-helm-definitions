@@ -22,14 +22,14 @@ datarepo-api:
   image:
     tag: 492a5bf-develop
   env:
-    googleProjectid:  broad-jade-integration
-    dbDatarepoUsername:  drmanager
-    springProfilesActive:  google,cloudsql,temp
-    dbStairwayUsername:  drmanager
-    dbStairwayUri: jdbc:postgresql://temp-jade-gcloud-sqlproxy.temp:5432/stairway
-    dbDatarepoUri: jdbc:postgresql://temp-jade-gcloud-sqlproxy.temp:5432/datarepo
-    itJadeApiUrl: https://jade-temp.datarepo-integration.broadinstitute.org
-    datarepoGcsAllowreuseexistingbuckets: true
+    GOOGLE_PROJECTID:  broad-jade-integration
+    DB_DATAREPO_USERNAME:  drmanager
+    SPRING_PROFILES_ACTIVE:  google,cloudsql,temp
+    DB_STAIRWAY_USERNAME:  drmanager
+    DB_STAIRWAY_URI: jdbc:postgresql://temp-jade-gcloud-sqlproxy.temp:5432/stairway
+    DB_DATAREPO_URI: jdbc:postgresql://temp-jade-gcloud-sqlproxy.temp:5432/datarepo
+    IT_JADE_API_URL: https://jade-temp.datarepo-integration.broadinstitute.org
+    DATAREPO_GCS_ALLOWREUSEEXISTINGBUCKETS: true
   serviceAccount:
     create: true
   rbac:
@@ -57,14 +57,14 @@ datarepo-ui:
 oidc-proxy:
   enabled: true
   env:
-    proxyUrl: http://temp-jade-datarepo-ui.temp:80/
-    proxyUrl2: http://temp-jade-datarepo-api.temp:8080/api
-    proxyUrl3: http://temp-jade-datarepo-api.temp:8080/register
-    logLevel: debug
-    serverName: jade.datarepo-integration.broadinstitute.org
-    remoteUserClaim: sub
-    enableStackdriver: yes
-    filter2: AddOutputFilterByType DEFLATE application/json text/plain text/html application/javascript application/x-javascript
+    PROXY_URL: http://temp-jade-datarepo-ui.temp:80/
+    PROXY_URL2: http://temp-jade-datarepo-api.temp:8080/api
+    PROXY_URL3: http://temp-jade-datarepo-api.temp:8080/register
+    LOG_LEVEL: debug
+    SERVER_NAME: jade.datarepo-integration.broadinstitute.org
+    REMOTE_USER_CLAIM: sub
+    ENABLE_STACKDRIVER: yes
+    FILTER2: AddOutputFilterByType DEFLATE application/json text/plain text/html application/javascript application/x-javascript
   ingress:
     enabled: true
     annotations:

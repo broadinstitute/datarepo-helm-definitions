@@ -22,12 +22,12 @@ datarepo-api:
   image:
     tag: ca1aab2
   env:
-    googleProjectid:  broad-jade-dev
-    dbDatarepoUsername:  drmanager
-    springProfilesActive:  google,cloudsql,ms
-    dbStairwayUsername:  drmanager
-    dbStairwayUri: jdbc:postgresql://ms-jade-gcloud-sqlproxy.ms:5432/stairway-ms
-    dbDatarepoUri: jdbc:postgresql://ms-jade-gcloud-sqlproxy.ms:5432/datarepo-ms
+    GOOGLE_PROJECTID:  broad-jade-dev
+    DB_DATAREPO_USERNAME:  drmanager
+    SPRING_PROFILES_ACTIVE:  google,cloudsql,ms
+    DB_STAIRWAY_USERNAME:  drmanager
+    DB_STAIRWAY_URI: jdbc:postgresql://ms-jade-gcloud-sqlproxy.ms:5432/stairway-ms
+    DB_DATAREPO_URI: jdbc:postgresql://ms-jade-gcloud-sqlproxy.ms:5432/datarepo-ms
   serviceAccount:
     create: true
   rbac:
@@ -55,14 +55,14 @@ datarepo-ui:
 oidc-proxy:
   enabled: true
   env:
-    proxyUrl: http://ms-jade-datarepo-ui.ms:80/
-    proxyUrl2: http://ms-jade-datarepo-api.ms:8080/api
-    proxyUrl3: http://ms-jade-datarepo-api.ms:8080/register
-    logLevel: debug
-    serverName: jade.datarepo-dev.broadinstitute.org
-    remoteUserClaim: sub
-    enableStackdriver: yes
-    filter2: AddOutputFilterByType DEFLATE application/json text/plain text/html application/javascript application/x-javascript
+    PROXY_URL: http://ms-jade-datarepo-ui.ms:80/
+    PROXY_URL2: http://ms-jade-datarepo-api.ms:8080/api
+    PROXY_URL3: http://ms-jade-datarepo-api.ms:8080/register
+    LOG_LEVEL: debug
+    SERVER_NAME: jade.datarepo-dev.broadinstitute.org
+    REMOTE_USER_CLAIM: sub
+    ENABLE_STACKDRIVER: yes
+    FILTER2: AddOutputFilterByType DEFLATE application/json text/plain text/html application/javascript application/x-javascript
   ingress:
     enabled: true
     annotations:

@@ -20,14 +20,14 @@ datarepo-api:
   image:
     tag: a35435d
   env:
-    googleProjectid: broad-jade-integration
-    dbDatarepoUsername: drmanager
-    springProfilesActive: google,cloudsql
-    dbStairwayUsername: drmanager
-    dbStairwayUri: jdbc:postgresql://integration-5-jade-gcloud-sqlproxy.integration-5:5432/stairway-5
-    dbDatarepoUri: jdbc:postgresql://integration-5-jade-gcloud-sqlproxy.integration-5:5432/datarepo-5
-    itJadeApiUrl: https://jade-5.datarepo-integration.broadinstitute.org
-    datarepoGcsAllowreuseexistingbuckets: true
+    GOOGLE_PROJECTID: broad-jade-integration
+    DB_DATAREPO_USERNAME: drmanager
+    SPRING_PROFILES_ACTIVE: google,cloudsql
+    DB_STAIRWAY_USERNAME: drmanager
+    DB_STAIRWAY_URI: jdbc:postgresql://integration-5-jade-gcloud-sqlproxy.integration-5:5432/stairway-5
+    DB_DATAREPO_URI: jdbc:postgresql://integration-5-jade-gcloud-sqlproxy.integration-5:5432/datarepo-5
+    IT_JADE_API_URL: https://jade-5.datarepo-integration.broadinstitute.org
+    DATAREPO_GCS_ALLOWREUSEEXISTINGBUCKETS: true
   serviceAccount:
     create: true
   rbac:
@@ -54,14 +54,14 @@ oidc-proxy:
   enabled: true
   replicaCount: 1
   env:
-    proxyUrl: http://integration-5-jade-datarepo-ui.integration-5:80/
-    proxyUrl2: http://integration-5-jade-datarepo-api.integration-5:8080/api
-    proxyUrl3: http://integration-5-jade-datarepo-api.integration-5:8080/register
-    logLevel: debug
-    serverName: jade.datarepo-integration.broadinstitute.org
-    remoteUserClaim: sub
-    enableStackdriver: yes
-    filter2: AddOutputFilterByType DEFLATE application/json text/plain text/html application/javascript
+    PROXY_URL: http://integration-5-jade-datarepo-ui.integration-5:80/
+    PROXY_URL2: http://integration-5-jade-datarepo-api.integration-5:8080/api
+    PROXY_URL3: http://integration-5-jade-datarepo-api.integration-5:8080/register
+    LOG_LEVEL: debug
+    SERVER_NAME: jade.datarepo-integration.broadinstitute.org
+    REMOTE_USER_CLAIM: sub
+    ENABLE_STACKDRIVER: yes
+    FILTER2: AddOutputFilterByType DEFLATE application/json text/plain text/html application/javascript
       application/x-javascript
   ingress:
     enabled: true
