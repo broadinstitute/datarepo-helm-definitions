@@ -8,6 +8,6 @@ helm namespace upgrade ${relase_name}-secrets datarepo-helm/create-secret-manage
 
 for i in "${charts[@]}"
 do
-   helm namespace upgrade ${relase_name}-${i} datarepo-helm/${i} --install --namespace ${namespace} -f "${i}.yaml"
+   helm namespace upgrade ${relase_name}-${i} ../../../datarepo-helm/charts/${i} --install --namespace ${namespace} -f "${i}.yaml"
    sleep 5
 done
