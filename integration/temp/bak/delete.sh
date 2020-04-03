@@ -1,10 +1,8 @@
 #!/bin/bash
 
-charts=("gcloud-sqlproxy" "datarepo-api" "datarepo-ui" "oidc-proxy")
+charts=("create-secret-manager-secret" "gcloud-sqlproxy" "datarepo-api" "datarepo-ui" "oidc-proxy")
 namespace=temp
 relase_name=chart-test
-
-helm delete "${relase_name}-secrets" -n "${namespace}"
 
 for i in "${charts[@]}"
 do
