@@ -12,4 +12,4 @@ jobs:
       - name: yaml-lint
         uses: broadinstitute/action-yamllint@v1
         with:
-          config_file: .github/yamllint.yml
+          config_file: .github/yamllint.yaml
