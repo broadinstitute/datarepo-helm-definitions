@@ -1,14 +1,15 @@
+---
 gcloud-sqlproxy:
   enabled: true
   cloudsql:
     instances:
-    - instance: "jade-postgres-101-d0e234edfe378f09" # GCP instance name.
-      # GCP project where the instance exists.
-      project: "broad-jade-integration"
-      # GCP region where the instance exists.
-      region: "us-central1"
-      # Port number for the proxy to expose for this instance.
-      port: 5432
+      - instance: "jade-postgres-101-d0e234edfe378f09"  # GCP instance name.
+        # GCP project where the instance exists.
+        project: "broad-jade-integration"
+        # GCP region where the instance exists.
+        region: "us-central1"
+        # Port number for the proxy to expose for this instance.
+        port: 5432
   rbac:
     create: true
   networkPolicy:

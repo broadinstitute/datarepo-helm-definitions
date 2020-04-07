@@ -1,15 +1,16 @@
+---
 gcloud-sqlproxy:
   enabled: true
   cloudsql:
     instances:
-     # GCP instance name.
-    - instance: "jade-postgres-101-987f0c3b501aeabf"
-     # GCP project where the instance exists.
-      project: "broad-jade-dev"
-     # GCP region where the instance exists.
-      region: "us-central1"
-     # Port number for the proxy to expose for this instance.
-      port: 5432
+      # GCP instance name.
+      - instance: "jade-postgres-101-987f0c3b501aeabf"
+        # GCP project where the instance exists.
+        project: "broad-jade-dev"
+        # GCP region where the instance exists.
+        region: "us-central1"
+        # Port number for the proxy to expose for this instance.
+        port: 5432
   rbac:
     create: true
   networkPolicy:
@@ -22,10 +23,10 @@ datarepo-api:
   image:
     tag: 1ae0923
   env:
-    GOOGLE_PROJECTID:  broad-jade-my
-    DB_DATAREPO_USERNAME:  drmanager
-    SPRING_PROFILES_ACTIVE:  google,cloudsql,mk
-    DB_STAIRWAY_USERNAME:  drmanager
+    GOOGLE_PROJECTID: broad-jade-my
+    DB_DATAREPO_USERNAME: drmanager
+    SPRING_PROFILES_ACTIVE: google,cloudsql,mk
+    DB_STAIRWAY_USERNAME: drmanager
     DB_STAIRWAY_URI: jdbc:postgresql://mk-jade-gcloud-sqlproxy.mk:5432/stairway-mk
     DB_DATAREPO_URI: jdbc:postgresql://mk-jade-gcloud-sqlproxy.mk:5432/datarepo-mk
   serviceAccount:
