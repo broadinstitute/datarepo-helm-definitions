@@ -3,7 +3,7 @@ name: Yaml Lint
 on:
   pull_request:
     branches:
-      - develop
+      - master
 jobs:
   lintAllTheThings:
     runs-on: ubuntu-latest
