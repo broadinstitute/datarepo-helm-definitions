@@ -1,3 +1,4 @@
+---
 prometheusOperator:
   createCustomResource: false
 grafana:
