@@ -14,26 +14,26 @@ gcloud-sqlproxy:
     create: true
   networkPolicy:
     enabled: false
-  existingSecret: sqlproxy-sa-monster
+  existingSecret: sqlproxy-sa-sh
   existingSecretKey: sa
 
 datarepo-api:
   enabled: true
   image:
-    version: latest
+    tag: 470fd62-develop
   env:
     GOOGLE_PROJECTID:  broad-jade-dev
     DB_DATAREPO_USERNAME:  drmanager
-    SPRING_PROFILES_ACTIVE:  google,cloudsql,monster
+    SPRING_PROFILES_ACTIVE:  google,cloudsql,dev,sh
     DB_STAIRWAY_USERNAME:  drmanager
-    DB_STAIRWAY_URI: jdbc:postgresql://monster-jade-gcloud-sqlproxy.monster:5432/stairway-monster
-    DB_DATAREPO_URI: jdbc:postgresql://monster-jade-gcloud-sqlproxy.monster:5432/datarepo-monster
+    DB_STAIRWAY_URI: jdbc:postgresql://sh-jade-gcloud-sqlproxy.sh:5432/stairway-sh
+    DB_DATAREPO_URI: jdbc:postgresql://sh-jade-gcloud-sqlproxy.sh:5432/datarepo-sh
   serviceAccount:
     create: true
   rbac:
     create: true
     pspEnabled: true
-  existingSecretDB: "database-pwd-monster"
+  existingSecretDB: "database-pwd-sh"
   existingDatarepoDbSecretKey: "datarepopassword"
   existingStairwayDbSecretKey: "stairwaypassword"
   existingSecretSA: "jade-sa"
@@ -42,11 +42,11 @@ datarepo-api:
 datarepo-ui:
   enabled: true
   image:
-    version: broad-jade-ms_2019-12-05_13-23-33
+    tag: f871b40-develop
   proxyPass:
-    status: http://monster-jade-datarepo-api.monster:8080/status
-    swagger: http://monster-jade-datarepo-api.monster:8080/swagger-ui.html
-    api: http://monster-jade-datarepo-api.monster:8080
+    status: http://sh-jade-datarepo-api.sh:8080/status
+    swagger: http://sh-jade-datarepo-api.sh:8080/swagger-ui.html
+    api: http://sh-jade-datarepo-api.sh:8080
   serviceAccount:
     create: true
   rbac:
@@ -55,9 +55,9 @@ datarepo-ui:
 oidc-proxy:
   enabled: true
   env:
-    PROXY_URL: http://monster-jade-datarepo-ui.monster:80/
-    PROXY_URL2: http://monster-jade-datarepo-api.monster:8080/api
-    PROXY_URL3: http://monster-jade-datarepo-api.monster:8080/register
+    PROXY_URL: http://sh-jade-datarepo-ui.sh:80/
+    PROXY_URL2: http://sh-jade-datarepo-api.sh:8080/api
+    PROXY_URL3: http://sh-jade-datarepo-api.sh:8080/register
     LOG_LEVEL: debug
     SERVER_NAME: jade.datarepo-dev.broadinstitute.org
     REMOTE_USER_CLAIM: sub
@@ -66,7 +66,7 @@ oidc-proxy:
   ingress:
     enabled: true
     annotations:
-      globalStaticIpName: jade-dev-monster
+      globalStaticIpName: jade-dev-sh
   serviceAccount:
     create: true
   rbac:
