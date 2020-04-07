@@ -8,7 +8,7 @@ configureRepositories:
   secretName: flux-helm-repositories
   cacheVolumeName: repositories-cache
   repositories:
-     - name: datarepo-helm
-       url: https://broadinstitute.github.io/datarepo-helm
+    - name: datarepo-helm
+      url: https://broadinstitute.github.io/datarepo-helm
 rbac:
   pspEnabled: true
