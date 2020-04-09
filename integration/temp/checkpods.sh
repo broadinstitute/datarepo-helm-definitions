@@ -27,17 +27,17 @@ checkpodstatus () {
     elif [[ "${state}" == "running" ]] && [[ "${ready}" == false ]] && [ "${restartCount}" -le "5" ]; then
       printf "Pod ${name} not ready rechecking for more than 5 pod restarts...\n"
       sleep 20
-      checknamespace
+      checkpodstatus
     elif [[ "${state}" == "waiting" ]] && [ "${restartCount}" -le "5" ]; then
       printf "Pod ${name} waiting rechecking for more than 5 pod restarts...\n"
       sleep 20
-      checknamespace
+      checkpodstatus
     elif [[ "${podstatus}" == "" ]]; then
       printf "Nothing is deployed for ${i}\n"
       printf "waiting 5 and rechecking"
       ((runcounter+=1))
       sleep 5
-      checknamespace
+      checkpodstatus
     elif [ "${runcounter}" -gt 5 ]; then
       printf "Check script has looped 5 times exiting"
       exit 1

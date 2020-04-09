@@ -1,4 +1,0 @@
-serviceAccount:
-  enabled: true
-postgresqlUsername: postgres
-postgresqlPassword: postgres
