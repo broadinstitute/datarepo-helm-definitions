@@ -18,14 +18,14 @@ gcloud-sqlproxy:
 datarepo-api:
   enabled: true
   image:
-    tag: 97a9830
+    tag: 6d9469a
   env:
-    googleProjectid: broad-jade-dev
-    dbDatarepoUsername: drmanager
-    springProfilesActive: google,cloudsql,dev
-    dbStairwayUsername: drmanager
-    dbStairwayUri: jdbc:postgresql://dev-jade-gcloud-sqlproxy.dev:5432/stairway
-    dbDatarepoUri: jdbc:postgresql://dev-jade-gcloud-sqlproxy.dev:5432/datarepo
+    GOOGLE_PROJECTID: broad-jade-dev
+    DB_DATAREPO_USERNAME: drmanager
+    SPRING_PROFILES_ACTIVE: google,cloudsql,dev
+    DB_STAIRWAY_USERNAME: drmanager
+    DB_STAIRWAY_URI: jdbc:postgresql://dev-jade-gcloud-sqlproxy.dev:5432/stairway
+    DB_DATAREPO_URI: jdbc:postgresql://dev-jade-gcloud-sqlproxy.dev:5432/datarepo
   serviceAccount:
     create: true
   rbac:
@@ -39,7 +39,7 @@ datarepo-api:
 datarepo-ui:
   enabled: true
   image:
-    tag: ac48455
+    tag: 8c8af60
   proxyPass:
     status: http://dev-jade-datarepo-api.dev:8080/status
     swagger: http://dev-jade-datarepo-api.dev:8080/swagger-ui.html
@@ -51,14 +51,14 @@ datarepo-ui:
 oidc-proxy:
   enabled: true
   env:
-    proxyUrl: http://dev-jade-datarepo-ui.dev:80/
-    proxyUrl2: http://dev-jade-datarepo-api.dev:8080/api
-    proxyUrl3: http://dev-jade-datarepo-api.dev:8080/register
-    logLevel: debug
-    serverName: jade.datarepo-dev.broadinstitute.org
-    remoteUserClaim: sub
-    enableStackdriver: yes
-    filter2: AddOutputFilterByType DEFLATE application/json text/plain text/html application/javascript
+    PROXY_URL: http://dev-jade-datarepo-ui.dev:80/
+    PROXY_URL2: http://dev-jade-datarepo-api.dev:8080/api
+    PROXY_URL3: http://dev-jade-datarepo-api.dev:8080/register
+    LOG_LEVEL: debug
+    SERVER_NAME: jade.datarepo-dev.broadinstitute.org
+    REMOTE_USER_CLAIM: sub
+    ENABLE_STACKDRIVER: yes
+    FILTER2: AddOutputFilterByType DEFLATE application/json text/plain text/html application/javascript
       application/x-javascript
   ingress:
     enabled: true

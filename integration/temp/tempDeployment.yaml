@@ -1,16 +1,17 @@
+---
 gcloud-sqlproxy:
   enabled: true
   cloudsql:
     instances:
-     # GCP instance name.
-    - instance: "jade-postgres-101-d0e234edfe378f09"
-     # GCP project where the instance exists.
-      project: "broad-jade-integration"
-     # GCP region where the instance exists.
-      region: "us-central1"
-     # Port number for the proxy to expose for this instance.
-      port: 5432
-  rbac:
+      # GCP instance name.
+      - instance: "jade-postgres-101-d0e234edfe378f09"
+        # GCP project where the instance exists.
+        project: "broad-jade-integration"
+        # GCP region where the instance exists.
+        region: "us-central1"
+        # Port number for the proxy to expose for this instance.
+        port: 5432
+    rbac:
     create: true
   networkPolicy:
     enabled: false
@@ -22,10 +23,10 @@ datarepo-api:
   image:
     tag: 492a5bf-develop
   env:
-    GOOGLE_PROJECTID:  broad-jade-integration
-    DB_DATAREPO_USERNAME:  drmanager
-    SPRING_PROFILES_ACTIVE:  google,cloudsql,temp
-    DB_STAIRWAY_USERNAME:  drmanager
+    GOOGLE_PROJECTID: broad-jade-integration
+    DB_DATAREPO_USERNAME: drmanager
+    SPRING_PROFILES_ACTIVE: google,cloudsql,temp
+    DB_STAIRWAY_USERNAME: drmanager
     DB_STAIRWAY_URI: jdbc:postgresql://temp-jade-gcloud-sqlproxy.temp:5432/stairway
     DB_DATAREPO_URI: jdbc:postgresql://temp-jade-gcloud-sqlproxy.temp:5432/datarepo
     IT_JADE_API_URL: https://jade-temp.datarepo-integration.broadinstitute.org

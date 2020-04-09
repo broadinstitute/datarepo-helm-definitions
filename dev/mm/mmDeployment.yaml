@@ -1,15 +1,16 @@
+---
 gcloud-sqlproxy:
   enabled: true
   cloudsql:
     instances:
-     # GCP instance name.
-    - instance: "jade-postgres-101-987f0c3b501aeabf"
-     # GCP project where the instance exists.
-      project: "broad-jade-dev"
-     # GCP region where the instance exists.
-      region: "us-central1"
-     # Port number for the proxy to expose for this instance.
-      port: 5432
+      # GCP instance name.
+      - instance: "jade-postgres-101-987f0c3b501aeabf"
+        # GCP project where the instance exists.
+        project: "broad-jade-dev"
+        # GCP region where the instance exists.
+        region: "us-central1"
+        # Port number for the proxy to expose for this instance.
+        port: 5432
   rbac:
     create: true
   networkPolicy:
@@ -22,15 +23,15 @@ datarepo-api:
   image:
     tag: marikoInfoAppProp1
   env:
-    googleProjectid:  broad-jade-mm
-    dbDatarepoUsername:  drmanager
-    springProfilesActive:  google,cloudsql,dev,mm
-    dbStairwayUsername:  drmanager
-    dbStairwayUri: jdbc:postgresql://mm-jade-gcloud-sqlproxy.mm:5432/stairway-mm
-    dbDatarepoUri: jdbc:postgresql://mm-jade-gcloud-sqlproxy.mm:5432/datarepo-mm
+    GOOGLE_PROJECTID: broad-jade-mm
+    DB_DATAREPO_USERNAME: drmanager
+    SPRING_PROFILES_ACTIVE: google,cloudsql,dev,mm
+    DB_STAIRWAY_USERNAME: drmanager
+    DB_STAIRWAY_URI: jdbc:postgresql://mm-jade-gcloud-sqlproxy.mm:5432/stairway-mm
+    DB_DATAREPO_URI: jdbc:postgresql://mm-jade-gcloud-sqlproxy.mm:5432/datarepo-mm
     dbStairwayForceclean: true
     dbMigrateDropallonstart: true
-    datarepoGcsAllowreuseexistingbuckets: true
+    DATAREPO_GCS_ALLOWREUSEEXISTINGBUCKETS: true
   serviceAccount:
     create: true
   rbac:
@@ -58,14 +59,14 @@ datarepo-ui:
 oidc-proxy:
   enabled: true
   env:
-    proxyUrl: http://mm-jade-datarepo-ui.mm:80/
-    proxyUrl2: http://mm-jade-datarepo-api.mm:8080/api
-    proxyUrl3: http://mm-jade-datarepo-api.mm:8080/register
-    logLevel: debug
-    serverName: jade.datarepo-dev.broadinstitute.org
-    remoteUserClaim: sub
-    enableStackdriver: yes
-    filter2: AddOutputFilterByType DEFLATE application/json text/plain text/html application/javascript application/x-javascript
+    PROXY_URL: http://mm-jade-datarepo-ui.mm:80/
+    PROXY_URL2: http://mm-jade-datarepo-api.mm:8080/api
+    PROXY_URL3: http://mm-jade-datarepo-api.mm:8080/register
+    LOG_LEVEL: debug
+    SERVER_NAME: jade.datarepo-dev.broadinstitute.org
+    REMOTE_USER_CLAIM: sub
+    ENABLE_STACKDRIVER: yes
+    FILTER2: AddOutputFilterByType DEFLATE application/json text/plain text/html application/javascript application/x-javascript
   ingress:
     enabled: true
     annotations:
