@@ -1,3 +1,4 @@
+---
 enabled: true
 env:
   PROXY_URL: http://chart-test-datarepo-ui.temp:80/
