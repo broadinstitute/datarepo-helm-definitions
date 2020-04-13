@@ -4,6 +4,7 @@ image:
   tag: ac48455
 proxyPass:
   status: http://chart-test-datarepo-api.temp:8080/status
+  shutdown: http://chart-test-datarepo-api.temp:8080/shutdown
   swagger: http://chart-test-datarepo-api.temp:8080/swagger-ui.html
   api: http://chart-test-datarepo-api.temp:8080
 serviceAccount:
