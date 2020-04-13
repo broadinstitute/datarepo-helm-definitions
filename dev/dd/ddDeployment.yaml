@@ -46,6 +46,7 @@ datarepo-ui:
     tag: broad-jade-ms_2019-12-05_13-23-33
   proxyPass:
     status: http://dd-jade-datarepo-api.dd:8080/status
+    shutdown: http://dd-jade-datarepo-api.dd:8080/shutdown
     swagger: http://dd-jade-datarepo-api.dd:8080/swagger-ui.html
     api: http://dd-jade-datarepo-api.dd:8080
   serviceAccount:
