@@ -3,7 +3,7 @@ enabled: true
 cloudsql:
   instances:
     # GCP instance name.
-    - instance: "jade-postgres-101-d0e234edfe378f09"
+    - instance: "jade-postgres-11-3689a35c4c"
       # GCP project where the instance exists.
       project: "broad-jade-integration"
       # GCP region where the instance exists.
