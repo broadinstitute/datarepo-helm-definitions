@@ -4,7 +4,7 @@ gcloud-sqlproxy:
   cloudsql:
     instances:
       # GCP instance name.
-      - instance: "jade-postgres-101-987f0c3b501aeabf"
+      - instance: "jade-postgres-11-8a00fd4d3b"
         # GCP project where the instance exists.
         project: "broad-jade-dev"
         # GCP region where the instance exists.
