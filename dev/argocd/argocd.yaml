@@ -12,6 +12,7 @@ redis-ha:
     name: redis-sa
 configs:
   secret:
+    createSecret: false
 server:
   name: jade
   image:
@@ -34,10 +35,11 @@ server:
   service:
     type: NodePort  # Required to enable forwarding from Ingress/LB to service
   ingress:
-    enabled: true
+    enabled: false
     path: /*
-    hosts:
-      - argocd.datarepo-dev.broadinstitute.org
+    tls:
+      - hosts:
+        - argocd.datarepo-dev.broadinstitute.org
     annotations:
       kubernetes.io/ingress.global-static-ip-name: argocd-k8-100
       kubernetes.io/ingress.allow-http: "false"  # Disable http traffic
