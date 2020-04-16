@@ -35,7 +35,7 @@ server:
   service:
     type: NodePort  # Required to enable forwarding from Ingress/LB to service
   ingress:
-    enabled: false
+    enabled: true
     path: /*
     tls:
       - hosts:
