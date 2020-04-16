@@ -12,11 +12,10 @@ redis-ha:
     name: redis-sa
 configs:
   secret:
-    createSecret: false
 server:
   name: jade
   image:
-    tag: v1.5.1
+    tag: v1.5.2
   extraArgs:
     - --insecure  # Required to enable TLS termination at Ingress/LB
   config:  # SSO
