@@ -1,5 +1,5 @@
 #!/bin/bash
-helm namespace upgrade argocd monster/gcp-managed-cert --install --namespace argocd -f managedcert.yaml
+helm namespace upgrade argocd-certificate monster/gcp-managed-cert --install --namespace argocd -f managedcert.yaml
 helm namespace upgrade argocd-application-controller datarepo-helm/serviceaccount-psp --install --namespace argocd --set serviceAccount.name=argocd-application-controller
 helm namespace upgrade argocd-server datarepo-helm/serviceaccount-psp --install --namespace argocd --set serviceAccount.name=argocd-server
 helm namespace upgrade argocd-dex-server datarepo-helm/serviceaccount-psp --install --namespace argocd --set serviceAccount.name=argocd-dex-server
