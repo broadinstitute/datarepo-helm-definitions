@@ -12,7 +12,7 @@ redis-ha:
     name: redis-sa
 configs:
   secret:
-    createSecret: false
+    createSecret: true
 server:
   image:
     tag: v1.5.2
@@ -26,14 +26,18 @@ server:
           id: github
           name: GitHub
           config:
-            clientID: 8b0d231f2555f04bff12
+            clientID: 3fea9f34762c0e2f127d
             clientSecret: $dex.github.clientSecret
             orgs:
+            - name: DataBiosphere
             - name: broadinstitute
   service:
     type: NodePort  # Required to enable forwarding from Ingress/LB to service
   ingress:
     enabled: true
+    tls:
+      - hosts:
+          - argocd.datarepo-dev.broadinstitute.org
     paths:
       - /*
     hosts:
