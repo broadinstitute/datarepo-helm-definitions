@@ -14,12 +14,11 @@ configs:
   secret:
     createSecret: false
 server:
-  name: jade
   image:
     tag: v1.5.2
   extraArgs:
-    - --insecure  # Required to enable TLS termination at Ingress/LB
-  config:  # SSO
+    - --insecure
+  config:
     url: https://argocd.datarepo-dev.broadinstitute.org
     dex.config: |
       connectors:
@@ -30,17 +29,27 @@ server:
             clientID: 8b0d231f2555f04bff12
             clientSecret: $dex.github.clientSecret
             orgs:
-            - name: DataBiosphere
             - name: broadinstitute
   service:
     type: NodePort  # Required to enable forwarding from Ingress/LB to service
   ingress:
     enabled: true
-    path: /*
-    tls:
-      - hosts:
-        - argocd.datarepo-dev.broadinstitute.org
+    paths:
+      - /*
+    hosts:
+      - argocd.datarepo-dev.broadinstitute.org
     annotations:
       kubernetes.io/ingress.global-static-ip-name: argocd-k8-100
       kubernetes.io/ingress.allow-http: "false"  # Disable http traffic
       networking.gke.io/managed-certificates: "argocd-certificate"
+  rbacConfig:
+    policy.default: role:readonly
+    policy.csv: |
+      p, role:gh-admin, applications, *, */*, allow
+      p, role:gh-admin, clusters, get, *, allow
+      p, role:gh-admin, repositories, get, *, allow
+      p, role:gh-admin, repositories, create, *, allow
+      p, role:gh-admin, repositories, update, *, allow
+      p, role:gh-admin, repositories, delete, *, allow
+      g, broadinstitute:DSP DevOps, role:gh-admin
+      g, broadinstitute:jade_prod, role:gh-admin
