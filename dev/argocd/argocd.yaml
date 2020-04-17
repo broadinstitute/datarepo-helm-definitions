@@ -12,7 +12,7 @@ redis-ha:
     name: redis-sa
 configs:
   secret:
-    createSecret: true
+    createSecret: false
 server:
   image:
     tag: v1.5.2
