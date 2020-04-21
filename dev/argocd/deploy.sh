@@ -12,7 +12,6 @@ helm namespace upgrade jade argo/argo-cd --install --namespace argocd -f argocd.
 
 
 # post install
-#kubectl port-forward service/jade-argocd-server -n argocd 8080:443
-#argocd login localhost:8080 --username admin --password jaderocks123 --insecure
+#argocd login argocd.datarepo-dev.broadinstitute.org:443 --sso --grpc-web
 #argocd app create ms-secrets --repo https://broadinstitute.github.io/datarepo-helm --helm-chart create-secret-manager-secret --revision 0.0.4 --dest-namespace ms --values "https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/ms/msSecrets.yaml" --dest-server "https://kubernetes.default.svc" --sync-policy automated --self-heal
 #argocd app create ms-jade --repo https://broadinstitute.github.io/datarepo-helm --helm-chart datarepo --revision 0.1.0 --dest-namespace ms --values "https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/ms/msDeployment.yaml" --dest-server "https://kubernetes.default.svc" --sync-policy automated --self-heal
