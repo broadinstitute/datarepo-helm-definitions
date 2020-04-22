@@ -57,3 +57,4 @@ server:
       p, role:gh-admin, repositories, delete, *, allow
       g, broadinstitute:DSP DevOps, role:gh-admin
       g, broadinstitute:jade_prod, role:gh-admin
+      g, broadinstitute:jadeteam, role:gh-admin
