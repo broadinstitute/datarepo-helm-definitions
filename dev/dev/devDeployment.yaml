@@ -2,7 +2,7 @@ gcloud-sqlproxy:
   enabled: true
   cloudsql:
     instances:
-    - instance: "jade-postgres-11-8a00fd4d3b"  # GCP instance name.
+    - instance: "jade-postgres-11-8a00fd4d3b" # GCP instance name.
       # GCP project where the instance exists.
       project: "broad-jade-dev"
       # GCP region where the instance exists.
@@ -39,7 +39,7 @@ datarepo-api:
 datarepo-ui:
   enabled: true
   image:
-    tag: bee3a07-develop
+    tag: ff155d8-develop
   proxyPass:
     status: http://dev-jade-datarepo-api.dev:8080/status
     swagger: http://dev-jade-datarepo-api.dev:8080/swagger-ui.html
