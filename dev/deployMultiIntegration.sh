@@ -1,6 +1,6 @@
 #!/bin/bash
 
-NAMESPACES=("integration-1" "integration-2" "integration-3" "integration-4" "integration-5")
+NAMESPACES=("dd" "dev" "fb" "jh" "mk" "mm" "ms" "my" "rc" "sh")
 
 for i in "${NAMESPACES[@]}"
 do
