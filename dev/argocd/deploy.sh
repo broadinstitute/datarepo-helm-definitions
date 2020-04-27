@@ -7,6 +7,7 @@ helm namespace upgrade argocd-repo-server datarepo-helm/serviceaccount-psp --ins
 helm namespace upgrade redis-sa-haproxy datarepo-helm/serviceaccount-psp --install --namespace argocd --set serviceAccount.name=redis-sa-haproxy
 helm namespace upgrade redis-sa datarepo-helm/serviceaccount-psp --install --namespace argocd --set serviceAccount.name=redis-sa
 helm namespace upgrade argo-secrets datarepo-helm/create-secret-manager-secret --version=0.0.4 --install --namespace argocd -f secrets.yaml
+helm namespace upgrade ip-whitelist datarepo-helm/backend-config --install --namespace argocd
 helm namespace upgrade jade argo/argo-cd --install --namespace argocd -f argocd.yaml
 
 
