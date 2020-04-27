@@ -7,11 +7,17 @@ helm namespace upgrade argocd-repo-server datarepo-helm/serviceaccount-psp --ins
 helm namespace upgrade redis-sa-haproxy datarepo-helm/serviceaccount-psp --install --namespace argocd --set serviceAccount.name=redis-sa-haproxy
 helm namespace upgrade redis-sa datarepo-helm/serviceaccount-psp --install --namespace argocd --set serviceAccount.name=redis-sa
 helm namespace upgrade argo-secrets datarepo-helm/create-secret-manager-secret --version=0.0.4 --install --namespace argocd -f secrets.yaml
+helm namespace upgrade ip-whitelist datarepo-helm/backend-config --install --namespace argocd
 helm namespace upgrade jade argo/argo-cd --install --namespace argocd -f argocd.yaml
 
 
 
 # post install
-#argocd login argocd.datarepo-dev.broadinstitute.org:443 --sso --grpc-web
-#argocd app create ms-secrets --repo https://broadinstitute.github.io/datarepo-helm --helm-chart create-secret-manager-secret --revision 0.0.4 --dest-namespace ms --values "https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/ms/msSecrets.yaml" --dest-server "https://kubernetes.default.svc" --sync-policy automated --self-heal
-#argocd app create ms-jade --repo https://broadinstitute.github.io/datarepo-helm --helm-chart datarepo --revision 0.1.0 --dest-namespace ms --values "https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/ms/msDeployment.yaml" --dest-server "https://kubernetes.default.svc" --sync-policy automated --self-heal
+# argocd login argocd.datarepo-dev.broadinstitute.org:443 --sso --grpc-web
+# dev datarepo
+# argocd app create dev-secrets --repo https://broadinstitute.github.io/datarepo-helm --helm-chart create-secret-manager-secret --revision 0.0.4 --dest-namespace dev --values "https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/dev/devSecrets.yaml" --dest-server "https://kubernetes.default.svc" --sync-policy automated --self-heal
+# argocd app create dev-jade --repo https://broadinstitute.github.io/datarepo-helm --helm-chart datarepo --revision 0.1.0 --dest-namespace dev --values "https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/dev/devDeployment.yaml" --dest-server "https://kubernetes.default.svc" --sync-policy automated --self-heal
+# prometheus-operator
+# argocd app create monitoring-secrets --repo https://broadinstitute.github.io/datarepo-helm --helm-chart create-secret-manager-secret --revision 0.0.4 --dest-namespace monitoring --values "https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/monitoring/monitoringSecrets.yaml" --dest-server "https://kubernetes.default.svc" --sync-policy automated --self-heal
+# argocd app create ip-whitelist --repo https://broadinstitute.github.io/datarepo-helm --helm-chart backend-config --revision 0.1.0 --dest-namespace monitoring --dest-server "https://kubernetes.default.svc" --sync-policy automated --self-heal
+# argocd app create jade-monitoring --repo https://argoproj.github.io/argo-helm --helm-chart argo-cd --revision 2.2.9 --dest-namespace monitoring --values "https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/monitoring/monitoring.yaml" --dest-server "https://kubernetes.default.svc" --sync-policy automated --self-heal
