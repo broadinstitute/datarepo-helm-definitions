@@ -47,6 +47,7 @@ datarepo-ui:
   proxyPass:
     status: http://ms-jade-datarepo-api.ms:8080/status
     swagger: http://ms-jade-datarepo-api.ms:8080/swagger-ui.html
+    shutdown: http://ms-jade-datarepo-api.ms:8080/shutdown
     api: http://ms-jade-datarepo-api.ms:8080
   serviceAccount:
     create: true
