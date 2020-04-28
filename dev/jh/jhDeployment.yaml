@@ -48,6 +48,7 @@ datarepo-ui:
     status: http://jh-jade-datarepo-api.jh:8080/status
     swagger: http://jh-jade-datarepo-api.jh:8080/swagger-ui.html
     api: http://jh-jade-datarepo-api.jh:8080
+    shutdown: http://jh-jade-datarepo-api.jh:8080/shutdown
   serviceAccount:
     create: true
   rbac:
