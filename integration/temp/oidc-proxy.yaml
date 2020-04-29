@@ -26,4 +26,3 @@ serviceAccount:
 rbac:
   create: true
   pspEnabled: true
-existingTlsSecret: oidc-tls-key
