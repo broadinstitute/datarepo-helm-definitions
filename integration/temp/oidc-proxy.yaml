@@ -12,7 +12,15 @@ env:
 ingress:
   enabled: true
   annotations:
-    globalStaticIpName: integration-ip-temp
+    kubernetes.io/ingress.global-static-ip-name: integration-ip-temp
+    networking.gke.io/managed-certificates: "jade-temp-certificate"
+  tls:
+    - hosts:
+        - jade-temp.datarepo-integration.broadinstitute.org
+  paths:
+    - /*
+  hosts:
+    - jade-temp.datarepo-integration.broadinstitute.org
 serviceAccount:
   create: true
 rbac:
