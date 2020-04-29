@@ -13,7 +13,7 @@ ingress:
   enabled: true
   annotations:
     kubernetes.io/ingress.global-static-ip-name: integration-ip-temp
-    networking.gke.io/managed-certificates: "jade-temp-certificate"
+    networking.gke.io/managed-certificates: "temp-certificate"
   tls:
     - hosts:
         - jade-temp.datarepo-integration.broadinstitute.org
