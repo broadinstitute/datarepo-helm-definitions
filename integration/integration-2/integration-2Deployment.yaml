@@ -18,7 +18,7 @@ gcloud-sqlproxy:
 datarepo-api:
   enabled: true
   image:
-    tag: 5c01d0b-develop
+    tag: 2552a35-develop
   env:
     GOOGLE_PROJECTID: broad-jade-int-2
     DB_DATAREPO_USERNAME: drmanager
@@ -70,12 +70,12 @@ oidc-proxy:
       kubernetes.io/ingress.global-static-ip-name: integration-ip-2
       networking.gke.io/managed-certificates: "integration-2-certificate"
     tls:
-      - hosts:
-          - jade-2.datarepo-integration.broadinstitute.org
-    paths:
-      - /*
-    hosts:
+    - hosts:
       - jade-2.datarepo-integration.broadinstitute.org
+    paths:
+    - /*
+    hosts:
+    - jade-2.datarepo-integration.broadinstitute.org
   serviceAccount:
     create: true
   rbac:
