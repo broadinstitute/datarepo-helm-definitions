@@ -9,5 +9,5 @@ do
    helm namespace upgrade ${i}-certificate  monster/gcp-managed-cert --version=0.1.1 --install --namespace ${i} -f ${i}Managedcert.yaml
    helm namespace upgrade ${i}-secrets datarepo-helm/create-secret-manager-secret --version=0.0.4 --install --namespace ${i} -f "${i}/${i}Secrets.yaml"
    helm namespace upgrade ${i}-jade datarepo-helm/datarepo --version=0.1.2 --install --namespace ${i} -f "${i}/${i}Deployment.yaml"
-   sleep 10
+   sleep 5
 done
