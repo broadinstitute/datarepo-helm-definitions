@@ -68,10 +68,17 @@ oidc-proxy:
   ingress:
     enabled: true
     annotations:
-      globalStaticIpName: jade-dev-ms
+      kubernetes.io/ingress.global-static-ip-name: jade-dev-ms
+      networking.gke.io/managed-certificates: "ms-certificate"
+    tls:
+      - hosts:
+          - jade-ms.datarepo-dev.broadinstitute.org
+    paths:
+      - /*
+    hosts:
+      - jade-ms.datarepo-dev.broadinstitute.org
   serviceAccount:
     create: true
   rbac:
     create: true
     pspEnabled: true
-  existingTlsSecret: oidc-tls-key

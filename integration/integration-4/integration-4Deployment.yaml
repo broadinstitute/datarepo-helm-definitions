@@ -67,10 +67,17 @@ oidc-proxy:
   ingress:
     enabled: true
     annotations:
-      globalStaticIpName: integration-ip-4
+      kubernetes.io/ingress.global-static-ip-name: integration-ip-4
+      networking.gke.io/managed-certificates: "integration-4-certificate"
+    tls:
+      - hosts:
+          - jade-4.datarepo-integration.broadinstitute.org
+    paths:
+      - /*
+    hosts:
+      - jade-4.datarepo-integration.broadinstitute.org
   serviceAccount:
     create: true
   rbac:
     create: true
     pspEnabled: true
-  existingTlsSecret: oidc-tls-key
