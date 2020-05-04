@@ -46,7 +46,7 @@ datarepo-ui:
     tag: b2cf0b2-develop
   proxyPass:
     status: http://sh-jade-datarepo-api.sh:8080/status
-    shutdown: http://dd-jade-datarepo-api.dd:8080/shutdown
+    shutdown: http://sh-jade-datarepo-api.sh:8080/shutdown
     swagger: http://sh-jade-datarepo-api.sh:8080/swagger-ui.html
     api: http://sh-jade-datarepo-api.sh:8080
   serviceAccount:
