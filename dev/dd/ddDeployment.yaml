@@ -82,4 +82,3 @@ oidc-proxy:
   rbac:
     create: true
     pspEnabled: true
-  existingTlsSecret: oidc-tls-key
