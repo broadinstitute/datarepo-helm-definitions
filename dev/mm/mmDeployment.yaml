@@ -21,7 +21,7 @@ gcloud-sqlproxy:
 datarepo-api:
   enabled: true
   image:
-    tag: 33eb4d5-develop
+    tag: marikolatest
   env:
     GOOGLE_PROJECTID: broad-jade-mm
     DB_DATAREPO_USERNAME: drmanager
@@ -49,6 +49,7 @@ datarepo-ui:
     tag: b2cf0b2-develop
   proxyPass:
     status: http://mm-jade-datarepo-api.mm:8080/status
+    shutdown: http://mm-jade-datarepo-api.dd:8080/shutdown
     swagger: http://mm-jade-datarepo-api.mm:8080/swagger-ui.html
     api: http://mm-jade-datarepo-api.mm:8080
   serviceAccount:
