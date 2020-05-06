@@ -14,8 +14,6 @@ configs:
   secret:
     createSecret: false
 server:
-  image:
-    tag: v1.5.2
   extraArgs:
     - --insecure
   config:
