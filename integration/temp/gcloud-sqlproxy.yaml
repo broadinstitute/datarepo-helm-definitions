@@ -16,3 +16,5 @@ networkPolicy:
   enabled: false
 existingSecret: sqlproxy-sa-temp
 existingSecretKey: sa
+nodeSelector:
+  cloud.google.com/gke-nodepool: integration-node

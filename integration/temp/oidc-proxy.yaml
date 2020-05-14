@@ -26,3 +26,5 @@ serviceAccount:
 rbac:
   create: true
   pspEnabled: true
+nodeSelector:
+  cloud.google.com/gke-nodepool: integration-node
