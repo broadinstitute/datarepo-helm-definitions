@@ -1,5 +1,7 @@
 ---
 prometheusOperator:
+  nodeSelector:
+    cloud.google.com/gke-nodepool: integration-node
   createCustomResource: false
 grafana:
   rbac:
