@@ -17,15 +17,17 @@ gcloud-sqlproxy:
     enabled: false
   existingSecret: sqlproxy-sa-rc
   existingSecretKey: sa
+  nodeSelector:
+    cloud.google.com/gke-nodepool: dev-node
 
 datarepo-api:
   enabled: true
   image:
     tag: 33eb4d5-develop
   env:
-    GOOGLE_PROJECTID: broad-jade-rc
+    GOOGLE_PROJECTID: broad-jade-dev
     DB_DATAREPO_USERNAME: drmanager
-    SPRING_PROFILES_ACTIVE: google,cloudsql,rc
+    SPRING_PROFILES_ACTIVE: google,cloudsql,dev,rc
     DB_STAIRWAY_USERNAME: drmanager
     DB_STAIRWAY_URI: jdbc:postgresql://rc-jade-gcloud-sqlproxy.rc:5432/stairway-rc
     DB_DATAREPO_URI: jdbc:postgresql://rc-jade-gcloud-sqlproxy.rc:5432/datarepo-rc
@@ -39,6 +41,8 @@ datarepo-api:
   existingStairwayDbSecretKey: "stairwaypassword"
   existingSecretSA: "jade-sa"
   existingServiceAccountSecretKey: "datareposerviceaccount"
+  nodeSelector:
+    cloud.google.com/gke-nodepool: dev-node
 
 datarepo-ui:
   enabled: true
@@ -46,13 +50,15 @@ datarepo-ui:
     tag: b2cf0b2-develop
   proxyPass:
     status: http://rc-jade-datarepo-api.rc:8080/status
-    shutdown: http://rc-jade-datarepo-api.rc:8080/shutdown
     swagger: http://rc-jade-datarepo-api.rc:8080/swagger-ui.html
+    shutdown: http://rc-jade-datarepo-api.rc:8080/shutdown
     api: http://rc-jade-datarepo-api.rc:8080
   serviceAccount:
     create: true
   rbac:
     create: true
+  nodeSelector:
+    cloud.google.com/gke-nodepool: dev-node
 
 oidc-proxy:
   enabled: true
@@ -68,10 +74,19 @@ oidc-proxy:
   ingress:
     enabled: true
     annotations:
-      globalStaticIpName: jade-dev-rc
+      kubernetes.io/ingress.global-static-ip-name: jade-dev-rc
+      networking.gke.io/managed-certificates: "rc-certificate"
+    tls:
+      - hosts:
+          - jade-rc.datarepo-dev.broadinstitute.org
+    paths:
+      - /*
+    hosts:
+      - jade-rc.datarepo-dev.broadinstitute.org
   serviceAccount:
     create: true
   rbac:
     create: true
     pspEnabled: true
-  existingTlsSecret: oidc-tls-key
+  nodeSelector:
+    cloud.google.com/gke-nodepool: dev-node

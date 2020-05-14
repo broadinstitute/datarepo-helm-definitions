@@ -17,6 +17,8 @@ gcloud-sqlproxy:
     enabled: false
   existingSecret: sqlproxy-sa-sh
   existingSecretKey: sa
+  nodeSelector:
+    cloud.google.com/gke-nodepool: dev-node
 
 datarepo-api:
   enabled: true
@@ -39,6 +41,8 @@ datarepo-api:
   existingStairwayDbSecretKey: "stairwaypassword"
   existingSecretSA: "jade-sa"
   existingServiceAccountSecretKey: "datareposerviceaccount"
+  nodeSelector:
+    cloud.google.com/gke-nodepool: dev-node
 
 datarepo-ui:
   enabled: true
@@ -46,13 +50,15 @@ datarepo-ui:
     tag: b2cf0b2-develop
   proxyPass:
     status: http://sh-jade-datarepo-api.sh:8080/status
-    shutdown: http://sh-jade-datarepo-api.sh:8080/shutdown
     swagger: http://sh-jade-datarepo-api.sh:8080/swagger-ui.html
+    shutdown: http://sh-jade-datarepo-api.sh:8080/shutdown
     api: http://sh-jade-datarepo-api.sh:8080
   serviceAccount:
     create: true
   rbac:
     create: true
+  nodeSelector:
+    cloud.google.com/gke-nodepool: dev-node
 
 oidc-proxy:
   enabled: true
@@ -68,10 +74,19 @@ oidc-proxy:
   ingress:
     enabled: true
     annotations:
-      globalStaticIpName: jade-dev-sh
+      kubernetes.io/ingress.global-static-ip-name: jade-dev-sh
+      networking.gke.io/managed-certificates: "sh-certificate"
+    tls:
+      - hosts:
+          - jade-sh.datarepo-dev.broadinstitute.org
+    paths:
+      - /*
+    hosts:
+      - jade-sh.datarepo-dev.broadinstitute.org
   serviceAccount:
     create: true
   rbac:
     create: true
     pspEnabled: true
-  existingTlsSecret: oidc-tls-key
+  nodeSelector:
+    cloud.google.com/gke-nodepool: dev-node

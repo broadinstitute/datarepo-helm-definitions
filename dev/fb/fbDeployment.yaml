@@ -17,6 +17,8 @@ gcloud-sqlproxy:
     enabled: false
   existingSecret: sqlproxy-sa-fb
   existingSecretKey: sa
+  nodeSelector:
+    cloud.google.com/gke-nodepool: dev-node
 
 datarepo-api:
   enabled: true
@@ -39,6 +41,8 @@ datarepo-api:
   existingStairwayDbSecretKey: "stairwaypassword"
   existingSecretSA: "jade-sa"
   existingServiceAccountSecretKey: "datareposerviceaccount"
+  nodeSelector:
+    cloud.google.com/gke-nodepool: dev-node
 
 datarepo-ui:
   enabled: true
@@ -53,6 +57,8 @@ datarepo-ui:
     create: true
   rbac:
     create: true
+  nodeSelector:
+    cloud.google.com/gke-nodepool: dev-node
 
 oidc-proxy:
   enabled: true
@@ -68,10 +74,19 @@ oidc-proxy:
   ingress:
     enabled: true
     annotations:
-      globalStaticIpName: jade-dev-fb
+      kubernetes.io/ingress.global-static-ip-name: jade-dev-fb
+      networking.gke.io/managed-certificates: "fb-certificate"
+    tls:
+      - hosts:
+          - jade-fb.datarepo-dev.broadinstitute.org
+    paths:
+      - /*
+    hosts:
+      - jade-fb.datarepo-dev.broadinstitute.org
   serviceAccount:
     create: true
   rbac:
     create: true
     pspEnabled: true
-  existingTlsSecret: oidc-tls-key
+  nodeSelector:
+    cloud.google.com/gke-nodepool: dev-node
