@@ -25,7 +25,7 @@ datarepo-api:
   image:
     tag: 33eb4d5-develop
   env:
-    GOOGLE_PROJECTID: broad-jade-dev
+    GOOGLE_PROJECTID: broad-jade-rc
     DB_DATAREPO_USERNAME: drmanager
     SPRING_PROFILES_ACTIVE: google,cloudsql,dev,rc
     DB_STAIRWAY_USERNAME: drmanager
