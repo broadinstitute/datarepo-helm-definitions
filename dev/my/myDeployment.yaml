@@ -17,15 +17,17 @@ gcloud-sqlproxy:
     enabled: false
   existingSecret: sqlproxy-sa-my
   existingSecretKey: sa
+  nodeSelector:
+    cloud.google.com/gke-nodepool: dev-node
 
 datarepo-api:
   enabled: true
   image:
-    tag: 33eb4d5-develop
+    tag: a0fc3a2-develop
   env:
     GOOGLE_PROJECTID: broad-jade-my
     DB_DATAREPO_USERNAME: drmanager
-    SPRING_PROFILES_ACTIVE: google,cloudsql,my
+    SPRING_PROFILES_ACTIVE: google,cloudsql,dev,my
     DB_STAIRWAY_USERNAME: drmanager
     DB_STAIRWAY_URI: jdbc:postgresql://my-jade-gcloud-sqlproxy.my:5432/stairway-my
     DB_DATAREPO_URI: jdbc:postgresql://my-jade-gcloud-sqlproxy.my:5432/datarepo-my
@@ -39,19 +41,24 @@ datarepo-api:
   existingStairwayDbSecretKey: "stairwaypassword"
   existingSecretSA: "jade-sa"
   existingServiceAccountSecretKey: "datareposerviceaccount"
+  nodeSelector:
+    cloud.google.com/gke-nodepool: dev-node
 
 datarepo-ui:
   enabled: true
   image:
-    tag: b2cf0b2-develop
+    tag: 81a5553-develop
   proxyPass:
     status: http://my-jade-datarepo-api.my:8080/status
     swagger: http://my-jade-datarepo-api.my:8080/swagger-ui.html
+    shutdown: http://my-jade-datarepo-api.my:8080/shutdown
     api: http://my-jade-datarepo-api.my:8080
   serviceAccount:
     create: true
   rbac:
     create: true
+  nodeSelector:
+    cloud.google.com/gke-nodepool: dev-node
 
 oidc-proxy:
   enabled: true
@@ -67,10 +74,19 @@ oidc-proxy:
   ingress:
     enabled: true
     annotations:
-      globalStaticIpName: jade-dev-my
+      kubernetes.io/ingress.global-static-ip-name: jade-dev-my
+      networking.gke.io/managed-certificates: "my-certificate"
+    tls:
+      - hosts:
+          - jade-my.datarepo-dev.broadinstitute.org
+    paths:
+      - /*
+    hosts:
+      - jade-my.datarepo-dev.broadinstitute.org
   serviceAccount:
     create: true
   rbac:
     create: true
     pspEnabled: true
-  existingTlsSecret: oidc-tls-key
+  nodeSelector:
+    cloud.google.com/gke-nodepool: dev-node

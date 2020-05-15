@@ -3,9 +3,13 @@ repoServer:
   serviceAccount:
     create: true
     name: argocd-repo-server
+  nodeSelector:
+    cloud.google.com/gke-nodepool: dev-node
 redis:
   enabled: flase
 redis-ha:
+  nodeSelector:
+    cloud.google.com/gke-nodepool: dev-node
   enabled: true
   serviceAccount:
     create: true
@@ -14,6 +18,8 @@ configs:
   secret:
     createSecret: false
 server:
+  nodeSelector:
+    cloud.google.com/gke-nodepool: dev-node
   extraArgs:
     - --insecure
   config:
@@ -58,3 +64,9 @@ server:
       g, broadinstitute:DSP DevOps, role:gh-admin
       g, broadinstitute:jade_prod, role:gh-admin
       g, broadinstitute:jadeteam, role:gh-admin
+controller:
+  nodeSelector:
+    cloud.google.com/gke-nodepool: dev-node
+dex:
+  nodeSelector:
+    cloud.google.com/gke-nodepool: dev-node
