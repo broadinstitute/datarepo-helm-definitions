@@ -1,3 +1,4 @@
+shutdownTimeoutSeconds: 15
 ---
 gcloud-sqlproxy:
   enabled: true
