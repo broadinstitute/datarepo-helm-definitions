@@ -1,6 +1,6 @@
 #!/bin/bash
 
-NAMESPACES=("dd" "dev" "fb" "jh" "mk" "mm" "ms" "my" "rc" "sh")
+NAMESPACES=("dd" "fb" "jh" "mk" "mm" "ms" "my" "rc" "sh")
 helm repo add monster https://broadinstitute.github.io/monster-helm
 helm repo update
 for i in "${NAMESPACES[@]}"
