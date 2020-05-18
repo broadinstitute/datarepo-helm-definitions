@@ -2,8 +2,18 @@
 prometheusOperator:
   nodeSelector:
     cloud.google.com/gke-nodepool: dev-node
+  admissionWebhooks:
+    patch:
+      nodeSelector:
+        cloud.google.com/gke-nodepool: dev-node
   createCustomResource: false
+prometheus:
+  prometheusSpec:
+    nodeSelector:
+      cloud.google.com/gke-nodepool: dev-node
 grafana:
+  nodeSelector:
+    cloud.google.com/gke-nodepool: dev-node
   rbac:
     create: true
     pspEnabled: true
@@ -38,5 +48,8 @@ grafana:
       - secretName: grafana-tls-key
 
 alertmanager:
+  alertmanagerSpec:
+    nodeSelector:
+      cloud.google.com/gke-nodepool: dev-node
   configFromSecret: alertmanager-jade-monitoring-prometheus-alertmanager
   configFileName: alertmanager.yml
