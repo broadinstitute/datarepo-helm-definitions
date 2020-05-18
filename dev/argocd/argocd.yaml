@@ -24,6 +24,18 @@ server:
     - --insecure
   config:
     url: https://argocd.datarepo-dev.broadinstitute.org
+    # helm repositories
+    repositories: |
+      - type: helm
+        url: https://broadinstitute.github.io/datarepo-helm
+        name: datarepo-helm
+      - type: helm
+        url: https://kubernetes-charts.storage.googleapis.com
+        name: stable
+      - type: helm
+        url: https://broadinstitute.github.io/monster-helm
+        name: monster
+    # sso authenication
     dex.config: |
       connectors:
         - type: github
