@@ -55,15 +55,9 @@ server:
   rbacConfig:
     policy.default: role:readonly
     policy.csv: |
-      p, role:gh-admin, applications, *, */*, allow
-      p, role:gh-admin, clusters, get, *, allow
-      p, role:gh-admin, repositories, get, *, allow
-      p, role:gh-admin, repositories, create, *, allow
-      p, role:gh-admin, repositories, update, *, allow
-      p, role:gh-admin, repositories, delete, *, allow
-      g, broadinstitute:DSP DevOps, role:gh-admin
-      g, broadinstitute:jade_prod, role:gh-admin
-      g, broadinstitute:jadeteam, role:gh-admin
+      g, broadinstitute:DSP DevOps, role:admin
+      g, broadinstitute:jade_prod, role:admin
+      g, broadinstitute:jadeteam, role:admin
 controller:
   nodeSelector:
     cloud.google.com/gke-nodepool: dev-node
