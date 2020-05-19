@@ -11,9 +11,9 @@ env:
   FILTER2: AddOutputFilterByType DEFLATE application/json text/plain text/html application/javascript application/x-javascript
 ingress:
   enabled: true
+  domainName: jade-temp.datarepo-integration.broadinstitute.org
   annotations:
     kubernetes.io/ingress.global-static-ip-name: integration-ip-temp
-    networking.gke.io/managed-certificates: "temp-certificate"
   tls:
     - hosts:
         - jade-temp.datarepo-integration.broadinstitute.org
