@@ -69,9 +69,9 @@ oidc-proxy:
       application/x-javascript
   ingress:
     enabled: true
+    domainName: jade.datarepo-dev.broadinstitute.org
     annotations:
       kubernetes.io/ingress.global-static-ip-name: jade-k8-100
-      networking.gke.io/managed-certificates: "dev-certificate"
     tls:
     - hosts:
       - jade.datarepo-dev.broadinstitute.org

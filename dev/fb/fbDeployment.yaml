@@ -1,6 +1,7 @@
 ---
 gcloud-sqlproxy:
   enabled: true
+  googleServiceAccount: fb-proxy-sa@broad-jade-dev.iam.gserviceaccount.com
   cloudsql:
     instances:
       # GCP instance name.
@@ -15,8 +16,6 @@ gcloud-sqlproxy:
     create: true
   networkPolicy:
     enabled: false
-  existingSecret: sqlproxy-sa-fb
-  existingSecretKey: sa
   nodeSelector:
     cloud.google.com/gke-nodepool: dev-node
 
@@ -73,9 +72,9 @@ oidc-proxy:
     FILTER2: AddOutputFilterByType DEFLATE application/json text/plain text/html application/javascript application/x-javascript
   ingress:
     enabled: true
+    domainName: jade-fb.datarepo-dev.broadinstitute.org
     annotations:
       kubernetes.io/ingress.global-static-ip-name: jade-dev-fb
-      networking.gke.io/managed-certificates: "fb-certificate"
     tls:
       - hosts:
           - jade-fb.datarepo-dev.broadinstitute.org
