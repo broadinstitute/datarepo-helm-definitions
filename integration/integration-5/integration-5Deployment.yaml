@@ -1,5 +1,6 @@
 gcloud-sqlproxy:
   enabled: true
+  googleServiceAccount: integration-5-proxy-sa@broad-jade-integration.iam.gserviceaccount.com
   cloudsql:
     instances:
     - instance: "jade-postgres-11-3689a35c4c" # GCP instance name.
@@ -13,8 +14,6 @@ gcloud-sqlproxy:
     create: true
   networkPolicy:
     enabled: false
-  existingSecret: sqlproxy-sa-integration-5
-  existingSecretKey: sa
   nodeSelector:
     cloud.google.com/gke-nodepool: integration-node
 datarepo-api:
@@ -72,9 +71,9 @@ oidc-proxy:
       application/x-javascript
   ingress:
     enabled: true
+    domainName: jade-5.datarepo-integration.broadinstitute.org
     annotations:
       kubernetes.io/ingress.global-static-ip-name: integration-ip-5
-      networking.gke.io/managed-certificates: "integration-5-certificate"
     tls:
     - hosts:
       - jade-5.datarepo-integration.broadinstitute.org

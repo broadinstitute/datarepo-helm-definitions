@@ -1,5 +1,6 @@
 ---
 enabled: true
+googleServiceAccount: integration-temp-proxy-sa@broad-jade-integration.iam.gserviceaccount.com
 cloudsql:
   instances:
     # GCP instance name.
@@ -14,7 +15,5 @@ rbac:
   create: true
 networkPolicy:
   enabled: false
-existingSecret: sqlproxy-sa-temp
-existingSecretKey: sa
 nodeSelector:
   cloud.google.com/gke-nodepool: integration-node
