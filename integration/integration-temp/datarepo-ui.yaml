@@ -1,0 +1,15 @@
+---
+enabled: true
+image:
+  tag: ac48455
+proxyPass:
+  status: http://integration-temp-jade-datarepo-api.integration-temp:8080/status
+  shutdown: http://integration-temp-jade-datarepo-api.integration-temp:8080/shutdown
+  swagger: http://integration-temp-jade-datarepo-api.integration-temp:8080/swagger-ui.html
+  api: http://integration-temp-jade-datarepo-api.integration-temp:8080
+serviceAccount:
+  create: true
+rbac:
+  create: true
+nodeSelector:
+  cloud.google.com/gke-nodepool: integration-node
