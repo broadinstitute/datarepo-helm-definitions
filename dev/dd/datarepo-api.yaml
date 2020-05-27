@@ -1,0 +1,22 @@
+---
+image:
+  tag: a0fc3a2-develop
+env:
+  GOOGLE_PROJECTID: broad-jade-dd
+  DB_DATAREPO_USERNAME: drmanager
+  SPRING_PROFILES_ACTIVE: google,cloudsql,dev,dd
+  DB_STAIRWAY_USERNAME: drmanager
+  DB_STAIRWAY_URI: jdbc:postgresql://dd-jade-gcloud-sqlproxy.dd:5432/stairway-dd
+  DB_DATAREPO_URI: jdbc:postgresql://dd-jade-gcloud-sqlproxy.dd:5432/datarepo-dd
+serviceAccount:
+  create: true
+rbac:
+  create: true
+  pspEnabled: true
+existingSecretDB: "database-pwd-dd"
+existingDatarepoDbSecretKey: "datarepopassword"
+existingStairwayDbSecretKey: "stairwaypassword"
+existingSecretSA: "jade-sa"
+existingServiceAccountSecretKey: "datareposerviceaccount"
+nodeSelector:
+  cloud.google.com/gke-nodepool: dev-node
