@@ -69,7 +69,7 @@ oidc-proxy:
     SERVER_NAME: jade.datarepo-dev.broadinstitute.org
     REMOTE_USER_CLAIM: sub
     ENABLE_STACKDRIVER: yes
-    FILTER2: AddOutputFilterByType DEFLATE application/json text/plain text/html application/javascript application/x-javascript
+    FILTER2: AmsOutputFilterByType DEFLATE application/json text/plain text/html application/javascript application/x-javascript
   ingress:
     enabled: true
     domainName: jade-ms.datarepo-dev.broadinstitute.org

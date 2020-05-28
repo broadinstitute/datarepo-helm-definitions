@@ -1,0 +1,14 @@
+---
+image:
+  tag: 81a5553-develop
+proxyPass:
+  status: http://ms-jade-datarepo-api.ms:8080/status
+  shutdown: http://ms-jade-datarepo-api.ms:8080/shutdown
+  swagger: http://ms-jade-datarepo-api.ms:8080/swagger-ui.html
+  api: http://ms-jade-datarepo-api.ms:8080
+serviceAccount:
+  create: true
+rbac:
+  create: true
+nodeSelector:
+  cloud.google.com/gke-nodepool: dev-node
