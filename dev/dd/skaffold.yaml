@@ -28,7 +28,7 @@ deploy:
       - https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/dd/create-secret-manager-secret.yaml
 # gcp sqlproxy
     - name: dd-jade-gcloud-sqlproxy
-      chartPath: https://github.com/broadinstitute/datarepo-helm/releases/download/gcloud-sqlproxy-0.19.5/datarepo-0.19.5.tgz
+      chartPath: https://github.com/broadinstitute/datarepo-helm/releases/download/gcloud-sqlproxy-0.19.5/gcloud-sqlproxy-0.19.5.tgz
       version: 0.19.5
       namespace: dd
       remote: true
