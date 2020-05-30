@@ -1,0 +1,12 @@
+---
+image:
+  tag: 5eee02b-develop
+proxyPass:
+  status: http://terra-jade-datarepo-api.data-repo:8080/status
+  shutdown: http://terra-jade-datarepo-api.data-repo:8080/shutdown
+  swagger: http://terra-jade-datarepo-api.data-repo:8080/swagger-ui.html
+  api: http://terra-jade-datarepo-api.data-repo:8080
+serviceAccount:
+  create: true
+rbac:
+  create: true
