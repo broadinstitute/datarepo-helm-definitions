@@ -1,0 +1,20 @@
+---
+image:
+  tag: 39566c6-develop
+env:
+  GOOGLE_PROJECTID: broad-datarepo-terra-prod
+  DB_DATAREPO_USERNAME: drmanager
+  SPRING_PROFILES_ACTIVE: google,cloudsql,terra,prod
+  DB_STAIRWAY_USERNAME: drmanager
+  DB_STAIRWAY_URI: jdbc:postgresql://terra-jade-gcloud-sqlproxy.data-repo:5432/stairway
+  DB_DATAREPO_URI: jdbc:postgresql://terra-jade-gcloud-sqlproxy.data-repo:5432/datarepo
+serviceAccount:
+  create: true
+rbac:
+  create: true
+  pspEnabled: true
+existingSecretDB: "api-secrets"
+existingDatarepoDbSecretKey: "datarepo-password"
+existingStairwayDbSecretKey: "stairway-password"
+existingSecretSA: "sa-key"
+existingServiceAccountSecretKey: "credential-file-json"
