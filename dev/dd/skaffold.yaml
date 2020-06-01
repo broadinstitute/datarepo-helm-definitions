@@ -28,16 +28,16 @@ deploy:
       - https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/dd/create-secret-manager-secret.yaml
 # gcp sqlproxy
     - name: dd-jade-gcloud-sqlproxy
-      chartPath: https://github.com/broadinstitute/datarepo-helm/releases/download/gcloud-sqlproxy-0.19.5/gcloud-sqlproxy-0.19.5.tgz
-      version: 0.19.5
+      chartPath: https://github.com/broadinstitute/datarepo-helm/releases/download/gcloud-sqlproxy-0.19.6/gcloud-sqlproxy-0.19.6.tgz
+      version: 0.19.6
       namespace: dd
       remote: true
       valuesFiles:
       - https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/dd/gcloud-sqlproxy.yaml
 # datarepo-api
     - name: dd-jade-datarepo-api
-      chartPath: https://github.com/broadinstitute/datarepo-helm/releases/download/datarepo-api-0.0.14/datarepo-api-0.0.14.tgz
-      version: 0.0.14
+      chartPath: https://github.com/broadinstitute/datarepo-helm/releases/download/datarepo-api-0.0.15/datarepo-api-0.0.15.tgz
+      version: 0.0.15
       namespace: dd
       remote: true
       values:
@@ -54,8 +54,8 @@ deploy:
       - https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/dd/datarepo-ui.yaml
 # oidc-proxy
     - name: dd-jade-oidc-proxy
-      chartPath: https://github.com/broadinstitute/datarepo-helm/releases/download/oidc-proxy-0.0.8/oidc-proxy-0.0.8.tgz
-      version: 0.0.8
+      chartPath: https://github.com/broadinstitute/datarepo-helm/releases/download/oidc-proxy-0.0.9/oidc-proxy-0.0.9.tgz
+      version: 0.0.9
       namespace: dd
       remote: true
       valuesFiles:
