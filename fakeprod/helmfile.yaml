@@ -20,7 +20,7 @@ releases:
     namespace: data-repo   # target namespace
     createNamespace: true
     chart: datarepo-helm/gcloud-sqlproxy   # chart name
-    version: 0.19.5 #    Chart version
+    version: 0.19.6 #    Chart version
     missingFileHandler: Warn
     values:
       - gcloud-sqlproxy.yaml    # Value files passed via --values
