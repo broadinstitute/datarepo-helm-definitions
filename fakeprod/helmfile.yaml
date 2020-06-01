@@ -27,9 +27,8 @@ releases:
   - name: terra-jade-datarepo-api   # name of this release
     namespace: data-repo   # target namespace
     createNamespace: true
-#    chart: datarepo-helm/datarepo-api   # the chart name
-#    version: 0.0.14    # chart version
-    chart: ../../../datarepo-helm/charts/datarepo-api   # the local chart name
+    chart: datarepo-helm/datarepo-api   # the chart name
+    version: 0.0.14    # chart version
     missingFileHandler: Warn
     values:
       - datarepo-api.yaml   # Value files passed via --values
