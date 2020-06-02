@@ -1,0 +1,22 @@
+---
+image:
+  tag: a0fc3a2-develop
+env:
+  GOOGLE_PROJECTID: broad-jade-fb
+  DB_DATAREPO_USERNAME: drmanager
+  SPRING_PROFILES_ACTIVE: google,cloudsql,dev,fb
+  DB_STAIRWAY_USERNAME: drmanager
+  DB_STAIRWAY_URI: jdbc:postgresql://fb-jade-gcloud-sqlproxy.fb:5432/stairway-fb
+  DB_DATAREPO_URI: jdbc:postgresql://fb-jade-gcloud-sqlproxy.fb:5432/datarepo-fb
+serviceAccount:
+  create: true
+rbac:
+  create: true
+  pspEnabled: true
+existingSecretDB: "database-pwd-fb"
+existingDatarepoDbSecretKey: "datarepopassword"
+existingStairwayDbSecretKey: "stairwaypassword"
+existingSecretSA: "jade-sa"
+existingServiceAccountSecretKey: "datareposerviceaccount"
+nodeSelector:
+  cloud.google.com/gke-nodepool: dev-node

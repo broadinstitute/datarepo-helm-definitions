@@ -24,7 +24,7 @@ datarepo-api:
   image:
     tag: a0fc3a2-develop
   env:
-    GOOGLE_PROJECTID: broad-jade-dev
+    GOOGLE_PROJECTID: broad-jade-fb
     DB_DATAREPO_USERNAME: drmanager
     SPRING_PROFILES_ACTIVE: google,cloudsql,dev,fb
     DB_STAIRWAY_USERNAME: drmanager
@@ -49,8 +49,8 @@ datarepo-ui:
     tag: 81a5553-develop
   proxyPass:
     status: http://fb-jade-datarepo-api.fb:8080/status
-    swagger: http://fb-jade-datarepo-api.fb:8080/swagger-ui.html
     shutdown: http://fb-jade-datarepo-api.fb:8080/shutdown
+    swagger: http://fb-jade-datarepo-api.fb:8080/swagger-ui.html
     api: http://fb-jade-datarepo-api.fb:8080
   serviceAccount:
     create: true
