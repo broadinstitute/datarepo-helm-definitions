@@ -10,12 +10,12 @@ env:
   FILTER2: AddOutputFilterByType DEFLATE application/json text/plain text/html application/javascript application/x-javascript
 ingress:
   enabled: true
+  domainName: jade-fb.datarepo-dev.broadinstitute.org
   annotations:
     kubernetes.io/ingress.global-static-ip-name: jade-dev-fb
   tls:
     - hosts:
         - jade-fb.datarepo-dev.broadinstitute.org
-      secretName: oidc-tls-key
   paths:
     - /*
   hosts:

@@ -22,9 +22,9 @@ gcloud-sqlproxy:
 datarepo-api:
   enabled: true
   image:
-    tag: a0fc3a2-develop
+    tag: 868bd4c-develop
   env:
-    GOOGLE_PROJECTID: broad-jade-fb
+    GOOGLE_PROJECTID: broad-jade-dev
     DB_DATAREPO_USERNAME: drmanager
     SPRING_PROFILES_ACTIVE: google,cloudsql,dev,fb
     DB_STAIRWAY_USERNAME: drmanager
@@ -46,11 +46,11 @@ datarepo-api:
 datarepo-ui:
   enabled: true
   image:
-    tag: 81a5553-develop
+    tag: ba0573d-develop
   proxyPass:
     status: http://fb-jade-datarepo-api.fb:8080/status
-    shutdown: http://fb-jade-datarepo-api.fb:8080/shutdown
     swagger: http://fb-jade-datarepo-api.fb:8080/swagger-ui.html
+    shutdown: http://fb-jade-datarepo-api.fb:8080/shutdown
     api: http://fb-jade-datarepo-api.fb:8080
   serviceAccount:
     create: true
@@ -69,7 +69,7 @@ oidc-proxy:
     SERVER_NAME: jade.datarepo-dev.broadinstitute.org
     REMOTE_USER_CLAIM: sub
     ENABLE_STACKDRIVER: yes
-    FILTER2: AddOutputFilterByType DEFLATE application/json text/plain text/html application/javascript application/x-javascript
+    FILTER2: AmsOutputFilterByType DEFLATE application/json text/plain text/html application/javascript application/x-javascript
   ingress:
     enabled: true
     domainName: jade-fb.datarepo-dev.broadinstitute.org
