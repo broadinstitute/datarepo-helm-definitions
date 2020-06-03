@@ -71,7 +71,7 @@ oidc-proxy:
       application/x-javascript
   ingress:
     enabled: true
-    domainName: jade-2.datarepo-integration.broadinstitute.org
+    domainName: jade-3.datarepo-integration.broadinstitute.org
     annotations:
       kubernetes.io/ingress.global-static-ip-name: integration-ip-3
     tls:
