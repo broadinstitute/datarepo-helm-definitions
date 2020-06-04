@@ -35,9 +35,8 @@ releases:
   - name: ms-jade-datarepo-ui   # name of this release
     namespace: ms   # target namespace
     createNamespace: true
-    chart: ../../../datarepo-helm/charts/datarepo-ui   # the local chart name
-#    chart: datarepo-helm/datarepo-ui   # the chart name
-#    version: 0.0.6    # chart version
+    chart: datarepo-helm/datarepo-ui   # the chart name
+    version: 0.0.6    # chart version
     missingFileHandler: Warn
     values:
       - datarepo-ui.yaml   # Value files passed via --values
