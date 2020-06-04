@@ -1,6 +1,6 @@
 ---
 image:
-  tag: 81a5553-develop
+  tag: fb-nginx-non-root
 proxyPass:
   status: http://ms-jade-datarepo-api.ms:8080/status
   shutdown: http://ms-jade-datarepo-api.ms:8080/shutdown

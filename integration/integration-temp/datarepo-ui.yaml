@@ -1,7 +1,7 @@
 ---
 enabled: true
 image:
-  tag: ac48455
+  tag: fb-nginx-non-root
 proxyPass:
   status: http://integration-temp-jade-datarepo-api.integration-temp:8080/status
   shutdown: http://integration-temp-jade-datarepo-api.integration-temp:8080/shutdown

@@ -1,7 +1,7 @@
 ---
 enabled: true
 env:
-  PROXY_URL: http://integration-temp-jade-datarepo-ui.integration-temp:80/
+  PROXY_URL: http://integration-temp-jade-datarepo-ui.integration-temp:8080/
   PROXY_URL2: http://integration-temp-jade-datarepo-api.integration-temp:8080/api
   PROXY_URL3: http://integration-temp-jade-datarepo-api.integration-temp:8080/register
   LOG_LEVEL: debug
