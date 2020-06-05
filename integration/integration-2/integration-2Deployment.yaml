@@ -19,7 +19,7 @@ gcloud-sqlproxy:
 datarepo-api:
   enabled: true
   image:
-    tag: 9e89c6e-develop
+    tag: ea13e3f-develop
   env:
     GOOGLE_PROJECTID: broad-jade-int-2
     DB_DATAREPO_USERNAME: drmanager
