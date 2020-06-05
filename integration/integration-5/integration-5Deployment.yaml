@@ -44,7 +44,7 @@ datarepo-api:
 datarepo-ui:
   enabled: true
   image:
-    tag: fb-nginx-non-root
+    tag: b59bd8c-develop
   proxyPass:
     status: http://integration-5-jade-datarepo-api.integration-5:8080/status
     swagger: http://integration-5-jade-datarepo-api.integration-5:8080/swagger-ui.html
