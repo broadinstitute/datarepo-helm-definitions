@@ -44,7 +44,7 @@ datarepo-api:
 datarepo-ui:
   enabled: true
   image:
-    tag: a0f0cd7-develop
+    tag: fb-nginx-non-root
   proxyPass:
     status: http://integration-1-jade-datarepo-api.integration-1:8080/status
     swagger: http://integration-1-jade-datarepo-api.integration-1:8080/swagger-ui.html
@@ -60,7 +60,7 @@ oidc-proxy:
   enabled: true
   replicaCount: 1
   env:
-    PROXY_URL: http://integration-1-jade-datarepo-ui.integration-1:80/
+    PROXY_URL: http://integration-1-jade-datarepo-ui.integration-1:8080/
     PROXY_URL2: http://integration-1-jade-datarepo-api.integration-1:8080/api
     PROXY_URL3: http://integration-1-jade-datarepo-api.integration-1:8080/register
     LOG_LEVEL: debug
