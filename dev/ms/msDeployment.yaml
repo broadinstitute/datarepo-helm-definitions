@@ -1,4 +1,7 @@
 ---
+global:
+  applicationVersion: "mark-0.0.1"
+
 gcloud-sqlproxy:
   enabled: true
   googleServiceAccount: ms-proxy-sa@broad-jade-dev.iam.gserviceaccount.com
@@ -21,8 +24,6 @@ gcloud-sqlproxy:
 
 datarepo-api:
   enabled: true
-  image:
-    tag: 868bd4c-develop
   env:
     GOOGLE_PROJECTID: broad-jade-dev
     DB_DATAREPO_USERNAME: drmanager
@@ -45,8 +46,6 @@ datarepo-api:
 
 datarepo-ui:
   enabled: true
-  image:
-    tag: ba0573d-develop
   proxyPass:
     status: http://ms-jade-datarepo-api.ms:8080/status
     swagger: http://ms-jade-datarepo-api.ms:8080/swagger-ui.html
@@ -62,7 +61,7 @@ datarepo-ui:
 oidc-proxy:
   enabled: true
   env:
-    PROXY_URL: http://ms-jade-datarepo-ui.ms:80/
+    PROXY_URL: http://ms-jade-datarepo-ui.ms:8080/
     PROXY_URL2: http://ms-jade-datarepo-api.ms:8080/api
     PROXY_URL3: http://ms-jade-datarepo-api.ms:8080/register
     LOG_LEVEL: debug
