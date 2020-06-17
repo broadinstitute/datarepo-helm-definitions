@@ -22,7 +22,7 @@ gcloud-sqlproxy:
 datarepo-api:
   enabled: true
   image:
-    tag: a0fc3a2-develop
+    tag: 6aca04a-develop
   env:
     GOOGLE_PROJECTID: broad-jade-mm
     DB_DATAREPO_USERNAME: drmanager
@@ -49,7 +49,7 @@ datarepo-api:
 datarepo-ui:
   enabled: true
   image:
-    tag: 81a5553-develop
+    tag: fcd1b81-develop
   proxyPass:
     status: http://mm-jade-datarepo-api.mm:8080/status
     swagger: http://mm-jade-datarepo-api.mm:8080/swagger-ui.html
@@ -64,7 +64,7 @@ datarepo-ui:
 oidc-proxy:
   enabled: true
   env:
-    PROXY_URL: http://mm-jade-datarepo-ui.mm:80/
+    PROXY_URL: http://mm-jade-datarepo-ui.mm:8080/
     PROXY_URL2: http://mm-jade-datarepo-api.mm:8080/api
     PROXY_URL3: http://mm-jade-datarepo-api.mm:8080/register
     LOG_LEVEL: debug
