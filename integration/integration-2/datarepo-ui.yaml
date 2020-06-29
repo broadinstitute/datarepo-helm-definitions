@@ -1,0 +1,14 @@
+---
+image:
+  tag: 0b002f6-develop
+proxyPass:
+  status: http://integration-2-jade-datarepo-api.integration-2:8080/status
+  swagger: http://integration-2-jade-datarepo-api.integration-2:8080/swagger-ui.html
+  shutdown: http://integration-2-jade-datarepo-api.integration-2:8080/shutdown
+  api: http://integration-2-jade-datarepo-api.integration-2:8080
+serviceAccount:
+  create: true
+rbac:
+  create: true
+nodeSelector:
+  cloud.google.com/gke-nodepool: integration-node
