@@ -1,6 +1,6 @@
 ---
 image:
-  tag: 81a5553-develop
+  tag: a277fe8-develop
 proxyPass:
   status: http://dd-jade-datarepo-api.dd:8080/status
   shutdown: http://dd-jade-datarepo-api.dd:8080/shutdown
