@@ -4,6 +4,7 @@ image:
   tag: ca9bd61-develop
 env:
   GOOGLE_PROJECTID: broad-jade-integration
+  GOOGLE_SINGLEDATAPROJECTID: broad-jade-integration-data
   DB_DATAREPO_USERNAME: drmanager
   SPRING_PROFILES_ACTIVE: google,cloudsql,temp
   DB_STAIRWAY_USERNAME: drmanager
