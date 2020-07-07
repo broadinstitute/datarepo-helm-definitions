@@ -14,11 +14,11 @@ helm repo update
 
 charts=("create-secret-manager-secret" "gcloud-sqlproxy" "datarepo-api" "datarepo-ui" "oidc-proxy")
 namespace=mm
-relase_name=${namespace}-jade
+release_name=${namespace}-jade
 
 # New upgrade commands with the modular charts.
 for i in "${charts[@]}"
 do
-   helm namespace upgrade ${relase_name}-${i} datarepo-helm/${i} --install --namespace ${namespace} -f "${i}.yaml"
+   helm namespace upgrade ${release_name}-${i} datarepo-helm/${i} --install --namespace ${namespace} -f "${i}.yaml"
    sleep 5
 done
