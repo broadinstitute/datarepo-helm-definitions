@@ -20,9 +20,10 @@ gcloud-sqlproxy:
 datarepo-api:
   enabled: true
   image:
-    tag: faafc77-develop
+    tag: 3a03f00-develop
   env:
     GOOGLE_PROJECTID: broad-jade-dev
+    GOOGLE_SINGLEDATAPROJECTID: broad-jade-dev-data
     DB_DATAREPO_USERNAME: drmanager
     SPRING_PROFILES_ACTIVE: google,cloudsql,dev
     DB_STAIRWAY_USERNAME: drmanager
@@ -43,7 +44,7 @@ datarepo-api:
 datarepo-ui:
   enabled: true
   image:
-    tag: a277fe8-develop
+    tag: abc5291-develop
   proxyPass:
     status: http://dev-jade-datarepo-api.dev:8080/status
     swagger: http://dev-jade-datarepo-api.dev:8080/swagger-ui.html

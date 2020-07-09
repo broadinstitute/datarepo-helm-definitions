@@ -21,7 +21,8 @@ datarepo-api:
   image:
     tag: 68ec114-develop
   env:
-    GOOGLE_PROJECTID: broad-jade-int-3
+    GOOGLE_PROJECTID: broad-jade-integration
+    GOOGLE_SINGLEDATAPROJECTID: broad-jade-int-3-data
     DB_DATAREPO_USERNAME: drmanager
     SPRING_PROFILES_ACTIVE: google,cloudsql,integration
     DB_STAIRWAY_USERNAME: drmanager
@@ -44,7 +45,7 @@ datarepo-api:
 datarepo-ui:
   enabled: true
   image:
-    tag: a277fe8-develop
+    tag: abc5291-develop
   proxyPass:
     status: http://integration-3-jade-datarepo-api.integration-3:8080/status
     swagger: http://integration-3-jade-datarepo-api.integration-3:8080/swagger-ui.html
