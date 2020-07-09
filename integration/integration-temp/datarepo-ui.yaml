@@ -1,7 +1,7 @@
 ---
 enabled: true
 image:
-  tag: e7e1a5c-develop
+  tag: abc5291-develop
 proxyPass:
   status: http://integration-temp-jade-datarepo-api.integration-temp:8080/status
   shutdown: http://integration-temp-jade-datarepo-api.integration-temp:8080/shutdown

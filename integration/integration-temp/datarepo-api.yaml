@@ -1,7 +1,7 @@
 ---
 enabled: true
 image:
-  tag: ca9bd61-develop
+  tag: 3a03f00-develop
 env:
   GOOGLE_PROJECTID: broad-jade-integration
   DB_DATAREPO_USERNAME: drmanager
