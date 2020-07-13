@@ -12,20 +12,20 @@ env:
     application/x-javascript
 ingress:
   enabled: true
-  domainName: jade-1.datarepo-perf.broadinstitute.org
+  domainName: jade-perf.datarepo-perf.broadinstitute.org
   annotations:
-    kubernetes.io/ingress.global-static-ip-name: perf-ip-1
+    kubernetes.io/ingress.global-static-ip-name: jade-perf-ip
   tls:
   - hosts:
-    - jade-1.datarepo-perf.broadinstitute.org
+    - jade-perf.datarepo-perf.broadinstitute.org
   paths:
   - /*
   hosts:
-  - jade-1.datarepo-perf.broadinstitute.org
+  - jade-perf.datarepo-perf.broadinstitute.org
 serviceAccount:
   create: true
 rbac:
   create: true
   pspEnabled: true
 nodeSelector:
-  cloud.google.com/gke-nodepool: jade-node-us-central1	
+  cloud.google.com/gke-nodepool: jade-node-us-central1
