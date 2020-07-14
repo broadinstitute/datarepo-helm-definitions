@@ -5,7 +5,7 @@ env:
   GOOGLE_PROJECTID: broad-jade-perf
   GOOGLE_SINGLEDATAPROJECTID: broad-jade-perf-data
   DB_DATAREPO_USERNAME: drmanager
-  SPRING_PROFILES_ACTIVE: google,cloudsql,perf
+  SPRING_PROFILES_ACTIVE: google,cloudsql,perftest
   DB_STAIRWAY_USERNAME: drmanager
   DB_STAIRWAY_URI: jdbc:postgresql://perf-jade-gcloud-sqlproxy.perf:5432/stairway
   DB_DATAREPO_URI: jdbc:postgresql://perf-jade-gcloud-sqlproxy.perf:5432/datarepo
