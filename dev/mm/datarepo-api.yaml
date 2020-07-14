@@ -1,9 +1,9 @@
 ---
 image:
-  tag: 6aca04a-develop
+  tag: marikoJul11f
 env:
   GOOGLE_PROJECTID: broad-jade-dev
-  GOOGLE_SINGLEDATAPROJECTID: broad-jade-mm
+  GOOGLE_SINGLEDATAPROJECTID: broad-jade-mm-data
   DB_DATAREPO_USERNAME: drmanager
   SPRING_PROFILES_ACTIVE: google,cloudsql,dev,mm
   DB_STAIRWAY_USERNAME: drmanager
