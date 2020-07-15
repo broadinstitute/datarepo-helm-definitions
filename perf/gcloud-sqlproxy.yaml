@@ -1,0 +1,17 @@
+---
+googleServiceAccount: perf-workload-proxy-sa@broad-jade-perf.iam.gserviceaccount.com
+cloudsql:
+  instances:
+  - instance: "datarepo-db-jade-9d8cd7b3c9d45365" # GCP instance name.
+    # GCP project where the instance exists.
+    project: "broad-jade-perf"
+    # GCP region where the instance exists.
+    region: "us-central1"
+    # Port number for the proxy to expose for this instance.
+    port: 5432
+rbac:
+  create: true
+networkPolicy:
+  enabled: false
+nodeSelector:
+ cloud.google.com/gke-nodepool: jade-node-us-central1
