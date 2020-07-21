@@ -8,14 +8,6 @@ repositories:
 
 # helm releases to be deployed
 releases:
-  - name: terra-jade-create-secret-manager-secret    # release name
-    namespace: data-repo   # target namespace
-    createNamespace: true
-    chart: datarepo-helm/create-secret-manager-secret   # chart name
-    version: 0.0.5   #    Chart version
-    missingFileHandler: Warn
-    values:
-      - create-secret-manager-secret.yaml      # Value files passed via --values
   - name: terra-jade-gcloud-sqlproxy    # release name
     namespace: data-repo   # target namespace
     createNamespace: true
@@ -28,7 +20,7 @@ releases:
     namespace: data-repo   # target namespace
     createNamespace: true
     chart: datarepo-helm/datarepo-api   # the chart name
-    version: 0.0.14    # chart version
+    version: 0.0.16    # chart version
     missingFileHandler: Warn
     values:
       - datarepo-api.yaml   # Value files passed via --values
