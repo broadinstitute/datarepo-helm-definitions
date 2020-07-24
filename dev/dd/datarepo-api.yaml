@@ -1,6 +1,6 @@
 ---
 image:
-  tag: 68ec114-develop
+  tag: a0fc3a2-develop
 env:
   GOOGLE_PROJECTID: broad-jade-dd
   DB_DATAREPO_USERNAME: drmanager
