@@ -1,6 +1,6 @@
 ---
 image:
-  tag: a85f037-develop
+  tag: 3a70a3c-develop
 env:
   GOOGLE_PROJECTID: broad-datarepo-terra-prod
   DB_DATAREPO_USERNAME: drmanager
