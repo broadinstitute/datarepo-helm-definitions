@@ -1,0 +1,14 @@
+---
+image:
+  tag: 44a5367-develop
+proxyPass:
+  status: http://rc-jade-datarepo-api.rc:8080/status
+  swagger: http://rc-jade-datarepo-api.rc:8080/swagger-ui.html
+  shutdown: http://rc-jade-datarepo-api.rc:8080/shutdown
+  api: http://rc-jade-datarepo-api.rc:8080
+serviceAccount:
+  create: true
+rbac:
+  create: true
+nodeSelector:
+  cloud.google.com/gke-nodepool: dev-node
