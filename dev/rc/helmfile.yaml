@@ -8,6 +8,14 @@ repositories:
 
 # helm releases to be deployed
 releases:
+  - name: rc-jade-create-secret-manager-secret    # release name
+    namespace: rc   # target namespace
+    createNamespace: true
+    chart: datarepo-helm/create-secret-manager-secret   # chart name
+    version: 0.0.5   #    Chart version
+    missingFileHandler: Warn
+    values:
+      - create-secret-manager-secret.yaml      # Value files passed via --values
   - name: rc-jade-gcloud-sqlproxy    # release name
     namespace: data-repo   # target namespace
     createNamespace: true
