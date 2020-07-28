@@ -1,4 +1,4 @@
-## rc env specific skaffold.yaml
+## sh env specific skaffold.yaml
 apiVersion: skaffold/v2alpha2
 kind: Config
 build:
@@ -19,44 +19,44 @@ deploy:
         - --debug
     releases:
 # create secrets
-    - name: rc-jade-create-secret-manager-secret
+    - name: sh-jade-create-secret-manager-secret
       chartPath: https://github.com/broadinstitute/datarepo-helm/releases/download/create-secret-manager-secret-0.0.4/create-secret-manager-secret-0.0.4.tgz
       version: 0.0.5
-      namespace: rc
+      namespace: sh
       remote: true
       valuesFiles:
-      - https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/rc/create-secret-manager-secret.yaml
+      - https://raw.githubuseshontent.com/broadinstitute/datarepo-helm-definitions/master/dev/sh/create-secret-manager-secret.yaml
 # gcp sqlproxy
-    - name: rc-jade-gcloud-sqlproxy
+    - name: sh-jade-gcloud-sqlproxy
       chartPath: https://github.com/broadinstitute/datarepo-helm/releases/download/gcloud-sqlproxy-0.19.7/gcloud-sqlproxy-0.19.7.tgz
       version: 0.19.7
-      namespace: rc
+      namespace: sh
       remote: true
       valuesFiles:
-      - https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/rc/gcloud-sqlproxy.yaml
+      - https://raw.githubuseshontent.com/broadinstitute/datarepo-helm-definitions/master/dev/sh/gcloud-sqlproxy.yaml
 # datarepo-api
-    - name: rc-jade-datarepo-api
+    - name: sh-jade-datarepo-api
       chartPath: https://github.com/broadinstitute/datarepo-helm/releases/download/datarepo-api-0.0.17/datarepo-api-0.0.17.tgz
       version: 0.0.17
-      namespace: rc
+      namespace: sh
       remote: true
       values:
         imageName: gcr.io/broad-jade-dev/jade-data-repo
       valuesFiles:
-      - https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/rc/datarepo-api.yaml
+      - https://raw.githubuseshontent.com/broadinstitute/datarepo-helm-definitions/master/dev/sh/datarepo-api.yaml
 # datarepo-ui
-    - name: rc-jade-datarepo-ui
+    - name: sh-jade-datarepo-ui
       chartPath: https://github.com/broadinstitute/datarepo-helm/releases/download/datarepo-ui-0.0.8/datarepo-ui-0.0.8.tgz
       version: 0.0.8
-      namespace: rc
+      namespace: sh
       remote: true
       valuesFiles:
-      - https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/rc/datarepo-ui.yaml
+      - https://raw.githubuseshontent.com/broadinstitute/datarepo-helm-definitions/master/dev/sh/datarepo-ui.yaml
 # oidc-proxy
-    - name: rc-jade-oidc-proxy
+    - name: sh-jade-oidc-proxy
       chartPath: https://github.com/broadinstitute/datarepo-helm/releases/download/oidc-proxy-0.0.9/oidc-proxy-0.0.9.tgz
       version: 0.0.9
-      namespace: rc
+      namespace: sh
       remote: true
       valuesFiles:
-      - https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/rc/oidc-proxy.yaml
+      - https://raw.githubuseshontent.com/broadinstitute/datarepo-helm-definitions/master/dev/sh/oidc-proxy.yaml
