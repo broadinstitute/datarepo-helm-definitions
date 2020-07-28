@@ -46,7 +46,7 @@ deploy:
       - https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/rc/datarepo-api.yaml
 # datarepo-ui
     - name: rc-jade-datarepo-ui
-      chartPath: https://github.com/broadinstitute/datarepo-helm/releases/download/datarepo-ui-0.0.6/datarepo-ui-0.0.6.tgz
+      chartPath: https://github.com/broadinstitute/datarepo-helm/releases/download/datarepo-ui-0.0.8/datarepo-ui-0.0.8.tgz
       version: 0.0.8
       namespace: rc
       remote: true
