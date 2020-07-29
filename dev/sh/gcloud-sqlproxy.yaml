@@ -1,4 +1,5 @@
 ---
+enabled: true
 googleServiceAccount: sh-proxy-sa@broad-jade-dev.iam.gserviceaccount.com
 cloudsql:
   instances:
