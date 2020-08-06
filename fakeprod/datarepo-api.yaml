@@ -1,6 +1,7 @@
 ---
+replicaCount: 3
 image:
-  tag: 3a70a3c-develop
+  tag: ce09d0f-develop
 env:
   GOOGLE_PROJECTID: broad-datarepo-terra-prod
   DB_DATAREPO_USERNAME: drmanager
