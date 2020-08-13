@@ -3,7 +3,7 @@ image:
   tag: 68ec114-develop
 env:
   GOOGLE_PROJECTID: broad-jade-perf
-  GOOGLE_SINGLEDATAPROJECTID: broad-jade-perf-data
+  GOOGLE_SINGLEDATAPROJECTID: broad-jade-perf-data2
   DB_DATAREPO_USERNAME: drmanager
   SPRING_PROFILES_ACTIVE: google,cloudsql,perftest
   DB_STAIRWAY_USERNAME: drmanager
