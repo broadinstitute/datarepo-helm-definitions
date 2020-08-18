@@ -1,6 +1,6 @@
 ---
 image:
-  tag: 278c990-develop
+  tag: d807f5f-develop
 env:
   GOOGLE_PROJECTID: broad-jade-perf
   GOOGLE_SINGLEDATAPROJECTID: broad-jade-perf-data2
@@ -11,8 +11,6 @@ env:
   DB_DATAREPO_URI: jdbc:postgresql://perf-jade-gcloud-sqlproxy.perf:5432/datarepo
   IT_JADE_API_URL: https://jade-perf.datarepo-perf.broadinstitute.org
   DATAREPO_GCS_ALLOWREUSEEXISTINGBUCKETS: true
-  DATAREPO_RESOURCEID: broad-jade-perf
-  SAM_STEWARDSGROUPEMAIL: JadeStewards-perf@dev.test.firecloud.org
 serviceAccount:
   create: true
 rbac:
