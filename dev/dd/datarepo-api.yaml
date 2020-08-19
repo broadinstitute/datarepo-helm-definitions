@@ -3,11 +3,12 @@ image:
   tag: a0fc3a2-develop
 env:
   GOOGLE_PROJECTID: broad-jade-dd
+  GOOGLE_SINGLEDATAPROJECTID: broad-jade-dd-data
   DB_DATAREPO_USERNAME: drmanager
   SPRING_PROFILES_ACTIVE: google,cloudsql,dev,dd
   DB_STAIRWAY_USERNAME: drmanager
   DB_STAIRWAY_URI: jdbc:postgresql://dd-jade-gcloud-sqlproxy.dd:5432/stairway-dd
-  DB_DATAREPO_URI: jdbc:postgresql://dd-jade-gcloud-sqlproxy.dd:5432/datarepo-dd
+  DB_DATAREPO_URI: jdbc:postgresql://dd-jade-gcloud-sqlproxy.dd:5432/datarepo-dd 
 serviceAccount:
   create: true
 rbac:
