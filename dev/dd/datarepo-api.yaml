@@ -8,7 +8,7 @@ env:
   SPRING_PROFILES_ACTIVE: google,cloudsql,dev,dd,perftest
   DB_STAIRWAY_USERNAME: drmanager
   DB_STAIRWAY_URI: jdbc:postgresql://dd-jade-gcloud-sqlproxy.dd:5432/stairway-dd
-  DB_DATAREPO_URI: jdbc:postgresql://dd-jade-gcloud-sqlproxy.dd:5432/datarepo-dd 
+  DB_DATAREPO_URI: jdbc:postgresql://dd-jade-gcloud-sqlproxy.dd:5432/datarepo-dd
 serviceAccount:
   create: true
 rbac:
