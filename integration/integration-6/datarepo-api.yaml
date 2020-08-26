@@ -1,0 +1,25 @@
+---
+image:
+  tag: 68ec114-develop
+env:
+  GOOGLE_PROJECTID: broad-jade-integration
+  GOOGLE_SINGLEDATAPROJECTID: broad-jade-int-6-data
+  DB_DATAREPO_USERNAME: drmanager
+  SPRING_PROFILES_ACTIVE: google,cloudsql,integration
+  DB_STAIRWAY_USERNAME: drmanager
+  DB_STAIRWAY_URI: jdbc:postgresql://integration-6-jade-gcloud-sqlproxy.integration-6:5432/stairway-3
+  DB_DATAREPO_URI: jdbc:postgresql://integration-6-jade-gcloud-sqlproxy.integration-6:5432/datarepo-3
+  IT_JADE_API_URL: https://jade-3.datarepo-integration.broadinstitute.org
+  DATAREPO_GCS_ALLOWREUSEEXISTINGBUCKETS: true
+serviceAccount:
+  create: true
+rbac:
+  create: true
+  pspEnabled: true
+existingSecretDB: "database-pwd-integration-6"
+existingDatarepoDbSecretKey: "datarepopassword"
+existingStairwayDbSecretKey: "stairwaypassword"
+existingSecretSA: "jade-sa"
+existingServiceAccountSecretKey: "datareposerviceaccount"
+nodeSelector:
+  cloud.google.com/gke-nodepool: integration-node
