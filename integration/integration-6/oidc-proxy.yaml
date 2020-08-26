@@ -12,7 +12,7 @@ env:
     application/x-javascript
 ingress:
   enabled: true
-  domainName: jade-3.datarepo-integration.broadinstitute.org
+  domainName: jade-6.datarepo-integration.broadinstitute.org
   annotations:
     kubernetes.io/ingress.global-static-ip-name: integration-ip-6
   tls:

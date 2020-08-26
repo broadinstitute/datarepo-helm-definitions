@@ -28,7 +28,7 @@ datarepo-api:
     DB_STAIRWAY_USERNAME: drmanager
     DB_STAIRWAY_URI: jdbc:postgresql://integration-6-jade-gcloud-sqlproxy.integration-6:5432/stairway-6
     DB_DATAREPO_URI: jdbc:postgresql://integration-6-jade-gcloud-sqlproxy.integration-6:5432/datarepo-6
-    IT_JADE_API_URL: https://jade-3.datarepo-integration.broadinstitute.org
+    IT_JADE_API_URL: https://jade-6.datarepo-integration.broadinstitute.org
     DATAREPO_GCS_ALLOWREUSEEXISTINGBUCKETS: true
   serviceAccount:
     create: true
@@ -72,16 +72,16 @@ oidc-proxy:
       application/x-javascript
   ingress:
     enabled: true
-    domainName: jade-3.datarepo-integration.broadinstitute.org
+    domainName: jade-6.datarepo-integration.broadinstitute.org
     annotations:
-      kubernetes.io/ingress.global-static-ip-name: integration-ip-3
+      kubernetes.io/ingress.global-static-ip-name: integration-ip-6
     tls:
     - hosts:
-      - jade-3.datarepo-integration.broadinstitute.org
+      - jade-6.datarepo-integration.broadinstitute.org
     paths:
     - /*
     hosts:
-    - jade-3.datarepo-integration.broadinstitute.org
+    - jade-6.datarepo-integration.broadinstitute.org
   serviceAccount:
     create: true
   rbac:
