@@ -14,14 +14,14 @@ ingress:
   enabled: true
   domainName: jade-3.datarepo-integration.broadinstitute.org
   annotations:
-    kubernetes.io/ingress.global-static-ip-name: integration-ip-3
+    kubernetes.io/ingress.global-static-ip-name: integration-ip-6
   tls:
   - hosts:
-    - jade-3.datarepo-integration.broadinstitute.org
+    - jade-6.datarepo-integration.broadinstitute.org
   paths:
   - /*
   hosts:
-  - jade-3.datarepo-integration.broadinstitute.org
+  - jade-6.datarepo-integration.broadinstitute.org
 serviceAccount:
   create: true
 rbac:
