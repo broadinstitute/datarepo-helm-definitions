@@ -29,6 +29,7 @@ datarepo-api:
     DB_STAIRWAY_USERNAME: drmanager
     DB_STAIRWAY_URI: jdbc:postgresql://dev-jade-gcloud-sqlproxy.dev:5432/stairway
     DB_DATAREPO_URI: jdbc:postgresql://dev-jade-gcloud-sqlproxy.dev:5432/datarepo
+    DATAREPO_DNSNAME: jade.datarepo-dev.broadinstitute.org
   serviceAccount:
     create: true
   rbac:
