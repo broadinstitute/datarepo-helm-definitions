@@ -11,7 +11,7 @@ env:
   DB_DATAREPO_URI: jdbc:postgresql://sh-jade-gcloud-sqlproxy.sh:5432/datarepo-sh
   DB_MIGRATE_DROPALLONSTART: true
   DATAREPO_GCS_ALLOWREUSEEXISTINGBUCKETS: true
-  DATAREPO_DNSNAME: jade.datarepo-dev.broadinstitute.org
+  DATAREPO_DNSNAME: jade-sh.datarepo-dev.broadinstitute.org
 serviceAccount:
   create: true
 rbac:
