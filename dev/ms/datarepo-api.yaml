@@ -8,6 +8,8 @@ env:
   DB_STAIRWAY_USERNAME: drmanager
   DB_STAIRWAY_URI: jdbc:postgresql://ms-jade-gcloud-sqlproxy.ms:5432/stairway-ms
   DB_DATAREPO_URI: jdbc:postgresql://ms-jade-gcloud-sqlproxy.ms:5432/datarepo-ms
+  DATAREPO_DNSNAME: jade-ms.datarepo-dev.broadinstitute.org
+  IT_JADE_API_URL: https://jade-ms.datarepo-dev.broadinstitute.org
 serviceAccount:
   create: true
 rbac:

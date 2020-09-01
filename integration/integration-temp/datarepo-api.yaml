@@ -10,6 +10,7 @@ env:
   DB_STAIRWAY_USERNAME: drmanager
   DB_STAIRWAY_URI: jdbc:postgresql://integration-temp-jade-gcloud-sqlproxy.integration-temp:5432/stairway-temp
   DB_DATAREPO_URI: jdbc:postgresql://integration-temp-jade-gcloud-sqlproxy.integration-temp:5432/datarepo-temp
+  DATAREPO_DNSNAME: jade-temp.datarepo-integration.broadinstitute.org
   IT_JADE_API_URL: https://jade-temp.datarepo-integration.broadinstitute.org
   DATAREPO_GCS_ALLOWREUSEEXISTINGBUCKETS: true
 serviceAccount:
