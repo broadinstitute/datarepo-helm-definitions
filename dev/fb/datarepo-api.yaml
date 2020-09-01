@@ -9,6 +9,7 @@ env:
   DB_STAIRWAY_URI: jdbc:postgresql://fb-jade-gcloud-sqlproxy.fb:5432/stairway-fb
   DB_DATAREPO_URI: jdbc:postgresql://fb-jade-gcloud-sqlproxy.fb:5432/datarepo-fb
   DATAREPO_DNSNAME: jade-fb.datarepo-dev.broadinstitute.org
+  IT_JADE_API_URL: https://jade-fb.datarepo-dev.broadinstitute.org
 serviceAccount:
   create: true
 rbac:

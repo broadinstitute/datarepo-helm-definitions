@@ -11,6 +11,7 @@ env:
   DB_DATAREPO_URI: jdbc:postgresql://terra-jade-gcloud-sqlproxy.data-repo:5432/datarepo
   DATAREPO_RESOURCEID: datarepo-terra
   DATAREPO_DNSNAME: jade-terra.datarepo-prod.broadinstitute.org
+  IT_JADE_API_URL: https://jade-terra.datarepo-prod.broadinstitute.org
   DB_STAIRWAY_FORCECLEAN: false
   SAM_BASEPATH: https://sam.dsde-prod.broadinstitute.org
   SAM_STEWARDSGROUPEMAIL: Stewards@firecloud.org

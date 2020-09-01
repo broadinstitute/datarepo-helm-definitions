@@ -10,6 +10,7 @@ env:
   DB_STAIRWAY_URI: jdbc:postgresql://dd-jade-gcloud-sqlproxy.dd:5432/stairway-dd
   DB_DATAREPO_URI: jdbc:postgresql://dd-jade-gcloud-sqlproxy.dd:5432/datarepo-dd
   DATAREPO_DNSNAME: jade-dd.datarepo-dev.broadinstitute.org
+  IT_JADE_API_URL: https://jade-dd.datarepo-dev.broadinstitute.org
 serviceAccount:
   create: true
 rbac:

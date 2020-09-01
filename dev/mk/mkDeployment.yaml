@@ -31,6 +31,7 @@ datarepo-api:
     DB_STAIRWAY_URI: jdbc:postgresql://mk-jade-gcloud-sqlproxy.mk:5432/stairway-mk
     DB_DATAREPO_URI: jdbc:postgresql://mk-jade-gcloud-sqlproxy.mk:5432/datarepo-mk
     DATAREPO_DNSNAME: jade-mk.datarepo-dev.broadinstitute.org
+    IT_JADE_API_URL: https://jade-mk.datarepo-dev.broadinstitute.org
   serviceAccount:
     create: true
   rbac:
