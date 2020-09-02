@@ -19,7 +19,7 @@ gcloud-sqlproxy:
 datarepo-api:
   enabled: true
   image:
-    tag: c4080c9-develop
+    tag: c5e7972-develop
   env:
     GOOGLE_PROJECTID: broad-jade-integration
     GOOGLE_SINGLEDATAPROJECTID: broad-jade-int-5-data
@@ -28,8 +28,10 @@ datarepo-api:
     DB_STAIRWAY_USERNAME: drmanager
     DB_STAIRWAY_URI: jdbc:postgresql://integration-5-jade-gcloud-sqlproxy.integration-5:5432/stairway-5
     DB_DATAREPO_URI: jdbc:postgresql://integration-5-jade-gcloud-sqlproxy.integration-5:5432/datarepo-5
+    DATAREPO_DNSNAME: jade-5.datarepo-integration.broadinstitute.org
     IT_JADE_API_URL: https://jade-5.datarepo-integration.broadinstitute.org
     DATAREPO_GCS_ALLOWREUSEEXISTINGBUCKETS: true
+    DB_MIGRATE_DROPALLONSTART: true
   serviceAccount:
     create: true
   rbac:
@@ -45,7 +47,7 @@ datarepo-api:
 datarepo-ui:
   enabled: true
   image:
-    tag: e198657-develop
+    tag: 09444e5-develop
   proxyPass:
     status: http://integration-5-jade-datarepo-api.integration-5:8080/status
     swagger: http://integration-5-jade-datarepo-api.integration-5:8080/swagger-ui.html
