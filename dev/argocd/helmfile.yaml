@@ -15,7 +15,7 @@ releases:
     chart: monster/gcp-managed-cert   # chart name
     missingFileHandler: Warn
     values:
-      - managedcert.yaml      # Value files passed via --values
+      - domainName: argocd.datarepo-dev.broadinstitute.org     # Value files passed via --values
   - name: argocd-application-controller    # release name
     namespace: argocd   # target namespace
     createNamespace: true
