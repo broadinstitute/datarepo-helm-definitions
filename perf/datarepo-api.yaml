@@ -11,8 +11,8 @@ env:
   DB_DATAREPO_URI: jdbc:postgresql://perf-jade-gcloud-sqlproxy.perf:5432/datarepo
   DATAREPO_DNSNAME: jade-perf.datarepo-perf.broadinstitute.org
   IT_JADE_API_URL: https://jade-perf.datarepo-perf.broadinstitute.org
-  DATAREPO_RESOURCEID: broad-jade-dev
-  SAM_STEWARDSGROUPEMAIL: JadeStewards-dev@dev.test.firecloud.org
+  DATAREPO_RESOURCEID: broad-jade-perf
+  SAM_STEWARDSGROUPEMAIL: JadeStewards-perf@dev.test.firecloud.org
   DB_MIGRATE_DROPALLONSTART: true
   DATAREPO_GCS_ALLOWREUSEEXISITINGBUCKETS: true
 serviceAccount:
