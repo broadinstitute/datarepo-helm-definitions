@@ -1,0 +1,24 @@
+---
+image:
+  tag: 1.0.90
+env:
+  GOOGLE_PROJECTID: broad-jade-nm
+  DB_DATAREPO_USERNAME: drmanager
+  SPRING_PROFILES_ACTIVE: google,cloudsql,dev,nm
+  DB_STAIRWAY_USERNAME: drmanager
+  DB_STAIRWAY_URI: jdbc:postgresql://nm-jade-gcloud-sqlproxy.nm:5432/stairway-nm
+  DB_DATAREPO_URI: jdbc:postgresql://nm-jade-gcloud-sqlproxy.nm:5432/datarepo-nm
+  DATAREPO_DNSNAME: jade-nm.datarepo-dev.broadinstitute.org
+  IT_JADE_API_URL: https://jade-nm.datarepo-dev.broadinstitute.org
+serviceAccount:
+  create: true
+rbac:
+  create: true
+  pspEnabled: true
+existingSecretDB: "database-pwd-nm"
+existingDatarepoDbSecretKey: "datarepopassword"
+existingStairwayDbSecretKey: "stairwaypassword"
+existingSecretSA: "jade-sa"
+existingServiceAccountSecretKey: "datareposerviceaccount"
+nodeSelector:
+  cloud.google.com/gke-nodepool: dev-node
