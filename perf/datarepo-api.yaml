@@ -1,6 +1,6 @@
 ---
 image:
-  tag: 90dde5d-develop
+  tag: 3e8fb42-develop
 env:
   GOOGLE_PROJECTID: broad-jade-perf
   GOOGLE_SINGLEDATAPROJECTID: broad-jade-perf-data2
