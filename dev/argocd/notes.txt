@@ -14,6 +14,8 @@
 # post install
 # argocd login argocd.datarepo-dev.broadinstitute.org:443 --sso --grpc-web
 # dev datarepo
+# add cluster
+# argocd cluster add gke_broad-jade-perf_us-central1_jade-master-us-central1
 # argocd app create dev-secrets --repo https://broadinstitute.github.io/datarepo-helm --helm-chart create-secret-manager-secret --revision 0.0.4 --dest-namespace dev --values "https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/dev/devSecrets.yaml" --dest-server "https://kubernetes.default.svc" --sync-policy automated --self-heal
 # argocd app create dev-certificate --repo https://broadinstitute.github.io/monster-helm --helm-chart gcp-managed-cert --revision 0.1.1 --dest-namespace dev --values "https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/dev/devManagedcert.yaml" --dest-server "https://kubernetes.default.svc" --sync-policy automated --self-heal
 # argocd app create dev-jade --repo https://broadinstitute.github.io/datarepo-helm --helm-chart datarepo --revision 0.1.2 --dest-namespace dev --values "https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/dev/devDeployment.yaml" --dest-server "https://kubernetes.default.svc" --sync-policy automated --self-heal
