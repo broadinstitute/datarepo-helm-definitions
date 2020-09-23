@@ -1,6 +1,5 @@
----
 image:
-  tag: a5c9351-develop
+  tag: 1.0.97
 env:
   GOOGLE_PROJECTID: broad-jade-perf
   GOOGLE_SINGLEDATAPROJECTID: broad-jade-perf-data2
