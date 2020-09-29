@@ -1,5 +1,5 @@
 image:
-  tag: c8e41b0
+  tag: $LATEST_GITHASH
 env:
   GOOGLE_PROJECTID: broad-jade-perf
   GOOGLE_SINGLEDATAPROJECTID: broad-jade-perf-data2
