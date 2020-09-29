@@ -1,5 +1,5 @@
 image:
-  tag: 6dd7962
+  tag: 11183c9
 env:
   GOOGLE_PROJECTID: broad-jade-perf
   GOOGLE_SINGLEDATAPROJECTID: broad-jade-perf-data2
