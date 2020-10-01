@@ -64,7 +64,8 @@ kube-prometheus-stack:
         kubernetes.io/ingress.allow-http: "false"
         networking.gke.io/managed-certificates: "datarepo-monitoring"
       tls:
-        - secretName: grafana-tls-key
+        - hosts:
+            - grafana.datarepo-dev.broadinstitute.org
 
   alertmanager:
     alertmanagerSpec:
