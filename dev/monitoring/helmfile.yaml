@@ -8,7 +8,7 @@ releases:
   - name: datarepo-monitoring   # release name
     namespace: monitoring   # target namespace
     createNamespace: true
-    chart: ../../../datarepo-helm/charts/datarepo-monitoring   # chart name
+    chart: datarepo-helm/datarepo-monitoring   # chart name
     missingFileHandler: Warn
     values:
       - datarepo-monitoring.yaml
