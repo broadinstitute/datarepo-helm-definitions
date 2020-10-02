@@ -32,10 +32,10 @@ kube-prometheus-stack:
           cloud.google.com/gke-nodepool: dev-node
     createCustomResource: false
   prometheus:
+    serviceAccount:
+      annotations:
+        iam.gke.io/gcp-service-account: sidecar-test-mark@broad-jade-dev.iam.gserviceaccount.com      # workloadID annotation for sidecar to write to stackdriver
     prometheusSpec:
-      image:
-        repository: quay.io/prometheus/prometheus
-        tag: v2.18.1
       serviceMonitorSelectorNilUsesHelmValues: false
       serviceMonitorSelector: {}
       serviceMonitorNamespaceSelector: {}
