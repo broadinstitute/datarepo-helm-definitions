@@ -11,9 +11,15 @@ create-secret-manager-secret:
 backend-config:
   enabled: true
 
-gcp-managed-cert:
+grafana-gcp-managed-cert:
   enabled: true
+  fullnameOverride: grafana-gcp-managed-cert
   domainName: grafana.datarepo-dev.broadinstitute.org
+
+prometheus-gcp-managed-cert:
+  enabled: false
+  fullnameOverride: prometheus-gcp-managed-cert
+  domainName: data-prometheus.datarepo-dev.broadinstitute.org
 
 kube-prometheus-stack:
   enabled: true
@@ -51,7 +57,7 @@ kube-prometheus-stack:
     envFromSecret: "grafana-google-client-secret"
     service:
       annotations:
-        beta.cloud.google.com/backend-config: '{"ports": {"80":"ip-whitelist-backend-config"}}'
+        beta.cloud.google.com/backend-config: '{"ports": {"80":"datarepo-monitoring-backend-config"}}'
       type: NodePort
     ingress:
       enabled: true
@@ -62,10 +68,11 @@ kube-prometheus-stack:
       annotations:
         kubernetes.io/ingress.global-static-ip-name: grafana-k8-100
         kubernetes.io/ingress.allow-http: "false"
-        networking.gke.io/managed-certificates: "datarepo-monitoring"
+        networking.gke.io/managed-certificates: "grafana-gcp-managed-cert"
       tls:
         - hosts:
             - grafana.datarepo-dev.broadinstitute.org
+            - grafana-global-dev.datarepo-dev.broadinstitute.org
 
   alertmanager:
     alertmanagerSpec:
