@@ -22,4 +22,4 @@ existingStairwayDbSecretKey: "stairwaypassword"
 existingSecretSA: "jade-sa"
 existingServiceAccountSecretKey: "datareposerviceaccount"
 nodeSelector:
-  cloud.google.com/gke-nodepool: integration-node
+  cloud.google.com/gke-nodepool: integration-node-2
