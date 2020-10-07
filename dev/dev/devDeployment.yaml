@@ -43,7 +43,7 @@ datarepo-api:
   existingServiceAccountSecretKey: "datareposerviceaccount"
   nodeSelector:
     cloud.google.com/gke-nodepool: dev-node-2
-  replicas: 3
+  replicaCount: 3
 datarepo-ui:
   enabled: true
   image:
