@@ -49,6 +49,7 @@ kube-prometheus-stack:
         cloud.google.com/backend-config: '{"ports": {"9090": "datarepo-monitoring-backend-config"}}'
       type: NodePort
     prometheusSpec:
+      externalUrl: https://datarepo-prometheus.datarepo-perf.broadinstitute.org
       serviceMonitorSelectorNilUsesHelmValues: false
       serviceMonitorSelector: {}
       serviceMonitorNamespaceSelector: {}
