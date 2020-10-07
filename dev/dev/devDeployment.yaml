@@ -16,11 +16,11 @@ gcloud-sqlproxy:
   existingSecret: sqlproxy-sa-dev
   existingSecretKey: sa
   nodeSelector:
-    cloud.google.com/gke-nodepool: dev-node
+    cloud.google.com/gke-nodepool: dev-node-2
 datarepo-api:
   enabled: true
   image:
-    tag: d85316a-develop
+    tag: 8e1a5a9-develop
   env:
     GOOGLE_PROJECTID: broad-jade-dev
     GOOGLE_SINGLEDATAPROJECTID: broad-jade-dev-data
@@ -42,11 +42,12 @@ datarepo-api:
   existingSecretSA: "jade-sa"
   existingServiceAccountSecretKey: "datareposerviceaccount"
   nodeSelector:
-    cloud.google.com/gke-nodepool: dev-node
+    cloud.google.com/gke-nodepool: dev-node-2
+  replicaCount: 3
 datarepo-ui:
   enabled: true
   image:
-    tag: 458c78a-develop
+    tag: 6ddfe11-develop
   proxyPass:
     status: http://dev-jade-datarepo-api.dev:8080/status
     swagger: http://dev-jade-datarepo-api.dev:8080/swagger-ui.html
@@ -57,7 +58,7 @@ datarepo-ui:
   rbac:
     create: true
   nodeSelector:
-    cloud.google.com/gke-nodepool: dev-node
+    cloud.google.com/gke-nodepool: dev-node-2
 oidc-proxy:
   enabled: true
   env:
@@ -88,4 +89,4 @@ oidc-proxy:
     create: true
     pspEnabled: true
   nodeSelector:
-    cloud.google.com/gke-nodepool: dev-node
+    cloud.google.com/gke-nodepool: dev-node-2
