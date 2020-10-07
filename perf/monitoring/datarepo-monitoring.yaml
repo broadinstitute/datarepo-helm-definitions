@@ -25,7 +25,7 @@ kube-prometheus-stack:
   enabled: true
   prometheusOperator:
     admissionWebhooks:
-      enabled: "false"
+      enabled: false
     createCustomResource: "false"
   prometheus:
     serviceAccount:
