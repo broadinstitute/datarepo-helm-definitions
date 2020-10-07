@@ -15,7 +15,7 @@ gcloud-sqlproxy:
   networkPolicy:
     enabled: false
   nodeSelector:
-    cloud.google.com/gke-nodepool: integration-node
+    cloud.google.com/gke-nodepool: integration-node-2
 datarepo-api:
   enabled: true
   image:
@@ -41,7 +41,7 @@ datarepo-api:
   existingSecretSA: "jade-sa"
   existingServiceAccountSecretKey: "datareposerviceaccount"
   nodeSelector:
-    cloud.google.com/gke-nodepool: integration-node
+    cloud.google.com/gke-nodepool: integration-node-2
 datarepo-ui:
   enabled: true
   image:
@@ -56,7 +56,7 @@ datarepo-ui:
   rbac:
     create: true
   nodeSelector:
-    cloud.google.com/gke-nodepool: integration-node
+    cloud.google.com/gke-nodepool: integration-node-2
 oidc-proxy:
   enabled: true
   replicaCount: 1
@@ -88,4 +88,4 @@ oidc-proxy:
     create: true
     pspEnabled: true
   nodeSelector:
-    cloud.google.com/gke-nodepool: integration-node
+    cloud.google.com/gke-nodepool: integration-node-2
