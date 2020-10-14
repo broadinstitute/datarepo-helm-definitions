@@ -1,0 +1,18 @@
+---
+repositories:
+  - name: datarepo-helm
+    url: https://broadinstitute.github.io/datarepo-helm
+
+helmDefaults:
+  createNamespace: true
+
+# helm releases to be deployed
+releases:
+  - name: datarepomonitoring   # release name
+    namespace: monitoring   # target namespace
+    createNamespace: true
+    chart: datarepo-helm/datarepomonitoring   # chart name
+    version: 0.0.2
+    missingFileHandler: Warn
+    values:
+      - datarepomonitoring.yaml
