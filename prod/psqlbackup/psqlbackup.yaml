@@ -1,0 +1,16 @@
+---
+create-secret-manager-secret:
+  enabled: true
+  secrets:
+    - secretName: jade-sa
+      vals:
+        - kubeSecretKey: datareposerviceaccount
+          path: secret/dsde/datarepo/production/datarepo-api-sa
+          encoding: base64
+          vaultKey: key
+
+googleProjectId: terra-datarepo-production
+sqlInstanceName: jade-postgres-11-8a00fd4d3b
+googleServiceAccount: jade-k8-sa@broad-jade-dev.iam.gserviceaccount.com
+existingSecret: jade-sa
+existingSecretKey: datareposerviceaccount
