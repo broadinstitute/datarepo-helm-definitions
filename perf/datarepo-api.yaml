@@ -1,5 +1,5 @@
 image:
-  tag: 8d12c62
+  tag: 1.0.134
 replicaCount: 3
 env:
   GOOGLE_PROJECTID: broad-jade-perf
