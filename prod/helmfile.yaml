@@ -19,7 +19,7 @@ releases:
   - name: psqlbackup   # release name
     namespace: psqlbackup   # target namespace
     createNamespace: true
-    chart: datarepo-helm/charts/sqlbackup   # chart name
+    chart: datarepo-helm/sqlbackup   # chart name
     version: 0.0.1
     missingFileHandler: Warn
     values:
