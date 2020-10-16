@@ -1,0 +1,62 @@
+# single env example file
+# helm file dependencies
+# helm plugin install https://github.com/databus23/helm-diff
+# repositories to be installed
+repositories:
+  - name: datarepo-helm
+    url: https://broadinstitute.github.io/datarepo-helm
+
+helmDefaults:
+  createNamespace: true
+
+environments:
+  integration-1:
+  integration-2:
+  integration-3:
+  integration-4:
+  integration-5:
+  integration-6:
+
+# helm releases to be deployed
+releases:
+# env integration 1-6
+  - name: {{ .Environment.Name }}-create-secret-manager-secret    # release name
+    namespace: {{ .Environment.Name }}   # target namespace
+    createNamespace: true
+    chart: datarepo-helm/create-secret-manager-secret   # chart name
+    version: 0.0.6   #    Chart version
+    missingFileHandler: Warn
+    values:
+      - {{ .Environment.Name }}/{{ .Environment.Name }}-create-secret-manager-secret.yaml      # Value files passed via --values
+  - name: {{ .Environment.Name }}-jade-gcloud-sqlproxy    # release name
+    namespace: {{ .Environment.Name }}   # target namespace
+    createNamespace: true
+    chart: datarepo-helm/gcloud-sqlproxy   # chart name
+    version: 0.19.7 #    Chart version
+    missingFileHandler: Warn
+    values:
+      - {{ .Environment.Name }}/gcloud-sqlproxy.yaml    # Value files passed via --values
+  - name: {{ .Environment.Name }}-jade-datarepo-api   # name of this release
+    namespace: {{ .Environment.Name }}   # target namespace
+    createNamespace: true
+    chart: datarepo-helm/datarepo-api   # the chart name
+    version: 0.0.21    # chart version
+    missingFileHandler: Warn
+    values:
+      - {{ .Environment.Name }}/datarepo-api.yaml   # Value files passed via --values
+  - name: {{ .Environment.Name }}-jade-datarepo-ui   # name of this release
+    namespace: {{ .Environment.Name }}   # target namespace
+    createNamespace: true
+    chart: datarepo-helm/datarepo-ui   # the chart name
+    version: 0.0.12    # chart version
+    missingFileHandler: Warn
+    values:
+      - {{ .Environment.Name }}/datarepo-ui.yaml   # Value files passed via --values
+  - name: {{ .Environment.Name }}-jade-oidc-proxy   # name of this release
+    namespace: {{ .Environment.Name }}   # target namespace
+    createNamespace: true
+    chart: datarepo-helm/oidc-proxy   # the chart name
+    version: 0.0.13    # chart version
+    missingFileHandler: Warn
+    values:
+      - {{ .Environment.Name }}/oidc-proxy.yaml   # Value files passed via --values

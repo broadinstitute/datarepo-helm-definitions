@@ -15,4 +15,4 @@ releases:
     version: 0.0.2
     missingFileHandler: Warn
     values:
-      - datarepomonitoring.yaml
+      - datarepomonitoring/datarepomonitoring.yaml

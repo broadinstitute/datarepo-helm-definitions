@@ -6,16 +6,19 @@ repositories:
   - name: datarepo-helm
     url: https://broadinstitute.github.io/datarepo-helm
 
+helmDefaults:
+  createNamespace: true
+
 # helm releases to be deployed
 releases:
   - name: perf-jade-create-secret-manager-secret    # release name
     namespace: perf   # target namespace
     createNamespace: true
     chart: datarepo-helm/create-secret-manager-secret   # chart name
-    version: 0.0.5   #    Chart version
+    version: 0.0.6   #    Chart version
     missingFileHandler: Warn
     values:
-      - create-secret-manager-secret.yaml      # Value files passed via --values
+      - datarepo/create-secret-manager-secret.yaml      # Value files passed via --values
   - name: perf-jade-gcloud-sqlproxy    # release name
     namespace: perf   # target namespace
     createNamespace: true
@@ -23,28 +26,35 @@ releases:
     version: 0.19.7 #    Chart version
     missingFileHandler: Warn
     values:
-      - gcloud-sqlproxy.yaml    # Value files passed via --values
+      - datarepo/gcloud-sqlproxy.yaml    # Value files passed via --values
   - name: perf-jade-datarepo-api   # name of this release
     namespace: perf   # target namespace
     createNamespace: true
     chart: datarepo-helm/datarepo-api   # the chart name
-    version: 0.0.17    # chart version
+    version: 0.0.21    # chart version
     missingFileHandler: Warn
     values:
-      - datarepo-api.yaml   # Value files passed via --values
+      - datarepo/datarepo-api.yaml   # Value files passed via --values
   - name: perf-jade-datarepo-ui   # name of this release
     namespace: perf   # target namespace
     createNamespace: true
     chart: datarepo-helm/datarepo-ui   # the chart name
-    version: 0.0.8    # chart version
+    version: 0.0.12    # chart version
     missingFileHandler: Warn
     values:
-      - datarepo-ui.yaml   # Value files passed via --values
+      - datarepo/datarepo-ui.yaml   # Value files passed via --values
   - name: perf-jade-oidc-proxy   # name of this release
     namespace: perf   # target namespace
     createNamespace: true
     chart: datarepo-helm/oidc-proxy   # the chart name
-    version: 0.0.9    # chart version
+    version: 0.0.13    # chart version
     missingFileHandler: Warn
     values:
-      - oidc-proxy.yaml   # Value files passed via --values
+      - datarepo/oidc-proxy.yaml   # Value files passed via --values
+  - name: datarepo-monitoring   # release name
+    namespace: monitoring   # target namespace
+    createNamespace: true
+    chart: datarepo-helm/datarepo-monitoring   # chart name
+    missingFileHandler: Warn
+    values:
+      - monitoring/datarepo-monitoring.yaml
