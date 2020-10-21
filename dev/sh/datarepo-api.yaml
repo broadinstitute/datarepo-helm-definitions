@@ -1,6 +1,6 @@
 ---
 image:
-  tag: 1.0.129
+  tag: 1.0.134
 env:
   GOOGLE_PROJECTID: broad-jade-dev
   GOOGLE_SINGLEDATAPROJECTID: broad-jade-sh-data
