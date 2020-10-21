@@ -9,8 +9,13 @@ repositories:
 helmDefaults:
   createNamespace: true
 
+environments:
+  datarepo-monitoring:
+  datarepo:
+
 # helm releases to be deployed
 releases:
+{{- if eq .Environment.Name "datarepo" }}
   - name: perf-jade-create-secret-manager-secret    # release name
     namespace: perf   # target namespace
     createNamespace: true
@@ -51,10 +56,15 @@ releases:
     missingFileHandler: Warn
     values:
       - datarepo/oidc-proxy.yaml   # Value files passed via --values
+{{- end -}}
+{{- if eq .Environment.Name "datarepo-monitoring" }}
   - name: datarepo-monitoring   # release name
     namespace: monitoring   # target namespace
     createNamespace: true
-    chart: datarepo-helm/datarepo-monitoring   # chart name
+    version: 0.0.2
+    chart: datarepo-helm/datarepomonitoring   # chart name
     missingFileHandler: Warn
     values:
       - monitoring/datarepo-monitoring.yaml
+
+{{- end }}
