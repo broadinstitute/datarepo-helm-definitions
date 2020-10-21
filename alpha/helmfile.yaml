@@ -10,7 +10,6 @@ helmDefaults:
 releases:
   - name: datarepomonitoring   # release name
     namespace: monitoring   # target namespace
-    createNamespace: true
     chart: datarepo-helm/datarepomonitoring   # chart name
     version: 0.0.2
     missingFileHandler: Warn

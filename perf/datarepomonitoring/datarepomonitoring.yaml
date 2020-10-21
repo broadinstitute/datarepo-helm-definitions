@@ -48,7 +48,7 @@ kube-prometheus-stack:
             - datarepo-prometheus.datarepo-perf.broadinstitute.org
     service:
       annotations:
-        cloud.google.com/backend-config: '{"ports": {"9090": "datarepo-monitoring-backend-config"}}'
+        cloud.google.com/backend-config: '{"ports": {"9090": "datarepomonitoring-backend-config"}}'
       type: NodePort
     prometheusSpec:
       externalUrl: https://datarepo-prometheus.datarepo-perf.broadinstitute.org
@@ -73,7 +73,7 @@ kube-prometheus-stack:
             - name: stackdriver-exp
               containerPort: 9091
           volumeMounts:
-            - name: prometheus-datarepo-monitoring-kube-p-prometheus-db       #  in deployment yaml changes with helm deploy
+            - name: prometheus-datarepomonitoring-kube-pr-prometheus-db       #  in deployment yaml changes with helm deploy
               mountPath: /prometheus
   grafana:
     rbac:
@@ -95,7 +95,7 @@ kube-prometheus-stack:
     envFromSecret: "grafana-google-client-secret"
     service:
       annotations:
-        cloud.google.com/backend-config: '{"ports": {"80":"datarepo-monitoring-backend-config"}}'
+        cloud.google.com/backend-config: '{"ports": {"80":"datarepomonitoring-backend-config"}}'
       type: NodePort
     ingress:
       enabled: true

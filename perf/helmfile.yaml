@@ -9,16 +9,10 @@ repositories:
 helmDefaults:
   createNamespace: true
 
-environments:
-  datarepo-monitoring:
-  datarepo:
-
 # helm releases to be deployed
 releases:
-{{- if eq .Environment.Name "datarepo" }}
   - name: perf-jade-create-secret-manager-secret    # release name
     namespace: perf   # target namespace
-    createNamespace: true
     chart: datarepo-helm/create-secret-manager-secret   # chart name
     version: 0.0.6   #    Chart version
     missingFileHandler: Warn
@@ -26,7 +20,6 @@ releases:
       - datarepo/create-secret-manager-secret.yaml      # Value files passed via --values
   - name: perf-jade-gcloud-sqlproxy    # release name
     namespace: perf   # target namespace
-    createNamespace: true
     chart: datarepo-helm/gcloud-sqlproxy   # chart name
     version: 0.19.7 #    Chart version
     missingFileHandler: Warn
@@ -34,7 +27,6 @@ releases:
       - datarepo/gcloud-sqlproxy.yaml    # Value files passed via --values
   - name: perf-jade-datarepo-api   # name of this release
     namespace: perf   # target namespace
-    createNamespace: true
     chart: datarepo-helm/datarepo-api   # the chart name
     version: 0.0.21    # chart version
     missingFileHandler: Warn
@@ -42,7 +34,6 @@ releases:
       - datarepo/datarepo-api.yaml   # Value files passed via --values
   - name: perf-jade-datarepo-ui   # name of this release
     namespace: perf   # target namespace
-    createNamespace: true
     chart: datarepo-helm/datarepo-ui   # the chart name
     version: 0.0.12    # chart version
     missingFileHandler: Warn
@@ -50,21 +41,16 @@ releases:
       - datarepo/datarepo-ui.yaml   # Value files passed via --values
   - name: perf-jade-oidc-proxy   # name of this release
     namespace: perf   # target namespace
-    createNamespace: true
     chart: datarepo-helm/oidc-proxy   # the chart name
     version: 0.0.13    # chart version
     missingFileHandler: Warn
     values:
       - datarepo/oidc-proxy.yaml   # Value files passed via --values
-{{- end -}}
-{{- if eq .Environment.Name "datarepo-monitoring" }}
-  - name: datarepo-monitoring   # release name
+# datarepomonitoring
+  - name: datarepomonitoring   # release name
     namespace: monitoring   # target namespace
-    createNamespace: true
     version: 0.0.2
     chart: datarepo-helm/datarepomonitoring   # chart name
     missingFileHandler: Warn
     values:
-      - monitoring/datarepo-monitoring.yaml
-
-{{- end }}
+      - datarepomonitoring/datarepomonitoring.yaml
