@@ -12,7 +12,7 @@ releases:
     namespace: sh   # target namespace
     createNamespace: true
     chart: datarepo-helm/create-secret-manager-secret   # chart name
-    version: 0.0.5   #    Chart version
+    version: 0.0.6   #    Chart version
     missingFileHandler: Warn
     values:
       - create-secret-manager-secret.yaml      # Value files passed via --values
@@ -27,8 +27,9 @@ releases:
   - name: sh-jade-datarepo-api   # name of this release
     namespace: sh   # target namespace
     createNamespace: true
-    chart: datarepo-helm/datarepo-api   # the chart name
-    version: 0.0.17    # chart version
+    chart: datarepo-helm/datarepo-api  # the chart name
+    #chart: ../../../datarepo-helm/charts/datarepo-api   # the chart name
+    version: 0.0.21   # chart version
     missingFileHandler: Warn
     values:
       - datarepo-api.yaml   # Value files passed via --values
@@ -36,7 +37,7 @@ releases:
     namespace: sh   # target namespace
     createNamespace: true
     chart: datarepo-helm/datarepo-ui   # the chart name
-    version: 0.0.8    # chart version
+    version: 0.0.12    # chart version
     missingFileHandler: Warn
     values:
       - datarepo-ui.yaml   # Value files passed via --values
@@ -44,7 +45,7 @@ releases:
     namespace: sh   # target namespace
     createNamespace: true
     chart: datarepo-helm/oidc-proxy   # the chart name
-    version: 0.0.9    # chart version
+    version: 0.0.13    # chart version
     missingFileHandler: Warn
     values:
       - oidc-proxy.yaml   # Value files passed via --values
