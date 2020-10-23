@@ -1,6 +1,6 @@
 ---
 image:
-  tag: 0b002f6-develop
+  tag: 0.0.121
 proxyPass:
   status: http://integration-5-jade-datarepo-api.integration-5:8080/status
   swagger: http://integration-5-jade-datarepo-api.integration-5:8080/swagger-ui.html
@@ -11,4 +11,4 @@ serviceAccount:
 rbac:
   create: true
 nodeSelector:
-  cloud.google.com/gke-nodepool: integration-node-2
+  cloud.google.com/gke-nodepool: integration-node
