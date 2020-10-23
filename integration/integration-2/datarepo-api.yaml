@@ -1,6 +1,6 @@
 ---
 image:
-  tag: 68ec114-develop
+  tag: 1.0.137
 env:
   GOOGLE_PROJECTID: broad-jade-integration
   GOOGLE_SINGLEDATAPROJECTID: broad-jade-int-2-data
