@@ -43,7 +43,7 @@ deploy:
       values:
         imageName: gcr.io/broad-jade-dev/jade-data-repo
       valuesFiles:
-      - ~/the-broad/datarepo-helm-definitions/master/dev/sh/datarepo-api.yaml
+      - https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/sh/datarepo-api.yaml
     # datarepo-ui
     - name: sh-jade-datarepo-ui
       chartPath: https://github.com/broadinstitute/datarepo-helm/releases/download/datarepo-ui-0.0.12/datarepo-ui-0.0.12.tgz
