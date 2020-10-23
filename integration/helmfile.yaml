@@ -9,7 +9,7 @@ repositories:
 helmDefaults:
   createNamespace: true
 
-environment:
+environments:
   integration-1:
   integration-2:
   integration-3:
