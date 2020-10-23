@@ -1,4 +1,6 @@
-## sh env specific skaffold.yaml
+#TODO BEFORE RUNNING
+# Copy over to jade-data-repo-ui folder and change name to "skaffold.yaml"
+# Then can run "skaffold run"
 apiVersion: skaffold/v2alpha2
 kind: Config
 build:
@@ -6,11 +8,10 @@ build:
     gitCommit:
       variant: AbbrevCommitSha
   artifacts:
-  - image: gcr.io/broad-jade-dev/jade-data-repo
-    jib:
-      args:
-      - jib
-      type: gradle
+  - image: gcr.io/broad-jade-dev/jade-data-repo-ui
+    docker:
+      buildArgs:
+        ENV: production
 deploy:
   helm:
     flags:
@@ -36,12 +37,10 @@ deploy:
       - https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/sh/gcloud-sqlproxy.yaml
     # datarepo-api
     - name: sh-jade-datarepo-api
-      chart: https://github.com/broadinstitute/datarepo-helm/releases/download/datarepo-api-0.0.21/datarepo-api-0.0.21.tgz
+      chart: https://github.com/broadinstitute/datarepo-helm/releases/download/datarepo-api-0.0.21/datarepo-ui-0.0.21.tgz
       version: 0.0.21
       namespace: sh
       remote: true
-      values:
-        imageName: gcr.io/broad-jade-dev/jade-data-repo
       valuesFiles:
       - ~/the-broad/datarepo-helm-definitions/master/dev/sh/datarepo-api.yaml
     # datarepo-ui
@@ -50,6 +49,8 @@ deploy:
       version: 0.0.12
       namespace: sh
       remote: true
+      values:
+        imageName: gcr.io/broad-jade-dev/jade-data-repo
       valuesFiles:
       - https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/sh/datarepo-ui.yaml
     # oidc-proxy
@@ -60,3 +61,4 @@ deploy:
       remote: true
       valuesFiles:
       - https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/sh/oidc-proxy.yaml
+
