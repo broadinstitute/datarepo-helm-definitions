@@ -28,7 +28,7 @@ releases:
   - name: perf-jade-datarepo-api   # name of this release
     namespace: perf   # target namespace
     chart: datarepo-helm/datarepo-api   # the chart name
-    version: 0.0.21    # chart version
+    version: 0.0.22    # chart version
     missingFileHandler: Warn
     values:
       - datarepo/datarepo-api.yaml   # Value files passed via --values
