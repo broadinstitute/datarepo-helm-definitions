@@ -1,4 +1,6 @@
-## sh env specific skaffold.yaml
+#TODO BEFORE RUNNING
+# Copy over to parent folder of jade-data-repo & jade-data-repo-ui and change name to "skaffold.yaml"
+# Then can run "skaffold run"
 apiVersion: skaffold/v2alpha2
 kind: Config
 build:
@@ -6,7 +8,13 @@ build:
     gitCommit:
       variant: AbbrevCommitSha
   artifacts:
+  - image: gcr.io/broad-jade-dev/jade-data-repo-ui
+    context: ./jade-data-repo-ui/
+    docker:
+      buildArgs:
+        ENV: production
   - image: gcr.io/broad-jade-dev/jade-data-repo
+    context: ./jade-data-repo/
     jib:
       args:
       - jib
@@ -44,22 +52,14 @@ deploy:
         imageName: gcr.io/broad-jade-dev/jade-data-repo
       valuesFiles:
       - https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/sh/datarepo-api.yaml
-    #Point to local datarepo-helm api chart
-    # datarepo-api local helm chart
-      #- name: sh-jade-datarepo-api
-      #chartPath: ../datarepo-helm/charts/datarepo-api/
-      #remote: false
-      #namespace: sh
-      #values:
-      #  imageName: gcr.io/broad-jade-dev/jade-data-repo
-      #valuesFiles:
-      #  - https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/sh/datarepo-api.yaml
     # datarepo-ui
     - name: sh-jade-datarepo-ui
       chartPath: https://github.com/broadinstitute/datarepo-helm/releases/download/datarepo-ui-0.0.12/datarepo-ui-0.0.12.tgz
       version: 0.0.12
       namespace: sh
       remote: true
+      values:
+        imageName: gcr.io/broad-jade-dev/jade-data-repo-ui
       valuesFiles:
       - https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/sh/datarepo-ui.yaml
     # oidc-proxy
