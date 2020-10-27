@@ -36,8 +36,8 @@ deploy:
       - https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/sh/gcloud-sqlproxy.yaml
     # datarepo-api
     - name: sh-jade-datarepo-api
-      chart: https://github.com/broadinstitute/datarepo-helm/releases/download/datarepo-api-0.0.21/datarepo-api-0.0.21.tgz
-      version: 0.0.21
+      chartPath: https://github.com/broadinstitute/datarepo-helm/releases/download/datarepo-api-0.0.22/datarepo-api-0.0.22.tgz
+      version: 0.0.22
       namespace: sh
       remote: true
       values:

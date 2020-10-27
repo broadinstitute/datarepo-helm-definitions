@@ -27,9 +27,8 @@ releases:
   - name: sh-jade-datarepo-api   # name of this release
     namespace: sh   # target namespace
     createNamespace: true
-    chart: datarepo-helm/datarepo-api  # the chart name
-    #chart: ../../../datarepo-helm/charts/datarepo-api   # the chart name
-    version: 0.0.12   # chart version
+    chart: datarepo-helm/datarepo-api   # the chart name
+    version: 0.0.22    # chart version
     missingFileHandler: Warn
     values:
       - datarepo-api.yaml   # Value files passed via --values
