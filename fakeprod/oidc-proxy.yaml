@@ -1,6 +1,6 @@
 ---
 env:
-  PROXY_URL: http://terra-jade-datarepo-ui.data-repo:80/
+  PROXY_URL: http://terra-jade-datarepo-ui.data-repo:8080/
   PROXY_URL2: http://terra-jade-datarepo-api.data-repo:8080/api
   PROXY_URL3: http://terra-jade-datarepo-api.data-repo:8080/register
   LOG_LEVEL: debug
