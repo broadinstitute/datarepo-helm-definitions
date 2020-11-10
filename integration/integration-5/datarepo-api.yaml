@@ -3,6 +3,8 @@ image:
 env:
   GOOGLE_PROJECTID: broad-jade-integration
   GOOGLE_SINGLEDATAPROJECTID: broad-jade-int-5-data
+  GOOGLE_ALLOWREUSEEXISTINGBUCKETS: true
+  GOOGLE_ALLOWREUSEEXISTINGPROJECTS: true
   DB_DATAREPO_USERNAME: drmanager
   SPRING_PROFILES_ACTIVE: google,cloudsql,integration
   DB_STAIRWAY_USERNAME: drmanager
