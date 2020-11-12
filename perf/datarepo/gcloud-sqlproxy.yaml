@@ -13,5 +13,3 @@ rbac:
   create: true
 networkPolicy:
   enabled: false
-nodeSelector:
- cloud.google.com/gke-nodepool: jade-node-us-central-1	
