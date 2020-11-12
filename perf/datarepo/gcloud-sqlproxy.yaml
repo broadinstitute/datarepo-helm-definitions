@@ -14,4 +14,4 @@ rbac:
 networkPolicy:
   enabled: false
 nodeSelector:
- cloud.google.com/gke-nodepool: jade-node-us-central1
+ cloud.google.com/gke-nodepool: jade-node-us-central-1	
