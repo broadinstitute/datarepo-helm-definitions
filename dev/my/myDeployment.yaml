@@ -25,6 +25,9 @@ datarepo-api:
     tag: a0fc3a2-develop
   env:
     GOOGLE_PROJECTID: broad-jade-my
+    GOOGLE_SINGLEDATAPROJECTID: broad-jade-my-data
+    GOOGLE_ALLOWREUSEEXISTINGBUCKETS: true
+    GOOGLE_ALLOWREUSEEXISTINGPROJECTS: true
     DB_DATAREPO_USERNAME: drmanager
     SPRING_PROFILES_ACTIVE: google,cloudsql,dev,my
     DB_STAIRWAY_USERNAME: drmanager
