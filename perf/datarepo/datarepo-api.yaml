@@ -14,7 +14,6 @@ env:
   DATAREPO_RESOURCEID: broad-jade-dev
   SAM_STEWARDSGROUPEMAIL: JadeStewards-dev@dev.test.firecloud.org
   DB_MIGRATE_DROPALLONSTART: true
-  DATAREPO_GCS_ALLOWREUSEEXISTINGBUCKETS: true
 serviceAccount:
   create: true
 rbac:
