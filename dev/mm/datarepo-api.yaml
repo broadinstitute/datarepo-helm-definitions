@@ -15,7 +15,6 @@ env:
   IT_JADE_API_URL: https://jade-mm.datarepo-dev.broadinstitute.org
   dbStairwayForceclean: true
   dbMigrateDropallonstart: true
-  DATAREPO_GCS_ALLOWREUSEEXISTINGBUCKETS: true
 serviceAccount:
   create: true
 rbac:
