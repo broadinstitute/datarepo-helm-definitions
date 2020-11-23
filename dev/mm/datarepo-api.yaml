@@ -4,6 +4,8 @@ image:
 env:
   GOOGLE_PROJECTID: broad-jade-dev
   GOOGLE_SINGLEDATAPROJECTID: broad-jade-mm-data
+  GOOGLE_ALLOWREUSEEXISTINGBUCKETS: true
+  GOOGLE_ALLOWREUSEEXISTINGPROJECTS: true
   DB_DATAREPO_USERNAME: drmanager
   SPRING_PROFILES_ACTIVE: google,cloudsql,dev,mm
   DB_STAIRWAY_USERNAME: drmanager
@@ -13,7 +15,6 @@ env:
   IT_JADE_API_URL: https://jade-mm.datarepo-dev.broadinstitute.org
   dbStairwayForceclean: true
   dbMigrateDropallonstart: true
-  DATAREPO_GCS_ALLOWREUSEEXISTINGBUCKETS: true
 serviceAccount:
   create: true
 rbac:

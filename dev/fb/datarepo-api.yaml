@@ -1,13 +1,17 @@
 ---
 image:
-  tag: a0fc3a2-develop
+  tag: 1.0.153
 env:
-  GOOGLE_PROJECTID: broad-jade-fb
+  GOOGLE_PROJECTID: broad-jade-dev
+  GOOGLE_SINGLEDATAPROJECTID: broad-jade-fb-data
+  GOOGLE_ALLOWREUSEEXISTINGBUCKETS: true
+  GOOGLE_ALLOWREUSEEXISTINGPROJECTS: true
   DB_DATAREPO_USERNAME: drmanager
   SPRING_PROFILES_ACTIVE: google,cloudsql,dev,fb
   DB_STAIRWAY_USERNAME: drmanager
   DB_STAIRWAY_URI: jdbc:postgresql://fb-jade-gcloud-sqlproxy.fb:5432/stairway-fb
   DB_DATAREPO_URI: jdbc:postgresql://fb-jade-gcloud-sqlproxy.fb:5432/datarepo-fb
+  DB_MIGRATE_DROPALLONSTART: true
   DATAREPO_DNSNAME: jade-fb.datarepo-dev.broadinstitute.org
   IT_JADE_API_URL: https://jade-fb.datarepo-dev.broadinstitute.org
 serviceAccount:

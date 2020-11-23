@@ -1,10 +1,10 @@
 ---
 image:
-  tag: 81a5553-develop
+  tag: fcd1b81-develop
 proxyPass:
   status: http://fb-jade-datarepo-api.fb:8080/status
-  shutdown: http://fb-jade-datarepo-api.fb:8080/shutdown
   swagger: http://fb-jade-datarepo-api.fb:8080/swagger-ui.html
+  shutdown: http://fb-jade-datarepo-api.fb:8080/shutdown
   api: http://fb-jade-datarepo-api.fb:8080
 serviceAccount:
   create: true

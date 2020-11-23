@@ -1,11 +1,11 @@
 image:
-  tag: 1.0.151
+  tag: 1.0.163
 replicaCount: 3
 env:
   GOOGLE_PROJECTID: broad-jade-perf
   GOOGLE_SINGLEDATAPROJECTID: broad-jade-perf-data2
   DB_DATAREPO_USERNAME: drmanager
-  SPRING_PROFILES_ACTIVE: google,cloudsql,perftest
+  SPRING_PROFILES_ACTIVE: google,cloudsql,perftest,integration
   DB_STAIRWAY_USERNAME: drmanager
   DB_STAIRWAY_URI: jdbc:postgresql://perf-jade-gcloud-sqlproxy.perf:5432/stairway
   DB_DATAREPO_URI: jdbc:postgresql://perf-jade-gcloud-sqlproxy.perf:5432/datarepo
@@ -14,7 +14,8 @@ env:
   DATAREPO_RESOURCEID: broad-jade-dev
   SAM_STEWARDSGROUPEMAIL: JadeStewards-dev@dev.test.firecloud.org
   DB_MIGRATE_DROPALLONSTART: true
-  DATAREPO_GCS_ALLOWREUSEEXISTINGBUCKETS: true
+  GOOGLE_ALLOWREUSEEXISTINGBUCKETS: true
+  GOOGLE_ALLOWREUSEEXISTINGPROJECTS: true
 serviceAccount:
   create: true
 rbac:

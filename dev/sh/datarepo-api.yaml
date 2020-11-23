@@ -3,13 +3,14 @@ image:
 env:
   GOOGLE_PROJECTID: broad-jade-dev
   GOOGLE_SINGLEDATAPROJECTID: broad-jade-sh-data
+  GOOGLE_ALLOWREUSEEXISTINGBUCKETS: true
+  GOOGLE_ALLOWREUSEEXISTINGPROJECTS: true
   DB_DATAREPO_USERNAME: drmanager
   SPRING_PROFILES_ACTIVE: google,cloudsql,dev,sh
   DB_STAIRWAY_USERNAME: drmanager
   DB_STAIRWAY_URI: jdbc:postgresql://sh-jade-gcloud-sqlproxy.sh:5432/stairway-sh
   DB_DATAREPO_URI: jdbc:postgresql://sh-jade-gcloud-sqlproxy.sh:5432/datarepo-sh
   DB_MIGRATE_DROPALLONSTART: true
-  DATAREPO_GCS_ALLOWREUSEEXISTINGBUCKETS: true
   DATAREPO_DNSNAME: jade-sh.datarepo-dev.broadinstitute.org
   IT_JADE_API_URL: https://jade-sh.datarepo-dev.broadinstitute.org
 serviceAccount:

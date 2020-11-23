@@ -1,15 +1,16 @@
 image:
-  tag: 1.0.153
+  tag: 1.0.163
 env:
   GOOGLE_PROJECTID: broad-jade-integration
   GOOGLE_SINGLEDATAPROJECTID: broad-jade-int-5-data
+  GOOGLE_ALLOWREUSEEXISTINGBUCKETS: true
+  GOOGLE_ALLOWREUSEEXISTINGPROJECTS: true
   DB_DATAREPO_USERNAME: drmanager
   SPRING_PROFILES_ACTIVE: google,cloudsql,integration
   DB_STAIRWAY_USERNAME: drmanager
   DB_STAIRWAY_URI: jdbc:postgresql://integration-5-jade-gcloud-sqlproxy.integration-5:5432/stairway-5
   DB_DATAREPO_URI: jdbc:postgresql://integration-5-jade-gcloud-sqlproxy.integration-5:5432/datarepo-5
   IT_JADE_API_URL: https://jade-5.datarepo-integration.broadinstitute.org
-  DATAREPO_GCS_ALLOWREUSEEXISTINGBUCKETS: true
 serviceAccount:
   create: true
 rbac:
