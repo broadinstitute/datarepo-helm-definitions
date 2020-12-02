@@ -1,5 +1,5 @@
 image:
-  tag: 1.0.170
+  tag: 1.0.171
 env:
   GOOGLE_PROJECTID: broad-jade-integration
   GOOGLE_SINGLEDATAPROJECTID: broad-jade-int-3-data
