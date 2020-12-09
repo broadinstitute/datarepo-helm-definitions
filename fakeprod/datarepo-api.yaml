@@ -1,7 +1,7 @@
 ---
 replicaCount: 3
 image:
-  tag: 1.0.146
+  tag: 1.0.169
 env:
   GOOGLE_PROJECTID: broad-datarepo-terra-prod
   DB_DATAREPO_USERNAME: drmanager
@@ -16,6 +16,7 @@ env:
   SAM_BASEPATH: https://sam.dsde-prod.broadinstitute.org
   SAM_STEWARDSGROUPEMAIL: Stewards@firecloud.org
   OAUTH_CLIENTID: 92683655072-votlvbrvlkdnl32mqr01n7u4m0u4ku7n.apps.googleusercontent.com
+  DATAREPO_LOADCONCURRENTFILES: 40
 serviceAccount:
   create: true
 rbac:

@@ -1,7 +1,7 @@
 ---
 enabled: true
 image:
-  tag: ce09d0f-develop
+  tag: 1.0.167
 env:
   GOOGLE_PROJECTID: broad-jade-integration
   GOOGLE_SINGLEDATAPROJECTID: broad-jade-integration-data

@@ -20,7 +20,7 @@ gcloud-sqlproxy:
 datarepo-api:
   enabled: true
   image:
-    tag: 4ef0238-develop
+    tag: f97a61fa-develop
   env:
     GOOGLE_PROJECTID: broad-jade-dev
     GOOGLE_SINGLEDATAPROJECTID: broad-jade-dev-data
@@ -49,7 +49,7 @@ datarepo-api:
 datarepo-ui:
   enabled: true
   image:
-    tag: 7fb19ec-develop
+    tag: b5b20a6-develop
   proxyPass:
     status: http://dev-jade-datarepo-api.dev:8080/status
     swagger: http://dev-jade-datarepo-api.dev:8080/swagger-ui.html
