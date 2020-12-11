@@ -1,5 +1,5 @@
 image:
-  tag: 1.0.158
+  tag: 1.0.180
 replicaCount: 3
 env:
   GOOGLE_PROJECTID: broad-jade-perf
@@ -14,7 +14,8 @@ env:
   DATAREPO_RESOURCEID: broad-jade-dev
   SAM_STEWARDSGROUPEMAIL: JadeStewards-dev@dev.test.firecloud.org
   DB_MIGRATE_DROPALLONSTART: true
-  DATAREPO_GCS_ALLOWREUSEEXISTINGBUCKETS: true
+  GOOGLE_ALLOWREUSEEXISTINGBUCKETS: true
+  GOOGLE_ALLOWREUSEEXISTINGPROJECTS: true
 serviceAccount:
   create: true
 rbac:

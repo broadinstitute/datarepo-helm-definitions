@@ -1,4 +1,7 @@
 ---
+global:
+  image:
+    tag: v1.8.0
 repoServer:
   serviceAccount:
     create: true

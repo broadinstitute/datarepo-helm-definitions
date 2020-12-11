@@ -1,5 +1,5 @@
 image:
-  tag: 1.0.159
+  tag: 1.0.180
 env:
   GOOGLE_PROJECTID: broad-jade-integration
   GOOGLE_SINGLEDATAPROJECTID: broad-jade-int-1-data
@@ -12,7 +12,6 @@ env:
   DB_DATAREPO_URI: jdbc:postgresql://integration-1-jade-gcloud-sqlproxy.integration-1:5432/datarepo-1
   DATAREPO_DNSNAME: jade-1.datarepo-integration.broadinstitute.org
   IT_JADE_API_URL: https://jade-1.datarepo-integration.broadinstitute.org
-  DATAREPO_GCS_ALLOWREUSEEXISTINGBUCKETS: true
   DB_MIGRATE_DROPALLONSTART: true
 serviceAccount:
   create: true
