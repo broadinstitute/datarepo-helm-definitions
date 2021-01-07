@@ -38,16 +38,6 @@ kube-prometheus-stack:
     serviceAccount:
       annotations:
         iam.gke.io/gcp-service-account: sidecar-test-mark@broad-jade-dev.iam.gserviceaccount.com      # workloadID annotation for sidecar to write to stackdriver
-    additionalPodMonitors:
-      - name: "monitoring-pod-monitor"
-        namespaceSelector:
-          any: true
-        selector:
-          matchLabels:
-            app: "true"
-        podMetricsEndpoints:
-          - port: "8080"
-            path: /actuator/prometheus
     prometheusSpec:
       serviceMonitorSelectorNilUsesHelmValues: false
       serviceMonitorSelector: {}
@@ -61,9 +51,6 @@ kube-prometheus-stack:
           metrics_path: '/actuator/prometheus'
           kubernetes_sd_configs:
             - role: pod
-              namespaces:
-                names:
-                  - nm
               selectors:
                 - role: "pod"
                   label: "app.kubernetes.io/name=datarepo-api"
