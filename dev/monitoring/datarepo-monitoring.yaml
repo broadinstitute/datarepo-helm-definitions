@@ -38,13 +38,6 @@ kube-prometheus-stack:
     serviceAccount:
       annotations:
         iam.gke.io/gcp-service-account: sidecar-test-mark@broad-jade-dev.iam.gserviceaccount.com      # workloadID annotation for sidecar to write to stackdriver
-    prometheusSpec:
-      serviceMonitorSelectorNilUsesHelmValues: false
-      serviceMonitorSelector: {}
-      serviceMonitorNamespaceSelector: {}
-      podMonitorSelectorNilUsesHelmValues: false
-      podMonitorSelector: {}
-      podMonitorNamespaceSelector: {}
     additionalPodMonitors:
       - name: "monitoring/pod-monitor"
         namespaceSelector:
@@ -54,6 +47,13 @@ kube-prometheus-stack:
         podMetricsEndpoints:
           - port: 8080
             path: /actuator/prometheus
+    prometheusSpec:
+      serviceMonitorSelectorNilUsesHelmValues: false
+      serviceMonitorSelector: {}
+      serviceMonitorNamespaceSelector: {}
+      podMonitorSelectorNilUsesHelmValues: false
+      podMonitorSelector: {}
+      podMonitorNamespaceSelector: {}
       containers:
         - name: stackdriver-exporter
           image: gcr.io/stackdriver-prometheus/stackdriver-prometheus-sidecar:0.8.0
