@@ -44,7 +44,7 @@ kube-prometheus-stack:
           any: true
         selector:
           matchLabels:
-            scrape: "true"
+            app: "true"
         podMetricsEndpoints:
           - port: "8080"
             path: /actuator/prometheus
@@ -55,6 +55,12 @@ kube-prometheus-stack:
       podMonitorSelectorNilUsesHelmValues: false
       podMonitorSelector: {}
       podMonitorNamespaceSelector: {}
+      additionalScrapeConfigs:
+        - job_name: 'spring-actuator'
+          metrics_path: '/actuator/prometheus'
+          scrape_interval: 5s
+          static_configs:
+            - targets: ['localhost:8080']
       containers:
         - name: stackdriver-exporter
           image: gcr.io/stackdriver-prometheus/stackdriver-prometheus-sidecar:0.8.0
