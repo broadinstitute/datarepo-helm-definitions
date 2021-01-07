@@ -45,15 +45,15 @@ kube-prometheus-stack:
       podMonitorSelectorNilUsesHelmValues: false
       podMonitorSelector: {}
       podMonitorNamespaceSelector: {}
-      additionalPodMonitors:
-        - name: "monitoring/pod-monitor"
-          namespaceSelector:
-            any: true
-          selector:
-            prometheus.io/scrape: 'true'
-          podMetricsEndpoints:
-            - port: 8080
-              path: /actuator/prometheus
+    additionalPodMonitors:
+      - name: "monitoring/pod-monitor"
+        namespaceSelector:
+          any: true
+        selector:
+          prometheus.io/scrape: 'true'
+        podMetricsEndpoints:
+          - port: 8080
+            path: /actuator/prometheus
       containers:
         - name: stackdriver-exporter
           image: gcr.io/stackdriver-prometheus/stackdriver-prometheus-sidecar:0.8.0
