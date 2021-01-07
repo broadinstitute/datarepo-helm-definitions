@@ -57,10 +57,16 @@ kube-prometheus-stack:
       podMonitorNamespaceSelector: {}
       additionalScrapeConfigs:
         - job_name: 'spring-actuator'
-          metrics_path: '/actuator/prometheus'
           scrape_interval: 5s
-          static_configs:
-            - targets: ['localhost:8080']
+          metrics_path: '/actuator/prometheus'
+          kubernetes_sd_configs:
+            - role: pod
+              namespaces:
+                names:
+                  - nm
+              selectors:
+                - role: "pod"
+                  label: "app.kubernetes.io/name=datarepo-api"
       containers:
         - name: stackdriver-exporter
           image: gcr.io/stackdriver-prometheus/stackdriver-prometheus-sidecar:0.8.0
