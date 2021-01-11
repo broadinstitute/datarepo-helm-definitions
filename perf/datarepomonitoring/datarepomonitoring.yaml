@@ -43,9 +43,6 @@ kube-prometheus-stack:
         - datarepo-prometheus.datarepo-perf.broadinstitute.org
       paths:
         - /*
-      tls:
-        - hosts:
-            - datarepo-prometheus.datarepo-perf.broadinstitute.org
     service:
       annotations:
         cloud.google.com/backend-config: '{"ports": {"9090": "datarepomonitoring-backend-config"}}'
@@ -106,6 +103,3 @@ kube-prometheus-stack:
         kubernetes.io/ingress.global-static-ip-name: datarepo-grafana-ip
         kubernetes.io/ingress.allow-http: "false"
         networking.gke.io/managed-certificates: "grafana-gcp-managed-cert"
-      tls:
-        - hosts:
-            - datarepo-grafana.datarepo-perf.broadinstitute.org
