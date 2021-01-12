@@ -15,6 +15,7 @@ ingress:
   domainName: jade-perf.datarepo-perf.broadinstitute.org
   annotations:
     kubernetes.io/ingress.global-static-ip-name: jade-perf-ip
+    networking.gke.io/v1beta1.FrontendConfig: global-ssl-policy
   paths:
   - /*
   hosts:
