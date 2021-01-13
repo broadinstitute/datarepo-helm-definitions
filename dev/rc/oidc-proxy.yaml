@@ -13,9 +13,6 @@ ingress:
   domainName: jade-rc.datarepo-dev.broadinstitute.org
   annotations:
     kubernetes.io/ingress.global-static-ip-name: jade-dev-rc
-  tls:
-    - hosts:
-        - jade-rc.datarepo-dev.broadinstitute.org
   paths:
     - /*
   hosts:
@@ -25,5 +22,3 @@ serviceAccount:
 rbac:
   create: true
   pspEnabled: true
-nodeSelector:
-  cloud.google.com/gke-nodepool: dev-node
