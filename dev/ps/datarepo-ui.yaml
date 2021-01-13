@@ -1,6 +1,6 @@
 ---
 image:
-  tag: 0.0.86
+  tag: 0.0.177
 proxyPass:
   status: http://ps-jade-datarepo-api.ps:8080/status
   shutdown: http://ps-jade-datarepo-api.ps:8080/shutdown
