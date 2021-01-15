@@ -10,5 +10,3 @@ serviceAccount:
   create: true
 rbac:
   create: true
-nodeSelector:
-  cloud.google.com/gke-nodepool: dev-node
