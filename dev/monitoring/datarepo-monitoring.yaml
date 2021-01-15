@@ -24,16 +24,10 @@ prometheus-gcp-managed-cert:
 kube-prometheus-stack:
   enabled: true
   prometheusOperator:
-    nodeSelector:
-      cloud.google.com/gke-nodepool: dev-node
     admissionWebhooks:
       patch:
-        nodeSelector:
-          cloud.google.com/gke-nodepool: dev-node
     createCustomResource: false
   alertmanager:
-    nodeSelector:
-      - cloud.google.com/gke-nodepool: dev-node
   prometheus:
     serviceAccount:
       annotations:
@@ -71,11 +65,7 @@ kube-prometheus-stack:
           volumeMounts:
             - name: prometheus-datarepo-monitoring-kube-p-prometheus-db       #  in deployment yaml changes with helm deploy
               mountPath: /prometheus
-      nodeSelector:
-        cloud.google.com/gke-nodepool: dev-node
   grafana:
-    nodeSelector:
-      cloud.google.com/gke-nodepool: dev-node
     rbac:
       create: true
       pspEnabled: true
