@@ -15,8 +15,6 @@ gcloud-sqlproxy:
     enabled: false
   existingSecret: sqlproxy-sa-dev
   existingSecretKey: sa
-  nodeSelector:
-    cloud.google.com/gke-nodepool: dev-node-2
 datarepo-api:
   enabled: true
   image:
@@ -43,8 +41,6 @@ datarepo-api:
   existingStairwayDbSecretKey: "stairwaypassword"
   existingSecretSA: "jade-sa"
   existingServiceAccountSecretKey: "datareposerviceaccount"
-  nodeSelector:
-    cloud.google.com/gke-nodepool: dev-node-2
   replicaCount: 3
 datarepo-ui:
   enabled: true
@@ -59,8 +55,6 @@ datarepo-ui:
     create: true
   rbac:
     create: true
-  nodeSelector:
-    cloud.google.com/gke-nodepool: dev-node-2
 oidc-proxy:
   enabled: true
   env:
@@ -90,5 +84,3 @@ oidc-proxy:
   rbac:
     create: true
     pspEnabled: true
-  nodeSelector:
-    cloud.google.com/gke-nodepool: dev-node-2
