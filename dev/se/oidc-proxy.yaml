@@ -13,9 +13,6 @@ ingress:
   domainName: jade-se.datarepo-dev.broadinstitute.org
   annotations:
     kubernetes.io/ingress.global-static-ip-name: jade-dev-se
-  tls:
-    - hosts:
-        - jade-se.datarepo-dev.broadinstitute.org
   paths:
     - /*
   hosts:
