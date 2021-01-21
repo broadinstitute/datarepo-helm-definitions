@@ -10,4 +10,4 @@ releases:
     chart: descheduler/descheduler   # chart name
     missingFileHandler: Warn
     values:
-      - schedule: "0 0 * * *"
+      - schedule: "0 * * * *"
