@@ -48,6 +48,7 @@ kube-prometheus-stack:
               selectors:
                 - role: "pod"
                   label: "app.kubernetes.io/name=datarepo-api"
+      podAntiAffinity: hard
       containers:
         - name: stackdriver-exporter
           image: gcr.io/stackdriver-prometheus/stackdriver-prometheus-sidecar:0.8.0
