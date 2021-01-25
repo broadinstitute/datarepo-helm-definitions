@@ -1,6 +1,6 @@
 ---
 image:
-  tag: a0fc3a2-develop
+  tag: 1.0.200
 env:
   GOOGLE_PROJECTID: broad-jade-ms
   GOOGLE_SINGLEDATAPROJECTID: broad-jade-ms-data
