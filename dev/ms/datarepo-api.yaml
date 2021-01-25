@@ -13,6 +13,7 @@ env:
   DB_DATAREPO_URI: jdbc:postgresql://ms-jade-gcloud-sqlproxy.ms:5432/datarepo-ms
   DATAREPO_DNSNAME: jade-ms.datarepo-dev.broadinstitute.org
   IT_JADE_API_URL: https://jade-ms.datarepo-dev.broadinstitute.org
+  DB_MIGRATE_DROPALLONSTART: true
 serviceAccount:
   create: true
 rbac:
