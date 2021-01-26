@@ -9,13 +9,12 @@ env:
   ENABLE_STACKDRIVER: yes
   FILTER2: AddOutputFilterByType DEFLATE application/json text/plain text/html application/javascript application/x-javascript
 ingress:
+  sslPolicy: global-ssl-policy
   enabled: true
   domainName: jade-mm.datarepo-dev.broadinstitute.org
   annotations:
     kubernetes.io/ingress.global-static-ip-name: jade-dev-mm
-  tls:
-    - hosts:
-        - jade-mm.datarepo-dev.broadinstitute.org
+    networking.gke.io/v1beta1.FrontendConfig: mm-jade-oidc-proxy
   paths:
     - /*
   hosts:

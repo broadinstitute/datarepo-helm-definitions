@@ -43,6 +43,7 @@ releases:
   - name: ms-jade-oidc-proxy   # name of this release
     namespace: ms   # target namespace
     createNamespace: true
+#    chart: ../../../datarepo-helm/charts/oidc-proxy   # the chart name
     chart: datarepo-helm/oidc-proxy   # the chart name
     version: 0.0.18    # chart version
     missingFileHandler: Warn

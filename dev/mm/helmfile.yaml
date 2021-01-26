@@ -12,7 +12,7 @@ releases:
     namespace: mm   # target namespace
     createNamespace: true
     chart: datarepo-helm/create-secret-manager-secret   # chart name
-    version: 0.0.5   #    Chart version
+    version: 0.0.6   #    Chart version
     missingFileHandler: Warn
     values:
       - create-secret-manager-secret.yaml      # Value files passed via --values
@@ -20,7 +20,7 @@ releases:
     namespace: mm   # target namespace
     createNamespace: true
     chart: datarepo-helm/gcloud-sqlproxy   # chart name
-    version: 0.19.6 #    Chart version
+    version: 0.19.7 #    Chart version
     missingFileHandler: Warn
     values:
       - gcloud-sqlproxy.yaml    # Value files passed via --values
@@ -28,7 +28,7 @@ releases:
     namespace: mm   # target namespace
     createNamespace: true
     chart: datarepo-helm/datarepo-api   # the chart name
-    version: 0.0.15    # chart version
+    version: 0.0.25    # chart version
     missingFileHandler: Warn
     values:
       - datarepo-api.yaml   # Value files passed via --values
@@ -36,7 +36,7 @@ releases:
     namespace: mm   # target namespace
     createNamespace: true
     chart: datarepo-helm/datarepo-ui   # the chart name
-    version: 0.0.7    # chart version
+    version: 0.0.14    # chart version
     missingFileHandler: Warn
     values:
       - datarepo-ui.yaml   # Value files passed via --values
@@ -44,7 +44,7 @@ releases:
     namespace: mm   # target namespace
     createNamespace: true
     chart: datarepo-helm/oidc-proxy   # the chart name
-    version: 0.0.9    # chart version
+    version: 0.0.18    # chart version
     missingFileHandler: Warn
     values:
       - oidc-proxy.yaml   # Value files passed via --values
