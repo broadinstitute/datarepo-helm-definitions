@@ -1,5 +1,5 @@
 ---
-googleServiceAccount: perf-workload-proxy-sa@broad-jade-perf.iam.gserviceaccount.com
+googleServiceAccount: datarepo-jade-sqlproxy@broad-jade-perf.iam.gserviceaccount.com
 cloudsql:
   instances:
   - instance: "datarepo-db-jade-9d8cd7b3c9d45365" # GCP instance name.
