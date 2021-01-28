@@ -70,7 +70,9 @@ kube-prometheus-stack:
     rbac:
       create: true
       pspEnabled: true
-    plugins: ["doitintl-bigquery-datasource"]
+    plugins:
+      - doitintl-bigquery-datasource
+      - grafana-github-datasource
     env:
       GF_USERS_AUTO_ASSIGN_ORG_ROLE: "Editor"
       GF_AUTH_GOOGLE_ENABLED: "true"
