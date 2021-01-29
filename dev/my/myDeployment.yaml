@@ -74,9 +74,6 @@ oidc-proxy:
     domainName: jade-my.datarepo-dev.broadinstitute.org
     annotations:
       kubernetes.io/ingress.global-static-ip-name: jade-dev-my
-    tls:
-      - hosts:
-          - jade-my.datarepo-dev.broadinstitute.org
     paths:
       - /*
     hosts:
