@@ -14,9 +14,6 @@ ingress:
   domainName: jade-temp.datarepo-integration.broadinstitute.org
   annotations:
     kubernetes.io/ingress.global-static-ip-name: integration-ip-temp
-  tls:
-    - hosts:
-        - jade-temp.datarepo-integration.broadinstitute.org
   paths:
     - /*
   hosts:

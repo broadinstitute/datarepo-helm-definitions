@@ -13,9 +13,6 @@ ingress:
   domainName: jade-terra.datarepo-prod.broadinstitute.org
   annotations:
     kubernetes.io/ingress.global-static-ip-name: jade-k8-100
-  tls:
-    - hosts:
-        - jade-terra.datarepo-prod.broadinstitute.org
   paths:
     - /*
   hosts:
