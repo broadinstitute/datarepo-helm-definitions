@@ -11,13 +11,10 @@ env:
 ingress:
   sslPolicy: global-ssl-policy
   enabled: true
+  domainName: jade-tn.datarepo-dev.broadinstitute.org
   annotations:
     kubernetes.io/ingress.global-static-ip-name: jade-dev-tn
     networking.gke.io/v1beta1.FrontendConfig: tn-jade-oidc-proxy
-  tls:
-    - hosts:
-        - jade-tn.datarepo-dev.broadinstitute.org
-      secretName: oidc-tls-key
   paths:
     - /*
   hosts:

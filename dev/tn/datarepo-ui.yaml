@@ -1,6 +1,6 @@
 ---
 image:
-  tag: a277fe8-develop
+  tag: 0.0.189
 proxyPass:
   status: http://tn-jade-datarepo-api.tn:8080/status
   shutdown: http://tn-jade-datarepo-api.tn:8080/shutdown
@@ -10,3 +10,5 @@ serviceAccount:
   create: true
 rbac:
   create: true
+nodeSelector:
+  cloud.google.com/gke-nodepool: dev-node

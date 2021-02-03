@@ -1,18 +1,19 @@
 ---
 image:
-  tag: a0fc3a2-develop
+  tag: 1.0.200
 env:
   GOOGLE_PROJECTID: broad-jade-tn
   GOOGLE_SINGLEDATAPROJECTID: broad-jade-tn-data
   GOOGLE_ALLOWREUSEEXISTINGBUCKETS: true
   GOOGLE_ALLOWREUSEEXISTINGPROJECTS: true
   DB_DATAREPO_USERNAME: drmanager
-  SPRING_PROFILES_ACTIVE: google,cloudsql,dev,tn,perftest
+  SPRING_PROFILES_ACTIVE: google,cloudsql,dev,tn
   DB_STAIRWAY_USERNAME: drmanager
   DB_STAIRWAY_URI: jdbc:postgresql://tn-jade-gcloud-sqlproxy.tn:5432/stairway-tn
   DB_DATAREPO_URI: jdbc:postgresql://tn-jade-gcloud-sqlproxy.tn:5432/datarepo-tn
   DATAREPO_DNSNAME: jade-tn.datarepo-dev.broadinstitute.org
   IT_JADE_API_URL: https://jade-tn.datarepo-dev.broadinstitute.org
+  DB_MIGRATE_DROPALLONSTART: true
 serviceAccount:
   create: true
 rbac:

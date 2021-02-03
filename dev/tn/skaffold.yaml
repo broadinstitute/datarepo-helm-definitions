@@ -1,4 +1,4 @@
-## TN env specific skaffold.yaml
+## tn env specific skaffold.yaml
 apiVersion: skaffold/v2alpha2
 kind: Config
 build:

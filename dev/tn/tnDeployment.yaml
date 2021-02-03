@@ -1,0 +1,82 @@
+---
+global:
+  applicationVersion: "mark-0.0.1"
+
+gcloud-sqlproxy:
+  enabled: true
+  googleServiceAccount: tn-proxy-sa@broad-jade-dev.iam.gserviceaccount.com
+  cloudsql:
+    instances:
+      # GCP instance name.
+      - instance: "jade-postgres-11-8a00fd4d3b"
+        # GCP project where the instance exists.
+        project: "broad-jade-dev"
+        # GCP region where the instance exists.
+        region: "us-central1"
+        # Port number for the proxy to expose for this instance.
+        port: 5432
+  rbac:
+    create: true
+  networkPolicy:
+    enabled: false
+
+datarepo-api:
+  enabled: true
+  env:
+    GOOGLE_PROJECTID: broad-jade-dev
+    GOOGLE_SINGLEDATAPROJECTID: broad-jade-tn-data
+    GOOGLE_ALLOWREUSEEXISTINGBUCKETS: true
+    GOOGLE_ALLOWREUSEEXISTINGPROJECTS: true
+    DB_DATAREPO_USERNAME: drmanager
+    SPRING_PROFILES_ACTIVE: google,cloudsql,dev,tn
+    DB_STAIRWAY_USERNAME: drmanager
+    DB_STAIRWAY_URI: jdbc:postgresql://tn-jade-gcloud-sqlproxy.tn:5432/stairway-tn
+    DB_DATAREPO_URI: jdbc:postgresql://tn-jade-gcloud-sqlproxy.tn:5432/datarepo-tn
+  serviceAccount:
+    create: true
+  rbac:
+    create: true
+    pspEnabled: true
+  existingSecretDB: "database-pwd-tn"
+  existingDatarepoDbSecretKey: "datarepopassword"
+  existingStairwayDbSecretKey: "stairwaypassword"
+  existingSecretSA: "jade-sa"
+  existingServiceAccountSecretKey: "datareposerviceaccount"
+
+datarepo-ui:
+  enabled: true
+  proxyPass:
+    status: http://tn-jade-datarepo-api.tn:8080/status
+    swagger: http://tn-jade-datarepo-api.tn:8080/swagger-ui.html
+    shutdown: http://tn-jade-datarepo-api.tn:8080/shutdown
+    api: http://tn-jade-datarepo-api.tn:8080
+  serviceAccount:
+    create: true
+  rbac:
+    create: true
+
+oidc-proxy:
+  enabled: true
+  env:
+    PROXY_URL: http://tn-jade-datarepo-ui.tn:8080/
+    PROXY_URL2: http://tn-jade-datarepo-api.tn:8080/api
+    PROXY_URL3: http://tn-jade-datarepo-api.tn:8080/register
+    LOG_LEVEL: debug
+    SERVER_NAME: jade.datarepo-dev.broadinstitute.org
+    REMOTE_USER_CLAIM: sub
+    ENABLE_STACKDRIVER: yes
+    FILTER2: AddOutputFilterByType DEFLATE application/json text/plain text/html application/javascript application/x-javascript
+  ingress:
+    enabled: true
+    domainName: jade-tn.datarepo-dev.broadinstitute.org
+    annotations:
+      kubernetes.io/ingress.global-static-ip-name: jade-dev-tn
+    paths:
+      - /*
+    hosts:
+      - jade-tn.datarepo-dev.broadinstitute.org
+  serviceAccount:
+    create: true
+  rbac:
+    create: true
+    pspEnabled: true
