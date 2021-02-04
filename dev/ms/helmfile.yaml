@@ -10,7 +10,6 @@ repositories:
 releases:
   - name: ms-jade-create-secret-manager-secret    # release name
     namespace: ms   # target namespace
-#    createNamespace: true
     chart: datarepo-helm/create-secret-manager-secret   # chart name
     version: 0.0.6   #    Chart version
     missingFileHandler: Warn
@@ -18,7 +17,6 @@ releases:
       - create-secret-manager-secret.yaml      # Value files passed via --values
   - name: ms-jade-gcloud-sqlproxy    # release name
     namespace: ms   # target namespace
-#    createNamespace: true
     chart: datarepo-helm/gcloud-sqlproxy   # chart name
     version: 0.19.7 #    Chart version
     missingFileHandler: Warn
@@ -26,7 +24,6 @@ releases:
       - gcloud-sqlproxy.yaml    # Value files passed via --values
   - name: ms-jade-datarepo-api   # name of this release
     namespace: ms   # target namespace
-#    createNamespace: true
     chart: datarepo-helm/datarepo-api   # the chart name
     version: 0.0.25    # chart version
     missingFileHandler: Warn
@@ -34,7 +31,6 @@ releases:
       - datarepo-api.yaml   # Value files passed via --values
   - name: ms-jade-datarepo-ui   # name of this release
     namespace: ms   # target namespace
-#    createNamespace: true
     chart: datarepo-helm/datarepo-ui   # the chart name
     version: 0.0.14    # chart version
     missingFileHandler: Warn
@@ -42,8 +38,6 @@ releases:
       - datarepo-ui.yaml   # Value files passed via --values
   - name: ms-jade-oidc-proxy   # name of this release
     namespace: ms   # target namespace
-#    createNamespace: true
-#    chart: ../../../datarepo-helm/charts/oidc-proxy   # the chart name
     chart: datarepo-helm/oidc-proxy   # the chart name
     version: 0.0.18    # chart version
     missingFileHandler: Warn
