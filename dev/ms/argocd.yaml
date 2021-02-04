@@ -1,0 +1,32 @@
+project: default
+source:
+  repoURL: 'https://github.com/broadinstitute/datarepo-helm-definitions'
+  path: ./dev/ms
+  targetRevision: HEAD
+  plugin:
+    name: helmfile
+destination:
+  server: 'https://kubernetes.default.svc'
+  namespace: ms
+syncPolicy:
+  automated: {}
+  syncOptions:
+    - CreateNamespace=true
+
+###
+
+project: terra-alpha
+source:
+  repoURL: 'https://github.com/broadinstitute/terra-helmfile'
+  path: .
+  targetRevision: HEAD
+  plugin:
+    name: helmfile
+    env:
+      - name: HELMFILE_ENV
+        value: alpha
+      - name: HELMFILE_SELECTOR
+        value: 'group=terra,app=datarepo'
+destination:
+  server: 'https://34.72.14.91'
+  namespace: terra-alpha
