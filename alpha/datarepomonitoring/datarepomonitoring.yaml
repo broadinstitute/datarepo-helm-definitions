@@ -37,7 +37,6 @@ kube-prometheus-stack:
       enabled: true
       annotations:
         kubernetes.io/ingress.global-static-ip-name: datarepo-prometheus-ip
-        networking.gke.io/v1beta1.FrontendConfig: global-ssl-policy
         kubernetes.io/ingress.allow-http: "false"
         networking.gke.io/managed-certificates: "prometheus-gcp-managed-cert"
       hosts:
@@ -102,6 +101,5 @@ kube-prometheus-stack:
         - datarepo-grafana.alpha.envs-terra.bio
       annotations:
         kubernetes.io/ingress.global-static-ip-name: datarepo-grafana-ip
-        networking.gke.io/v1beta1.FrontendConfig: global-ssl-policy
         kubernetes.io/ingress.allow-http: "false"
         networking.gke.io/managed-certificates: "grafana-gcp-managed-cert"

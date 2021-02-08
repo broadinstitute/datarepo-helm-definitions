@@ -4,12 +4,20 @@ repositories:
     url: https://kubernetes-sigs.github.io/descheduler
   - name: datarepo-helm
     url: https://broadinstitute.github.io/datarepo-helm
+  - name: descheduler
+    url: https://kubernetes-sigs.github.io/descheduler
 
 helmDefaults:
   createNamespace: true
 
 # helm releases to be deployed
 releases:
+  - name: descheduler   # release name
+    namespace: kube-system   # target namespace
+    chart: descheduler/descheduler   # chart name
+    missingFileHandler: Warn
+    values:
+      - schedule: "0 * * * *"
   - name: descheduler   # release name
     namespace: kube-system   # target namespace
     chart: descheduler/descheduler   # chart name
