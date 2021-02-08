@@ -10,7 +10,6 @@ env:
   DB_STAIRWAY_USERNAME: drmanager
   DB_STAIRWAY_URI: jdbc:postgresql://se-jade-gcloud-sqlproxy.se:5432/stairway-se
   DB_DATAREPO_URI: jdbc:postgresql://se-jade-gcloud-sqlproxy.se:5432/datarepo-se
-  DB_MIGRATE_DROPALLONSTART: true
   DATAREPO_DNSNAME: jade-se.datarepo-dev.broadinstitute.org
   IT_JADE_API_URL: https://jade-se.datarepo-dev.broadinstitute.org
 serviceAccount:
