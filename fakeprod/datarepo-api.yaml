@@ -15,6 +15,7 @@ env:
   DB_STAIRWAY_FORCECLEAN: false
   SAM_BASEPATH: https://sam.dsde-prod.broadinstitute.org
   SAM_STEWARDSGROUPEMAIL: Stewards@firecloud.org
+  SAM_ADMINSGROUPEMAIL: DataRepoAdmins@firecloud.org
   OAUTH_CLIENTID: 92683655072-votlvbrvlkdnl32mqr01n7u4m0u4ku7n.apps.googleusercontent.com
   DATAREPO_LOADCONCURRENTFILES: 40
 serviceAccount:
