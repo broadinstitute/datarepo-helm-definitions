@@ -5,6 +5,8 @@
 repositories:
   - name: datarepo-helm
     url: https://broadinstitute.github.io/datarepo-helm
+  - name: descheduler
+    url: https://kubernetes-sigs.github.io/descheduler
 
 helmDefaults:
   createNamespace: true
@@ -21,6 +23,12 @@ environments:
 ### Environment-specific resources
 {{- if ne .Environment.Name "default" }} # Only render these if an environment is given with -e
 releases:
+  - name: descheduler   # release name
+    namespace: kube-system   # target namespace
+    chart: descheduler/descheduler   # chart name
+    missingFileHandler: Warn
+    values:
+      - schedule: "0 * * * *"
   - name: {{ .Environment.Name }}-jade-create-secret-manager-secret    # release name
     namespace: {{ .Environment.Name }}   # target namespace
     chart: datarepo-helm/create-secret-manager-secret   # chart name
