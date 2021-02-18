@@ -1,5 +1,3 @@
-image:
-  tag: 1.3.0
 env:
   GOOGLE_PROJECTID: broad-jade-dev
   GOOGLE_SINGLEDATAPROJECTID: broad-jade-sh-data
