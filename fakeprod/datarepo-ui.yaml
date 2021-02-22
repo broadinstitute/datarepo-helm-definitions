@@ -1,6 +1,6 @@
 ---
 image:
-  tag: 0.0.153
+  tag: 0.8.0
 proxyPass:
   status: http://terra-jade-datarepo-api.data-repo:8080/status
   shutdown: http://terra-jade-datarepo-api.data-repo:8080/shutdown
