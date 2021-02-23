@@ -112,3 +112,14 @@ kube-prometheus-stack:
         kubernetes.io/ingress.global-static-ip-name: datarepo-grafana-ip
         kubernetes.io/ingress.allow-http: "false"
         networking.gke.io/managed-certificates: "grafana-gcp-managed-cert"
+    dashboards:
+      default:
+        local-dashboard:
+          url: https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/add-grafana-dashboard/perf/datarepomonitoring/dashboards/prometheus-metrics.json
+    datasources:
+      datasources.yaml:
+        apiVersion: 1
+        datasources:
+          - name: Prometheus
+            type: prometheus
+            url: http://datarepomonitoring-kube-pr-prometheus:9090
