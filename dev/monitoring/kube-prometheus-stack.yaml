@@ -4,7 +4,6 @@ prometheusOperator:
     enabled: false
   admissionWebhooks:
     enabled: false
-  createCustomResource: "false"
 prometheus:
   serviceAccount:
     annotations:

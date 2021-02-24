@@ -11,6 +11,7 @@ releases:
   - name: datarepo-monitoring-secret   # release name
     namespace: monitoring   # target namespace
     chart: datarepo-helm/create-secret-manager-secret   # chart name
+    version: 0.0.6
     missingFileHandler: Warn
     values:
       - create-secret-manager-secret.yaml
@@ -18,27 +19,22 @@ releases:
   - name: datarepo-monitoring-backend-config   # release name
     namespace: monitoring   # target namespace
     chart: datarepo-helm/backend-config   # chart name
+    version: 0.1.0
     missingFileHandler: Warn
 
   - name: grafana-gcp-managed-cert   # release name
     namespace: monitoring   # target namespace
     chart: datarepo-helm/gcp-managed-cert   # chart name
+    version: 0.1.3
     missingFileHandler: Warn
     values:
       - fullnameOverride: grafana-gcp-managed-cert
-      - domainName: datarepo-grafana.datarepo-perf.broadinstitute.org
-
-  - name: prometheus-gcp-managed-cert   # release name
-    namespace: monitoring   # target namespace
-    chart: datarepo-helm/gcp-managed-cert   # chart name
-    missingFileHandler: Warn
-    values:
-      - fullnameOverride: prometheus-gcp-managed-cert.yaml
-      - domainName: datarepo-prometheus.datarepo-perf.broadinstitute.org
+      - domainName: grafana.datarepo-dev.broadinstitute.org
 
   - name: datarepo-monitoring   # release name
     namespace: monitoring   # target namespace
     chart: prometheus-community/kube-prometheus-stack   # chart name
+    version: 13.13.0   # chart version pin
     missingFileHandler: Warn
     values:
       - kube-prometheus-stack.yaml
