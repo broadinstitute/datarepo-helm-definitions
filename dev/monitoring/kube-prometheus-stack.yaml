@@ -1,6 +1,6 @@
 ---
 prometheusOperator:
-  tlsProxy:
+  tls:
     enabled: false
   admissionWebhooks:
     enabled: false
