@@ -3,11 +3,42 @@ repositories:
   - name: datarepo-helm
     url: https://broadinstitute.github.io/datarepo-helm
 
+  - name: prometheus-community
+    url: https://prometheus-community.github.io/helm-charts
+
 # helm releases to be deployed
 releases:
-  - name: datarepo-monitoring   # release name
+  - name: datarepo-monitoring-secret   # release name
     namespace: monitoring   # target namespace
-    chart: datarepo-helm/datarepo-monitoring   # chart name
+    chart: datarepo-helm/create-secret-manager-secret   # chart name
     missingFileHandler: Warn
     values:
-      - datarepo-monitoring.yaml
+      - create-secret-manager-secret.yaml
+
+  - name: datarepo-monitoring-backend-config   # release name
+    namespace: monitoring   # target namespace
+    chart: datarepo-helm/backend-config   # chart name
+    missingFileHandler: Warn
+
+  - name: grafana-gcp-managed-cert   # release name
+    namespace: monitoring   # target namespace
+    chart: datarepo-helm/gcp-managed-cert   # chart name
+    missingFileHandler: Warn
+    values:
+      - fullnameOverride: grafana-gcp-managed-cert
+      - domainName: datarepo-grafana.datarepo-perf.broadinstitute.org
+
+  - name: prometheus-gcp-managed-cert   # release name
+    namespace: monitoring   # target namespace
+    chart: datarepo-helm/gcp-managed-cert   # chart name
+    missingFileHandler: Warn
+    values:
+      - fullnameOverride: prometheus-gcp-managed-cert.yaml
+      - domainName: datarepo-prometheus.datarepo-perf.broadinstitute.org
+
+  - name: datarepo-monitoring   # release name
+    namespace: monitoring   # target namespace
+    chart: prometheus-community/kube-prometheus-stack   # chart name
+    missingFileHandler: Warn
+    values:
+      - kube-prometheus-stack.yaml
