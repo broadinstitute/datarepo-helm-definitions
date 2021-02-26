@@ -39,7 +39,6 @@ releases:
   - name: perf-jade-datarepo-api   # name of this release
     namespace: perf   # target namespace
     chart: datarepo-helm/datarepo-api   # the chart name
-    version: 0.0.25    # chart version
     missingFileHandler: Warn
     values:
       - datarepo/datarepo-api.yaml   # Value files passed via --values
@@ -47,7 +46,6 @@ releases:
   - name: perf-jade-datarepo-ui   # name of this release
     namespace: perf   # target namespace
     chart: datarepo-helm/datarepo-ui   # the chart name
-    version: 0.0.14    # chart version
     missingFileHandler: Warn
     values:
       - datarepo/datarepo-ui.yaml   # Value files passed via --values
