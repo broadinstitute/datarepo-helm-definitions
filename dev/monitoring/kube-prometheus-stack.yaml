@@ -43,6 +43,22 @@ prometheus:
           - name: prometheus-datarepo-monitoring-kube-p-prometheus-db       #  in deployment yaml changes with helm deploy
             mountPath: /prometheus
 grafana:
+  dashboardProviders:
+    dashboardproviders.yaml:
+      apiVersion: 1
+      providers:
+        - name: 'default'
+          orgId: 1
+          folder: ''
+          type: file
+          disableDeletion: false
+          editable: true
+          options:
+            path: /var/lib/grafana/dashboards/default
+  dashboards:
+    default:
+      jvm-dashboard:
+        url: https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/add-grafana-dashboard/perf/datarepomonitoring/dashboards/prometheus-metrics.json
   rbac:
     create: true
     pspEnabled: true
@@ -76,26 +92,3 @@ grafana:
       kubernetes.io/ingress.global-static-ip-name: grafana-k8-100
       kubernetes.io/ingress.allow-http: "false"
       networking.gke.io/managed-certificates: "grafana-gcp-managed-cert"
-  dashboardProviders:
-    dashboardproviders.yaml:
-      apiVersion: 1
-      providers:
-      - name: 'default'
-        orgId: 1
-        folder: ''
-        type: file
-        disableDeletion: false
-        editable: true
-        options:
-          path: /var/lib/grafana/dashboards/default
-  dashboards:
-    default:
-      local-dashboard:
-        url: https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/add-grafana-dashboard/perf/datarepomonitoring/dashboards/prometheus-metrics.json
-  datasources:
-    datasources.yaml:
-      apiVersion: 1
-      datasources:
-        - name: Prometheus
-          type: prometheus
-          url: http://datarepomonitoring-kube-pr-prometheus:9090
