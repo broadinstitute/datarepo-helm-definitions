@@ -57,6 +57,22 @@ prometheus:
           - name: prometheus-datarepomonitoring-kube-pr-prometheus-db       #  in deployment yaml changes with helm deploy
             mountPath: /prometheus
 grafana:
+  dashboardProviders:
+    dashboardproviders.yaml:
+      apiVersion: 1
+      providers:
+        - name: 'default'
+          orgId: 1
+          folder: ''
+          type: file
+          disableDeletion: false
+          editable: true
+          options:
+            path: /var/lib/grafana/dashboards/default
+  dashboards:
+    default:
+      jvm-dashboard:
+        url: https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dashboards/jvm-dashboard.json
   rbac:
     create: true
     pspEnabled: true
