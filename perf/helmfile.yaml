@@ -23,7 +23,6 @@ releases:
   - name: perf-jade-create-secret-manager-secret    # release name
     namespace: perf   # target namespace
     chart: datarepo-helm/create-secret-manager-secret   # chart name
-    version: 0.0.6   #    Chart version
     missingFileHandler: Warn
     values:
       - datarepo/create-secret-manager-secret.yaml      # Value files passed via --values
@@ -31,7 +30,6 @@ releases:
   - name: perf-jade-gcloud-sqlproxy    # release name
     namespace: perf   # target namespace
     chart: datarepo-helm/gcloud-sqlproxy   # chart name
-    version: 0.19.7 #    Chart version
     missingFileHandler: Warn
     values:
       - datarepo/gcloud-sqlproxy.yaml    # Value files passed via --values
@@ -39,7 +37,6 @@ releases:
   - name: perf-jade-datarepo-api   # name of this release
     namespace: perf   # target namespace
     chart: datarepo-helm/datarepo-api   # the chart name
-    version: 0.0.25    # chart version
     missingFileHandler: Warn
     values:
       - datarepo/datarepo-api.yaml   # Value files passed via --values
@@ -47,7 +44,6 @@ releases:
   - name: perf-jade-datarepo-ui   # name of this release
     namespace: perf   # target namespace
     chart: datarepo-helm/datarepo-ui   # the chart name
-    version: 0.0.14    # chart version
     missingFileHandler: Warn
     values:
       - datarepo/datarepo-ui.yaml   # Value files passed via --values
@@ -55,7 +51,6 @@ releases:
   - name: perf-jade-oidc-proxy   # name of this release
     namespace: perf   # target namespace
     chart: datarepo-helm/oidc-proxy   # the chart name
-    version: 0.0.18    # chart version
     missingFileHandler: Warn
     values:
       - datarepo/oidc-proxy.yaml   # Value files passed via --values
@@ -63,7 +58,6 @@ releases:
   - name: datarepomonitoring-secret   # release name
     namespace: monitoring   # target namespace
     chart: datarepo-helm/create-secret-manager-secret   # chart name
-    version: 0.0.6
     missingFileHandler: Warn
     values:
       - datarepomonitoring/create-secret-manager-secret.yaml
@@ -71,13 +65,11 @@ releases:
   - name: datarepomonitoring-backend-config   # release name
     namespace: monitoring   # target namespace
     chart: datarepo-helm/backend-config   # chart name
-    version: 0.1.0
     missingFileHandler: Warn
 
   - name: grafana-gcp-managed-cert   # release name
     namespace: monitoring   # target namespace
     chart: datarepo-helm/gcp-managed-cert   # chart name
-    version: 0.1.3
     missingFileHandler: Warn
     values:
       - fullnameOverride: grafana-gcp-managed-cert
@@ -86,7 +78,6 @@ releases:
   - name: prometheus-gcp-managed-cert   # release name
     namespace: monitoring   # target namespace
     chart: datarepo-helm/gcp-managed-cert   # chart name
-    version: 0.1.3
     missingFileHandler: Warn
     values:
       - fullnameOverride: prometheus-gcp-managed-cert
@@ -95,7 +86,6 @@ releases:
   - name: datarepomonitoring   # release name
     namespace: monitoring   # target namespace
     chart: prometheus-community/kube-prometheus-stack   # chart name
-    version: 13.13.0   # chart version pin
     missingFileHandler: Warn
     values:
       - datarepomonitoring/kube-prometheus-stack.yaml
