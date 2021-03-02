@@ -1,0 +1,25 @@
+---
+image:
+  tag: 1.0.90
+env:
+  GOOGLE_PROJECTID: broad-jade-tl
+  GOOGLE_SINGLEDATAPROJECTID: broad-jade-tl-data
+  GOOGLE_ALLOWREUSEEXISTINGBUCKETS: true
+  GOOGLE_ALLOWREUSEEXISTINGPROJECTS: true
+  DB_DATAREPO_USERNAME: drmanager
+  SPRING_PROFILES_ACTIVE: google,cloudsql,dev,tl
+  DB_STAIRWAY_USERNAME: drmanager
+  DB_STAIRWAY_URI: jdbc:postgresql://tl-jade-gcloud-sqlproxy.tl:5432/stairway-tl
+  DB_DATAREPO_URI: jdbc:postgresql://tl-jade-gcloud-sqlproxy.tl:5432/datarepo-tl
+  DATAREPO_DNSNAME: jade-tl.datarepo-dev.broadinstitute.org
+  IT_JADE_API_URL: https://jade-tl.datarepo-dev.broadinstitute.org
+serviceAccount:
+  create: true
+rbac:
+  create: true
+  pspEnabled: true
+existingSecretDB: "database-pwd-tl"
+existingDatarepoDbSecretKey: "datarepopassword"
+existingStairwayDbSecretKey: "stairwaypassword"
+existingSecretSA: "jade-sa"
+existingServiceAccountSecretKey: "datareposerviceaccount"
