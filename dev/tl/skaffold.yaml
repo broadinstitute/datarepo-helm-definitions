@@ -1,4 +1,5 @@
-## tl env specific skaffold.yaml
+## Be sure to add the helm repos
+## helm repo add datarepo-helm https://broadinstitute.github.io/datarepo-helm && helm repo update
 apiVersion: skaffold/v2alpha2
 kind: Config
 build:
@@ -18,44 +19,39 @@ deploy:
         - --install
         - --debug
     releases:
-# create secrets
+    # create secrets
     - name: tl-jade-create-secret-manager-secret
-      chartPath: https://github.com/broadinstitute/datarepo-helm/releases/download/create-secret-manager-secret-0.0.6/create-secret-manager-secret-0.0.6.tgz
-      version: 0.0.6
+      chartPath: datarepo-helm/create-secret-manager-secret
       namespace: tl
       remote: true
       valuesFiles:
       - https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/tl/create-secret-manager-secret.yaml
-# gcp sqlproxy
+    # gcp sqlproxy
     - name: tl-jade-gcloud-sqlproxy
-      chartPath: https://github.com/broadinstitute/datarepo-helm/releases/download/gcloud-sqlproxy-0.19.7/gcloud-sqlproxy-0.19.7.tgz
-      version: 0.19.7
+      chartPath: datarepo-helm/gcloud-sqlproxy
       namespace: tl
       remote: true
       valuesFiles:
       - https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/tl/gcloud-sqlproxy.yaml
-# datarepo-api
+    # datarepo-api
     - name: tl-jade-datarepo-api
-      chartPath: https://github.com/broadinstitute/datarepo-helm/releases/download/datarepo-api-0.0.21/datarepo-api-0.0.21.tgz
-      version: 0.0.21
+      chartPath: datarepo-helm/datarepo-api
       namespace: tl
       remote: true
       values:
         imageName: gcr.io/broad-jade-dev/jade-data-repo
       valuesFiles:
       - https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/tl/datarepo-api.yaml
-# datarepo-ui
+    # datarepo-ui
     - name: tl-jade-datarepo-ui
-      chartPath: https://github.com/broadinstitute/datarepo-helm/releases/download/datarepo-ui-0.0.14/datarepo-ui-0.0.14.tgz
-      version: 0.0.14
+      chartPath: datarepo-helm/datarepo-ui
       namespace: tl
       remote: true
       valuesFiles:
       - https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/tl/datarepo-ui.yaml
-# oidc-proxy
+    # oidc-proxy
     - name: tl-jade-oidc-proxy
-      chartPath: https://github.com/broadinstitute/datarepo-helm/releases/download/oidc-proxy-0.0.18/oidc-proxy-0.0.18.tgz
-      version: 0.0.18
+      chartPath: datarepo-helm/oidc-proxy
       namespace: tl
       remote: true
       valuesFiles:
