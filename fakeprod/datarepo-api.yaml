@@ -1,9 +1,10 @@
 ---
 replicaCount: 3
 image:
-  tag: 1.0.180
+  tag: 1.37.0
 env:
   GOOGLE_PROJECTID: broad-datarepo-terra-prod
+  GOOGLE_FIRESTORERETRIES: 12
   DB_DATAREPO_USERNAME: drmanager
   SPRING_PROFILES_ACTIVE: google,cloudsql,terra,prod
   DB_STAIRWAY_USERNAME: drmanager
@@ -28,3 +29,8 @@ existingDatarepoDbSecretKey: "datarepo-password"
 existingStairwayDbSecretKey: "stairway-password"
 existingSecretSA: "sa-key"
 existingServiceAccountSecretKey: "credential-file-json"
+resources:
+  limits:
+    memory: 2560Mi
+  requests:
+    memory: 2048Mi
