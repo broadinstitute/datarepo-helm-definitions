@@ -2,7 +2,8 @@
 env:
   PROXY_URL: http://se-jade-datarepo-ui.se:8080/
   PROXY_URL2: http://se-jade-datarepo-api.se:8080/api
-  PROXY_URL3: http://se-jade-datarepo-api.se:8080/register
+  PROXY_URL3: http://se-jade-datarepo-api.se:8080/ga4gh
+  PROXY_PATH3: /ga4gh
   LOG_LEVEL: debug
   SERVER_NAME: jade.datarepo-dev.broadinstitute.org
   REMOTE_USER_CLAIM: sub
@@ -14,7 +15,7 @@ ingress:
   domainName: jade-se.datarepo-dev.broadinstitute.org
   annotations:
     kubernetes.io/ingress.global-static-ip-name: jade-dev-se
-    networking.gke.io/v1beta1.FrontendConfig: sh-jade-oidc-proxy
+    networking.gke.io/v1beta1.FrontendConfig: se-jade-oidc-proxy
   paths:
     - /*
   hosts:

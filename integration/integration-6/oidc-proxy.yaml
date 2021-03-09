@@ -3,7 +3,8 @@ replicaCount: 1
 env:
   PROXY_URL: http://integration-6-jade-datarepo-ui.integration-6:8080/
   PROXY_URL2: http://integration-6-jade-datarepo-api.integration-6:8080/api
-  PROXY_URL3: http://integration-6-jade-datarepo-api.integration-6:8080/register
+  PROXY_URL3: http://se-jade-datarepo-api.se:8080/ga4gh
+  PROXY_PATH3: /ga4gh
   LOG_LEVEL: debug
   SERVER_NAME: jade.datarepo-integration.broadinstitute.org
   REMOTE_USER_CLAIM: sub
