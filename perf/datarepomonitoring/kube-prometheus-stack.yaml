@@ -72,7 +72,7 @@ grafana:
   dashboards:
     default:
       jvm-dashboard:
-        url: https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dashboards/jvm-dashboard.json
+        url: https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/sh-dr-1633-dashboard/dashboards/jvm-dashboard.json
   rbac:
     create: true
     pspEnabled: true
