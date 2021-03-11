@@ -247,7 +247,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "API Endpoint Successful Request Rate",
+      "title": "API Successful Request Rate",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -339,7 +339,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum by (uri) (\n   rate(http_server_requests_seconds_count{status=~\"2..\",uri=~\".(actuator|status).*\"}[5m])\n)",
+          "expr": "sum by (uri) (\n   rate(http_server_requests_seconds_count{status=~\"2..\",uri=~\".(actuator|status|configuration).*\"}[5m])\n)",
           "interval": "",
           "legendFormat": "{{uri}}",
           "queryType": "randomWalk",
@@ -350,7 +350,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Infrastructure Endpoint Successful Request Rate",
+      "title": "Infrastructure Successful Request Rate",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -453,7 +453,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Failed Endpoint Rate",
+      "title": "Failed Request Rate",
       "tooltip": {
         "shared": true,
         "sort": 0,
