@@ -18,7 +18,7 @@ gcloud-sqlproxy:
 datarepo-api:
   enabled: true
   image:
-    tag: 70d5ece2-develop
+    tag: 7643c469-develop
   env:
     GOOGLE_PROJECTID: broad-jade-dev
     GOOGLE_SINGLEDATAPROJECTID: broad-jade-dev-data
