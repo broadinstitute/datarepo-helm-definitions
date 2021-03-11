@@ -236,7 +236,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum by (uri) (\n   rate(http_server_requests_seconds_count{status=~\"2..\",uri!~\".(actuator|status).*\"}[5m])\n)",
+          "expr": "sum by (uri) (\n   rate(http_server_requests_seconds_count{status=~\"2..\",uri!~\".(actuator|status|configuration).*\"}[5m])\n)",
           "interval": "",
           "legendFormat": "{{uri}}",
           "queryType": "randomWalk",
