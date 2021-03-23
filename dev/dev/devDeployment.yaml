@@ -2,13 +2,13 @@ gcloud-sqlproxy:
   enabled: true
   cloudsql:
     instances:
-      - instance: "jade-postgres-11-8a00fd4d3b" # GCP instance name.
-        # GCP project where the instance exists.
-        project: "broad-jade-dev"
-        # GCP region where the instance exists.
-        region: "us-central1"
-        # Port number for the proxy to expose for this instance.
-        port: 5432
+    - instance: "jade-postgres-11-8a00fd4d3b" # GCP instance name.
+      # GCP project where the instance exists.
+      project: "broad-jade-dev"
+      # GCP region where the instance exists.
+      region: "us-central1"
+      # Port number for the proxy to expose for this instance.
+      port: 5432
   rbac:
     create: true
   networkPolicy:
@@ -46,7 +46,7 @@ datarepo-api:
 datarepo-ui:
   enabled: true
   image:
-    tag: bcd4493-develop
+    tag: 95a591e-develop
   proxyPass:
     status: http://dev-jade-datarepo-api.dev:8080/status
     swagger: http://dev-jade-datarepo-api.dev:8080/swagger-ui.html
@@ -67,7 +67,8 @@ oidc-proxy:
     SERVER_NAME: jade.datarepo-dev.broadinstitute.org
     REMOTE_USER_CLAIM: sub
     ENABLE_STACKDRIVER: yes
-    FILTER2: AddOutputFilterByType DEFLATE application/json text/plain text/html application/javascript application/x-javascript
+    FILTER2: AddOutputFilterByType DEFLATE application/json text/plain text/html application/javascript
+      application/x-javascript
   ingress:
     sslPolicy: global-ssl-policy
     enabled: true
@@ -76,9 +77,9 @@ oidc-proxy:
       kubernetes.io/ingress.global-static-ip-name: jade-k8-100
       networking.gke.io/v1beta1.FrontendConfig: dev-jade-oidc-proxy
     paths:
-      - /*
+    - /*
     hosts:
-      - jade.datarepo-dev.broadinstitute.org
+    - jade.datarepo-dev.broadinstitute.org
   serviceAccount:
     create: true
   rbac:
