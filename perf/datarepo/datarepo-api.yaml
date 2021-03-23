@@ -13,6 +13,7 @@ env:
   IT_JADE_API_URL: https://jade-perf.datarepo-perf.broadinstitute.org
   DATAREPO_RESOURCEID: broad-jade-dev
   SAM_STEWARDSGROUPEMAIL: JadeStewards-dev@dev.test.firecloud.org
+  DB_MIGRATE_DROPALLONSTART: true
   GOOGLE_ALLOWREUSEEXISTINGBUCKETS: true
   GOOGLE_ALLOWREUSEEXISTINGPROJECTS: true
 serviceAccount:
