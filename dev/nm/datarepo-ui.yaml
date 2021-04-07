@@ -1,6 +1,6 @@
 ---
 image:
-  tag: 0.0.86
+  tag: fcd1b81-develop
 proxyPass:
   status: http://nm-jade-datarepo-api.nm:8080/status
   shutdown: http://nm-jade-datarepo-api.nm:8080/shutdown
