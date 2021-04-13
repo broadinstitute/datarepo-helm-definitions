@@ -1,6 +1,4 @@
 ---
-image:
-  tag: 0.0.86
 proxyPass:
   status: http://my-jade-datarepo-api.my:8080/status
   shutdown: http://my-jade-datarepo-api.my:8080/shutdown
