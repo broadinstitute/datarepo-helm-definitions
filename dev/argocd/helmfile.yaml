@@ -81,6 +81,7 @@ releases:
     namespace: argocd   # target namespace
     createNamespace: true
     chart: argo/argo-cd   # chart name
+    version: 2.12.0 # Pin the Argo chart version since there are compatibility issues on newer versions
     missingFileHandler: Warn
     values:
       - argocd.yaml
