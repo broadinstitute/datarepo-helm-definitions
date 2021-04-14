@@ -26,6 +26,6 @@
 
 
 # Bouncing redis
-# It's possible to argo to get into a bad state where you can't log in. You end up getting errors in the UI that say things like: "Can't verify app state"
+# It's possible for argo to get into a bad state where you can't log in. You end up getting errors in the UI that say things like: "Can't verify app state"
 # This is likely from redis getting into a corrupted state.  To fix, you can bounce the pods by running:
 # kubectl delete pods -n argocd -l app=redis-ha
