@@ -1,5 +1,7 @@
 ---
 replicaCount: 3
+image:
+  tag: 1.52.0
 env:
   GOOGLE_PROJECTID: broad-datarepo-terra-prod
   GOOGLE_FIRESTORERETRIES: 12
