@@ -46,21 +46,21 @@ releases:
   - name: {{ .Environment.Name }}-jade-datarepo-api   # name of this release
     namespace: {{ .Environment.Name }}   # target namespace
     chart: datarepo-helm/datarepo-api   # the chart name
-    version: 0.0.23    # chart version
+    version: 0.0.74    # chart version
     missingFileHandler: Warn
     values:
       - {{ .Environment.Name }}/datarepo-api.yaml   # Value files passed via --values
   - name: {{ .Environment.Name }}-jade-datarepo-ui   # name of this release
     namespace: {{ .Environment.Name }}   # target namespace
     chart: datarepo-helm/datarepo-ui   # the chart name
-    version: 0.0.12    # chart version
+    version: 0.0.68    # chart version
     missingFileHandler: Warn
     values:
       - {{ .Environment.Name }}/datarepo-ui.yaml   # Value files passed via --values
   - name: {{ .Environment.Name }}-jade-oidc-proxy   # name of this release
     namespace: {{ .Environment.Name }}   # target namespace
     chart: datarepo-helm/oidc-proxy   # the chart name
-    version: 0.0.20    # chart version
+    version: 0.0.22    # chart version
     missingFileHandler: Warn
     values:
       - {{ .Environment.Name }}/oidc-proxy.yaml   # Value files passed via --values
