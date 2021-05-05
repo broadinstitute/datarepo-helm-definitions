@@ -24,7 +24,7 @@ releases:
   - name: psqlbackup   # release name
     namespace: psqlbackup   # target namespace
     chart: datarepo-helm/sqlbackup   # chart name
-    version: 0.0.1
+    version: 0.0.2
     missingFileHandler: Warn
     values:
       - psqlbackup/psqlbackup.yaml
