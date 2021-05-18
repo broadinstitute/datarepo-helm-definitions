@@ -43,6 +43,8 @@ datarepo-api:
   existingSecretSA: "jade-sa"
   existingServiceAccountSecretKey: "datareposerviceaccount"
   replicaCount: 3
+  readinessInitialDelaySeconds: 180
+  livenessInitialDelaySeconds: 180
 datarepo-ui:
   enabled: true
   image:
