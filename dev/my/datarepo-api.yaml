@@ -2,15 +2,16 @@
 env:
   GOOGLE_PROJECTID: broad-jade-my
   GOOGLE_SINGLEDATAPROJECTID: broad-jade-my-data
-  GOOGLE_ALLOWREUSEEXISTINGBUCKETS: true
-  GOOGLE_ALLOWREUSEEXISTINGPROJECTS: true
+  GOOGLE_ALLOWREUSEEXISTINGBUCKETS: false
+  GOOGLE_ALLOWREUSEEXISTINGPROJECTS: false
   DB_DATAREPO_USERNAME: drmanager
-  SPRING_PROFILES_ACTIVE: google,cloudsql,dev,my
+  SPRING_PROFILES_ACTIVE: google,cloudsql,dev,my,terra
   DB_STAIRWAY_USERNAME: drmanager
   DB_STAIRWAY_URI: jdbc:postgresql://my-jade-gcloud-sqlproxy.my:5432/stairway-my
   DB_DATAREPO_URI: jdbc:postgresql://my-jade-gcloud-sqlproxy.my:5432/datarepo-my
   DATAREPO_DNSNAME: jade-my.datarepo-dev.broadinstitute.org
   IT_JADE_API_URL: https://jade-my.datarepo-dev.broadinstitute.org
+  GOOGLE_DATAPROJECTPREFIX: my
 serviceAccount:
   create: true
 rbac:
