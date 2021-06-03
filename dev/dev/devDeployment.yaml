@@ -18,7 +18,7 @@ gcloud-sqlproxy:
 datarepo-api:
   enabled: true
   image:
-    tag: a0ed96f3-develop
+    tag: 56a9c7c7-develop
   env:
     GOOGLE_PROJECTID: broad-jade-dev
     GOOGLE_SINGLEDATAPROJECTID: broad-jade-dev-data
@@ -32,6 +32,8 @@ datarepo-api:
     DB_DATAREPO_URI: jdbc:postgresql://dev-jade-gcloud-sqlproxy.dev:5432/datarepo
     DATAREPO_DNSNAME: jade.datarepo-dev.broadinstitute.org
     IT_JADE_API_URL: https://jade.datarepo-dev.broadinstitute.org
+    AZURE_CREDENTIALS_APPLICATIONID: 22cb243c-f1a5-43d8-8f12-6566bcce6542
+    AZURE_CREDENTIALS_HOMETENANTID: fad90753-2022-4456-9b0a-c7e5b934e408
   serviceAccount:
     create: true
   rbac:
@@ -42,11 +44,13 @@ datarepo-api:
   existingStairwayDbSecretKey: "stairwaypassword"
   existingSecretSA: "jade-sa"
   existingServiceAccountSecretKey: "datareposerviceaccount"
+  existingSecretAzure: "azure-dev"
+  existingApplicationSecretSecretKey: "applicationsecret"
   replicaCount: 3
 datarepo-ui:
   enabled: true
   image:
-    tag: 66f802c-develop
+    tag: 3930d4f-develop
   proxyPass:
     status: http://dev-jade-datarepo-api.dev:8080/status
     swagger: http://dev-jade-datarepo-api.dev:8080/swagger-ui.html

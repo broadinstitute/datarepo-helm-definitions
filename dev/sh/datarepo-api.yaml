@@ -12,6 +12,8 @@ env:
   DATAREPO_DNSNAME: jade-sh.datarepo-dev.broadinstitute.org
   IT_JADE_API_URL: https://jade-sh.datarepo-dev.broadinstitute.org
   GOOGLE_DATAPROJECTPREFIX: tdr-sh
+  AZURE_CREDENTIALS_APPLICATIONID: 22cb243c-f1a5-43d8-8f12-6566bcce6542
+  AZURE_CREDENTIALS_HOMETENANTID: fad90753-2022-4456-9b0a-c7e5b934e408
 serviceAccount:
   create: true
 rbac:
@@ -22,3 +24,5 @@ existingDatarepoDbSecretKey: "datarepopassword"
 existingStairwayDbSecretKey: "stairwaypassword"
 existingSecretSA: "jade-sa"
 existingServiceAccountSecretKey: "datareposerviceaccount"
+existingSecretAzure: "azure-sh"
+existingApplicationSecretSecretKey: "applicationsecret"
