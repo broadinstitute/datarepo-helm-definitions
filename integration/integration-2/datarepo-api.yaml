@@ -13,6 +13,8 @@ env:
   DATAREPO_DNSNAME: jade-2.datarepo-integration.broadinstitute.org
   IT_JADE_API_URL: https://jade-2.datarepo-integration.broadinstitute.org
   DB_MIGRATE_DROPALLONSTART: true
+  existingSecretAzure: "azure-integration-2"
+  existingApplicationSecretSecretKey: "applicationsecret"
 serviceAccount:
   create: true
 rbac:

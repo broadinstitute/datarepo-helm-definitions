@@ -12,6 +12,8 @@ env:
   DB_DATAREPO_URI: jdbc:postgresql://integration-6-jade-gcloud-sqlproxy.integration-6:5432/datarepo-6
   IT_JADE_API_URL: https://jade-6.datarepo-integration.broadinstitute.org
   DB_MIGRATE_DROPALLONSTART: true
+  existingSecretAzure: "azure-integration-6"
+  existingApplicationSecretSecretKey: "applicationsecret" 
 serviceAccount:
   create: true
 rbac:
