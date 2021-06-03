@@ -13,7 +13,7 @@ env:
   IT_JADE_API_URL: https://jade-6.datarepo-integration.broadinstitute.org
   DB_MIGRATE_DROPALLONSTART: true
   existingSecretAzure: "azure-integration-6"
-  existingApplicationSecretSecretKey: "applicationsecret" 
+  existingApplicationSecretSecretKey: "applicationsecret"
 serviceAccount:
   create: true
 rbac:
