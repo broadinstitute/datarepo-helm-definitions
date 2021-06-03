@@ -11,8 +11,8 @@ env:
   DB_STAIRWAY_URI: jdbc:postgresql://integration-4-jade-gcloud-sqlproxy.integration-4:5432/stairway-4
   DB_DATAREPO_URI: jdbc:postgresql://integration-4-jade-gcloud-sqlproxy.integration-4:5432/datarepo-4
   IT_JADE_API_URL: https://jade-4.datarepo-integration.broadinstitute.org
-  existingSecretAzure: "azure-integration-4"
-  existingApplicationSecretSecretKey: "applicationsecret"
+  AZURE_CREDENTIALS_APPLICATIONID: 22cb243c-f1a5-43d8-8f12-6566bcce6542
+  AZURE_CREDENTIALS_HOMETENANTID: fad90753-2022-4456-9b0a-c7e5b934e408
 serviceAccount:
   create: true
 rbac:
@@ -23,5 +23,7 @@ existingDatarepoDbSecretKey: "datarepopassword"
 existingStairwayDbSecretKey: "stairwaypassword"
 existingSecretSA: "jade-sa"
 existingServiceAccountSecretKey: "datareposerviceaccount"
+existingSecretAzure: "azure-integration-4"
+existingApplicationSecretSecretKey: "applicationsecret"
 nodeSelector:
   cloud.google.com/gke-nodepool: integration-node-2
