@@ -16,6 +16,14 @@ releases:
     missingFileHandler: Warn
     values:
       - create-secret-manager-secret.yaml      # Value files passed via --values
+  - name: tc-jade-elasticsearch    # release name
+    namespace: tc   # target namespace
+    createNamespace: true
+    chart: datarepo-helm/de-elasticsearch   # chart name
+    version: 0.1.1 #    Chart version
+    missingFileHandler: Warn
+    values:
+      - de-elasticsearch.yaml    # Value files passed via --values
   - name: tc-jade-gcloud-sqlproxy    # release name
     namespace: tc   # target namespace
     createNamespace: true
