@@ -18,7 +18,7 @@ gcloud-sqlproxy:
 datarepo-api:
   enabled: true
   image:
-    tag: 512f65f4-develop
+    tag: d76e624b-develop
   env:
     GOOGLE_PROJECTID: broad-jade-dev
     GOOGLE_SINGLEDATAPROJECTID: broad-jade-dev-data
@@ -34,6 +34,8 @@ datarepo-api:
     IT_JADE_API_URL: https://jade.datarepo-dev.broadinstitute.org
     AZURE_CREDENTIALS_APPLICATIONID: 22cb243c-f1a5-43d8-8f12-6566bcce6542
     AZURE_CREDENTIALS_HOMETENANTID: fad90753-2022-4456-9b0a-c7e5b934e408
+    FEATURES_SEARCH_API: enabled
+    ELASTICSEARCH_HOSTNAME: 10.0.21.132
   serviceAccount:
     create: true
   rbac:
@@ -89,3 +91,5 @@ oidc-proxy:
   rbac:
     create: true
     pspEnabled: true
+de-elasticsearch:
+  enabled: true
