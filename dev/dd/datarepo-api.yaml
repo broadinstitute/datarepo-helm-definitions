@@ -32,4 +32,3 @@ existingSecretAzure: "azure-dd"
 existingApplicationSecretSecretKey: "applicationsecret"
 existingSecretRBS: "rbs-sa-dd"
 existingRBSSecretKey: "rbsserviceaccount"
-
