@@ -16,6 +16,9 @@ env:
   IT_JADE_API_URL: https://jade-temp.datarepo-integration.broadinstitute.org
   AZURE_CREDENTIALS_APPLICATIONID: 22cb243c-f1a5-43d8-8f12-6566bcce6542
   AZURE_CREDENTIALS_HOMETENANTID: fad90753-2022-4456-9b0a-c7e5b934e408
+  RBS_ENABLED: true
+  RBS_POOL_ID: datarepo_v1
+  RBS_INSTANCE_URL: https://buffer.tools.integ.envs.broadinstitute.org
 serviceAccount:
   create: true
 rbac:
@@ -30,3 +33,5 @@ existingSecretAzure: "azure-integration-temp"
 existingApplicationSecretSecretKey: "applicationsecret"
 nodeSelector:
   cloud.google.com/gke-nodepool: integration-node
+existingSecretRBS: "rbs-sa-integration-temp"
+existingRBSSecretKey: "rbsserviceaccount"
