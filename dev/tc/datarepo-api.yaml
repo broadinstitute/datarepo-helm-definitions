@@ -15,6 +15,9 @@ env:
   IT_JADE_API_URL: https://jade-tc.datarepo-dev.broadinstitute.org
   AZURE_CREDENTIALS_APPLICATIONID: 22cb243c-f1a5-43d8-8f12-6566bcce6542
   AZURE_CREDENTIALS_HOMETENANTID: fad90753-2022-4456-9b0a-c7e5b934e408
+  RBS_ENABLED: true
+  RBS_POOL_ID: datarepo_v3
+  RBS_INSTANCE_URL: https://buffer.dsde-dev.broadinstitute.org
 serviceAccount:
   create: true
 rbac:
@@ -27,3 +30,5 @@ existingSecretSA: "jade-sa"
 existingServiceAccountSecretKey: "datareposerviceaccount"
 existingSecretAzure: "azure-tc"
 existingApplicationSecretSecretKey: "applicationsecret"
+existingSecretRBS: "rbs-sa-tc"
+existingRBSSecretKey: "rbsserviceaccount"

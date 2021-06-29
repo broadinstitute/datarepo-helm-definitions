@@ -1,5 +1,5 @@
 image:
-  tag: 1.116.0
+  tag: 1.123.0
 env:
   GOOGLE_PROJECTID: broad-jade-integration
   GOOGLE_SINGLEDATAPROJECTID: broad-jade-int-3-data
@@ -15,6 +15,9 @@ env:
   DB_MIGRATE_DROPALLONSTART: true
   AZURE_CREDENTIALS_APPLICATIONID: 22cb243c-f1a5-43d8-8f12-6566bcce6542
   AZURE_CREDENTIALS_HOMETENANTID: fad90753-2022-4456-9b0a-c7e5b934e408
+  RBS_ENABLED: true
+  RBS_POOL_ID: datarepo_v1
+  RBS_INSTANCE_URL: https://buffer.tools.integ.envs.broadinstitute.org
 serviceAccount:
   create: true
 rbac:
@@ -29,3 +32,5 @@ existingSecretAzure: "azure-integration-3"
 existingApplicationSecretSecretKey: "applicationsecret"
 nodeSelector:
   cloud.google.com/gke-nodepool: integration-node
+existingSecretRBS: "rbs-sa-integration-3"
+existingRBSSecretKey: "rbsserviceaccount"

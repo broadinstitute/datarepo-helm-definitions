@@ -18,7 +18,7 @@ gcloud-sqlproxy:
 datarepo-api:
   enabled: true
   image:
-    tag: ea16744e-develop
+    tag: cbfd9605-develop
   env:
     GOOGLE_PROJECTID: broad-jade-dev
     GOOGLE_SINGLEDATAPROJECTID: broad-jade-dev-data
@@ -36,6 +36,9 @@ datarepo-api:
     AZURE_CREDENTIALS_HOMETENANTID: fad90753-2022-4456-9b0a-c7e5b934e408
     FEATURES_SEARCH_API: enabled
     ELASTICSEARCH_HOSTNAME: 10.0.21.132
+    RBS_ENABLED: true
+    RBS_POOL_ID: datarepo_v3
+    RBS_INSTANCE_URL: https://buffer.dsde-dev.broadinstitute.org
   serviceAccount:
     create: true
   rbac:
@@ -49,6 +52,8 @@ datarepo-api:
   existingSecretAzure: "azure-dev"
   existingApplicationSecretSecretKey: "applicationsecret"
   replicaCount: 3
+  existingSecretRBS: "rbs-sa-dev"
+  existingRBSSecretKey: "rbsserviceaccount"
 datarepo-ui:
   enabled: true
   image:
