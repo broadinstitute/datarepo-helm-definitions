@@ -17,6 +17,11 @@ env:
   SAM_ADMINSGROUPEMAIL: DataRepoAdmins@firecloud.org
   OAUTH_CLIENTID: 92683655072-votlvbrvlkdnl32mqr01n7u4m0u4ku7n.apps.googleusercontent.com
   DATAREPO_LOADCONCURRENTFILES: 40
+  AZURE_CREDENTIALS_APPLICATIONID: 22cb243c-f1a5-43d8-8f12-6566bcce6542
+  AZURE_CREDENTIALS_HOMETENANTID: fad90753-2022-4456-9b0a-c7e5b934e408
+  RBS_ENABLED: false
+  RBS_POOL_ID: datarepo_v1
+  RBS_INSTANCE_URL: https://buffer.dsde-prod.broadinstitute.org
 serviceAccount:
   create: true
 rbac:
@@ -25,10 +30,9 @@ rbac:
 existingSecretDB: "api-secrets"
 existingDatarepoDbSecretKey: "datarepo-password"
 existingStairwayDbSecretKey: "stairway-password"
+existingSecretAzure: "api-secrets"
+existingApplicationSecretSecretKey: "application-secret"
 existingSecretSA: "sa-key"
 existingServiceAccountSecretKey: "credential-file-json"
-resources:
-  limits:
-    memory: 2560Mi
-  requests:
-    memory: 2048Mi
+existingSecretRBS: "rbs-sa-key"
+existingRBSSecretKey: "credential-file-json"
