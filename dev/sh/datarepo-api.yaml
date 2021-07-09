@@ -1,16 +1,17 @@
 env:
   GOOGLE_PROJECTID: broad-jade-dev
   GOOGLE_SINGLEDATAPROJECTID: broad-jade-sh-data
-  GOOGLE_ALLOWREUSEEXISTINGBUCKETS: true
-  GOOGLE_ALLOWREUSEEXISTINGPROJECTS: true
+  GOOGLE_ALLOWREUSEEXISTINGBUCKETS: false
+  GOOGLE_ALLOWREUSEEXISTINGPROJECTS: false
   DB_DATAREPO_USERNAME: drmanager
-  SPRING_PROFILES_ACTIVE: google,cloudsql,dev,sh
+  SPRING_PROFILES_ACTIVE: google,cloudsql,dev,sh,terra
   DB_STAIRWAY_USERNAME: drmanager
   DB_STAIRWAY_URI: jdbc:postgresql://sh-jade-gcloud-sqlproxy.sh:5432/stairway-sh
   DB_DATAREPO_URI: jdbc:postgresql://sh-jade-gcloud-sqlproxy.sh:5432/datarepo-sh
-  DB_MIGRATE_DROPALLONSTART: true
+  DB_MIGRATE_DROPALLONSTART: false
   DATAREPO_DNSNAME: jade-sh.datarepo-dev.broadinstitute.org
   IT_JADE_API_URL: https://jade-sh.datarepo-dev.broadinstitute.org
+  GOOGLE_DATAPROJECTPREFIX: tdr-sh
   AZURE_CREDENTIALS_APPLICATIONID: 22cb243c-f1a5-43d8-8f12-6566bcce6542
   AZURE_CREDENTIALS_HOMETENANTID: fad90753-2022-4456-9b0a-c7e5b934e408
   RBS_ENABLED: true
