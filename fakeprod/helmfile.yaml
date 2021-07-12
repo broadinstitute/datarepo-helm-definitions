@@ -29,7 +29,7 @@ releases:
     namespace: data-repo   # target namespace
     createNamespace: true
     chart: datarepo-helm/datarepo-api   # the chart name
-    version: 0.0.67    # chart version
+    version: 0.0.140    # chart version
     missingFileHandler: Warn
     values:
       - datarepo-api.yaml   # Value files passed via --values
@@ -37,7 +37,7 @@ releases:
     namespace: data-repo   # target namespace
     createNamespace: true
     chart: datarepo-helm/datarepo-ui   # the chart name
-    version: 0.0.61    # chart version
+    version: 0.0.78    # chart version
     missingFileHandler: Warn
     values:
       - datarepo-ui.yaml   # Value files passed via --values
