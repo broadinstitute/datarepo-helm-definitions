@@ -34,4 +34,3 @@ existingSynapseUserSecretKey: "synapse-us-east-sql-admin-user"
 existingSynapsePasswordSecretKey: "synapse-us-east-sql-admin-password"
 existingSecretRBS: "rbs-sa-dd"
 existingRBSSecretKey: "rbsserviceaccount"
-
