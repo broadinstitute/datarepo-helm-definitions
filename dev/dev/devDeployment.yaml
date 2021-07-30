@@ -51,6 +51,8 @@ datarepo-api:
   existingServiceAccountSecretKey: "datareposerviceaccount"
   existingSecretAzure: "azure-dev"
   existingApplicationSecretSecretKey: "applicationsecret"
+  existingSynapseUserSecretKey: "synapse-us-east-sql-admin-user"
+  existingSynapsePasswordSecretKey: "synapse-us-east-sql-admin-password"
   replicaCount: 3
   existingSecretRBS: "rbs-sa-dev"
   existingRBSSecretKey: "rbsserviceaccount"

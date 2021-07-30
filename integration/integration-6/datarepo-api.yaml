@@ -29,6 +29,8 @@ existingSecretSA: "jade-sa"
 existingServiceAccountSecretKey: "datareposerviceaccount"
 existingSecretAzure: "azure-integration-6"
 existingApplicationSecretSecretKey: "applicationsecret"
+existingSynapseUserSecretKey: "synapse-us-east-sql-admin-user"
+existingSynapsePasswordSecretKey: "synapse-us-east-sql-admin-password"
 nodeSelector:
   cloud.google.com/gke-nodepool: integration-node-2
 existingSecretRBS: "rbs-sa-integration-6"
