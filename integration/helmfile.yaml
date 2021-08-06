@@ -61,7 +61,7 @@ releases:
   - name: {{ .Environment.Name }}-jade-oidc-proxy   # name of this release
     namespace: {{ .Environment.Name }}   # target namespace
     chart: datarepo-helm/oidc-proxy   # the chart name
-    version: 0.0.23    # chart version
+    version: 0.0.24    # chart version
     missingFileHandler: Warn
     values:
       - {{ .Environment.Name }}/oidc-proxy.yaml   # Value files passed via --values

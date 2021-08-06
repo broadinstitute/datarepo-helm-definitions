@@ -54,8 +54,8 @@ deploy:
       - https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/ps/datarepo-ui.yaml
 # oidc-proxy
     - name: ps-jade-oidc-proxy
-      chartPath: https://github.com/broadinstitute/datarepo-helm/releases/download/oidc-proxy-0.0.23/oidc-proxy-0.0.23.tgz
-      version: 0.0.23
+      chartPath: https://github.com/broadinstitute/datarepo-helm/releases/download/oidc-proxy-0.0.24/oidc-proxy-0.0.24.tgz
+      version: 0.0.24
       namespace: ps
       remote: true
       valuesFiles:
