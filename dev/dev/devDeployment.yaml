@@ -59,7 +59,7 @@ datarepo-api:
 datarepo-ui:
   enabled: true
   image:
-    tag: fb77112-develop
+    tag: 7c9fd47-develop
   proxyPass:
     status: http://dev-jade-datarepo-api.dev:8080/status
     swagger: http://dev-jade-datarepo-api.dev:8080/swagger-ui.html
