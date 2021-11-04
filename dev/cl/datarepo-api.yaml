@@ -1,0 +1,36 @@
+---
+image:
+  tag: 1.38.0
+env:
+  GOOGLE_PROJECTID: broad-jade-dev
+  GOOGLE_SINGLEDATAPROJECTID: broad-jade-cl-data
+  GOOGLE_ALLOWREUSEEXISTINGBUCKETS: true
+  GOOGLE_ALLOWREUSEEXISTINGPROJECTS: true
+  DB_DATAREPO_USERNAME: drmanager
+  SPRING_PROFILES_ACTIVE: google,cloudsql,dev,cl
+  DB_STAIRWAY_USERNAME: drmanager
+  DB_STAIRWAY_URI: jdbc:postgresql://cl-jade-gcloud-sqlproxy.cl:5432/stairway-cl
+  DB_DATAREPO_URI: jdbc:postgresql://cl-jade-gcloud-sqlproxy.cl:5432/datarepo-cl
+  DATAREPO_DNSNAME: jade-cl.datarepo-dev.broadinstitute.org
+  IT_JADE_API_URL: https://jade-cl.datarepo-dev.broadinstitute.org
+  AZURE_CREDENTIALS_APPLICATIONID: 22cb243c-f1a5-43d8-8f12-6566bcce6542
+  AZURE_CREDENTIALS_HOMETENANTID: fad90753-2022-4456-9b0a-c7e5b934e408
+  RBS_ENABLED: true
+  RBS_POOL_ID: datarepo_v3
+  RBS_INSTANCE_URL: https://buffer.dsde-dev.broadinstitute.org
+serviceAccount:
+  create: true
+rbac:
+  create: true
+  pspEnabled: true
+existingSecretDB: "database-pwd-cl"
+existingDatarepoDbSecretKey: "datarepopassword"
+existingStairwayDbSecretKey: "stairwaypassword"
+existingSecretSA: "jade-sa"
+existingServiceAccountSecretKey: "datareposerviceaccount"
+existingSecretAzure: "azure-cl"
+existingApplicationSecretSecretKey: "applicationsecret"
+existingSynapseUserSecretKey: "synapse-us-east-sql-admin-user"
+existingSynapsePasswordSecretKey: "synapse-us-east-sql-admin-password"
+existingSecretRBS: "rbs-sa-cl"
+existingRBSSecretKey: "rbsserviceaccount"

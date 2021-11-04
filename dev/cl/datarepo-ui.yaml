@@ -1,0 +1,12 @@
+---
+image:
+  tag: 0.12.0
+proxyPass:
+  status: http://cl-jade-datarepo-api.cl:8080/status
+  shutdown: http://cl-jade-datarepo-api.cl:8080/shutdown
+  swagger: http://cl-jade-datarepo-api.cl:8080/swagger-ui.html
+  api: http://cl-jade-datarepo-api.cl:8080
+serviceAccount:
+  create: true
+rbac:
+  create: true
