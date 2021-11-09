@@ -15,5 +15,3 @@ rbac:
   create: true
 networkPolicy:
   enabled: false
-nodeSelector:
-  cloud.google.com/gke-nodepool: dev-node

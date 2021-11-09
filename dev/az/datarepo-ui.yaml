@@ -1,6 +1,4 @@
 ---
-image:
-  tag: 0.87.0
 proxyPass:
   status: http://az-jade-datarepo-api.az:8080/status
   shutdown: http://az-jade-datarepo-api.az:8080/shutdown
