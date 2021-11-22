@@ -1,9 +1,7 @@
 ---
 replicaCount: 3
 env:
-  GOOGLE_PROJECTID: broad-datarepo-terra-prod
   GOOGLE_FIRESTORERETRIES: 12
-  GOOGLE_DATAPROJECTPREFIX: tdr-prd1
   DB_DATAREPO_USERNAME: drmanager
   SPRING_PROFILES_ACTIVE: google,cloudsql,terra,prod
   DB_STAIRWAY_USERNAME: drmanager
