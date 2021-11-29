@@ -1,8 +1,6 @@
 image:
   tag: 1.235.0
 env:
-  GOOGLE_PROJECTID: broad-jade-integration
-  GOOGLE_SINGLEDATAPROJECTID: broad-jade-int-4-data
   GOOGLE_ALLOWREUSEEXISTINGBUCKETS: true
   GOOGLE_ALLOWREUSEEXISTINGPROJECTS: true
   DB_DATAREPO_USERNAME: drmanager

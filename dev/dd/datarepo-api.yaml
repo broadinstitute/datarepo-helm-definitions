@@ -1,9 +1,7 @@
 ---
 image:
-  tag: a0fc3a2-develop
+  tag: 1.233.0
 env:
-  GOOGLE_PROJECTID: broad-jade-dd
-  GOOGLE_SINGLEDATAPROJECTID: broad-jade-dd-data
   GOOGLE_ALLOWREUSEEXISTINGBUCKETS: true
   GOOGLE_ALLOWREUSEEXISTINGPROJECTS: true
   DB_DATAREPO_USERNAME: drmanager

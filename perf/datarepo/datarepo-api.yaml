@@ -2,8 +2,6 @@ image:
   tag: 1.235.0
 replicaCount: 3
 env:
-  GOOGLE_PROJECTID: broad-jade-perf
-  GOOGLE_SINGLEDATAPROJECTID: broad-jade-perf-data2
   DB_DATAREPO_USERNAME: drmanager
   SPRING_PROFILES_ACTIVE: google,cloudsql,perftest,integration
   DB_STAIRWAY_USERNAME: drmanager

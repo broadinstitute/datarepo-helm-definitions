@@ -20,8 +20,6 @@ datarepo-api:
   image:
     tag: b5f1b102-develop
   env:
-    GOOGLE_PROJECTID: broad-jade-dev
-    GOOGLE_SINGLEDATAPROJECTID: broad-jade-dev-data
     GOOGLE_ALLOWREUSEEXISTINGBUCKETS: true
     GOOGLE_ALLOWREUSEEXISTINGPROJECTS: true
     GOOGLE_FIRESTORERETRIES: 50
