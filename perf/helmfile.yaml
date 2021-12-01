@@ -73,6 +73,12 @@ releases:
     version: 0.1.0
     missingFileHandler: Warn
 
+  - name: datarepo-monitoring-frontend-config   # release name
+    namespace: monitoring   # target namespace
+    chart: datarepo-helm/frontend-config   # chart name
+    version: 0.1.0
+    missingFileHandler: Warn
+
   - name: grafana-gcp-managed-cert   # release name
     namespace: monitoring   # target namespace
     chart: datarepo-helm/gcp-managed-cert   # chart name

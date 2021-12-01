@@ -14,6 +14,7 @@ prometheus:
       kubernetes.io/ingress.global-static-ip-name: datarepo-prometheus-ip
       kubernetes.io/ingress.allow-http: "false"
       networking.gke.io/managed-certificates: "prometheus-gcp-managed-cert"
+      networking.gke.io/v1beta1.FrontendConfig: "datarepo-monitoring-frontend-config"
     hosts:
       - datarepo-prometheus.staging.envs-terra.bio
     paths:
@@ -103,3 +104,4 @@ grafana:
       kubernetes.io/ingress.global-static-ip-name: datarepo-grafana-ip
       kubernetes.io/ingress.allow-http: "false"
       networking.gke.io/managed-certificates: "grafana-gcp-managed-cert"
+      networking.gke.io/v1beta1.FrontendConfig: "datarepo-monitoring-frontend-config"
