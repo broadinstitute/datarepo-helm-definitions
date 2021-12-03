@@ -20,6 +20,8 @@ env:
   RBS_ENABLED: true
   RBS_POOL_ID: datarepo_v1
   RBS_INSTANCE_URL: https://buffer.tools.integ.envs.broadinstitute.org
+  TERRA_COMMON_TRACING_STACKDRIVER_EXPORT_ENABLED: false
+  OPENCENCUS_SPRING_ENABLED: false
 serviceAccount:
   create: true
 rbac:
