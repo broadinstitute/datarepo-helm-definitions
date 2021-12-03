@@ -18,6 +18,7 @@ env:
   RBS_ENABLED: true
   RBS_POOL_ID: datarepo_v3
   RBS_INSTANCE_URL: https://buffer.dsde-dev.broadinstitute.org
+  TERRA_COMMON_TRACING_STACKDRIVER_EXPORT_ENABLED: false
 serviceAccount:
   create: true
 rbac:
