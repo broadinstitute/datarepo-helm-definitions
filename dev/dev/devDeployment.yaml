@@ -20,8 +20,6 @@ datarepo-api:
   image:
     tag: f5af9f90-develop
   env:
-    GOOGLE_ALLOWREUSEEXISTINGBUCKETS: true
-    GOOGLE_ALLOWREUSEEXISTINGPROJECTS: true
     GOOGLE_FIRESTORERETRIES: 50
     DB_DATAREPO_USERNAME: drmanager
     SPRING_PROFILES_ACTIVE: google,cloudsql,dev

@@ -2,8 +2,6 @@
 image:
   tag: marikoJul11f
 env:
-  GOOGLE_ALLOWREUSEEXISTINGBUCKETS: true
-  GOOGLE_ALLOWREUSEEXISTINGPROJECTS: true
   DB_DATAREPO_USERNAME: drmanager
   SPRING_PROFILES_ACTIVE: google,cloudsql,dev,mm
   DB_STAIRWAY_USERNAME: drmanager
