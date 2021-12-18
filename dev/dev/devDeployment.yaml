@@ -18,7 +18,7 @@ gcloud-sqlproxy:
 datarepo-api:
   enabled: true
   image:
-    tag: e417de2f-develop
+    tag: 830ffa17-develop
   env:
     GOOGLE_ALLOWREUSEEXISTINGBUCKETS: true
     GOOGLE_ALLOWREUSEEXISTINGPROJECTS: true
