@@ -3,7 +3,6 @@ image:
 proxyPass:
   status: http://integration-4-jade-datarepo-api.integration-4:8080/status
   swagger: http://integration-4-jade-datarepo-api.integration-4:8080/swagger-ui.html
-  shutdown: http://integration-4-jade-datarepo-api.integration-4:8080/shutdown
   api: http://integration-4-jade-datarepo-api.integration-4:8080
 serviceAccount:
   create: true
