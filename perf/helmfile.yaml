@@ -54,7 +54,7 @@ releases:
   - name: perf-jade-oidc-proxy   # name of this release
     namespace: perf   # target namespace
     chart: datarepo-helm/oidc-proxy   # the chart name
-    version: 0.0.24    # chart version
+    version: 0.0.25    # chart version
     missingFileHandler: Warn
     values:
       - datarepo/oidc-proxy.yaml   # Value files passed via --values
