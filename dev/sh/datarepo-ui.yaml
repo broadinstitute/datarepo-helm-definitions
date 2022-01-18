@@ -2,7 +2,6 @@
 proxyPass:
   status: http://sh-jade-datarepo-api.sh:8080/status
   swagger: http://sh-jade-datarepo-api.sh:8080/swagger-ui.html
-  shutdown: http://sh-jade-datarepo-api.sh:8080/shutdown
   api: http://sh-jade-datarepo-api.sh:8080
 serviceAccount:
   create: true

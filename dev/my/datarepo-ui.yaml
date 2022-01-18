@@ -1,7 +1,6 @@
 ---
 proxyPass:
   status: http://my-jade-datarepo-api.my:8080/status
-  shutdown: http://my-jade-datarepo-api.my:8080/shutdown
   swagger: http://my-jade-datarepo-api.my:8080/swagger-ui.html
   api: http://my-jade-datarepo-api.my:8080
 serviceAccount:

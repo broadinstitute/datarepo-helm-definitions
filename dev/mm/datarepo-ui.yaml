@@ -3,7 +3,6 @@ image:
   tag: fcd1b81-develop
 proxyPass:
   status: http://mm-jade-datarepo-api.mm:8080/status
-  shutdown: http://mm-jade-datarepo-api.mm:8080/shutdown
   swagger: http://mm-jade-datarepo-api.mm:8080/swagger-ui.html
   api: http://mm-jade-datarepo-api.mm:8080
 serviceAccount:

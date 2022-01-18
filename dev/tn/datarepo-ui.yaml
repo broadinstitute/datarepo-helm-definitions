@@ -3,7 +3,6 @@ image:
   tag: a277fe8-develop
 proxyPass:
   status: http://tn-jade-datarepo-api.tn:8080/status
-  shutdown: http://tn-jade-datarepo-api.tn:8080/shutdown
   swagger: http://tn-jade-datarepo-api.tn:8080/swagger-ui.html
   api: http://tn-jade-datarepo-api.tn:8080
 serviceAccount:
