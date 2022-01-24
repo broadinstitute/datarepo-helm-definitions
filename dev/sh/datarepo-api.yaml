@@ -6,7 +6,7 @@ env:
   DB_STAIRWAY_USERNAME: drmanager
   DB_STAIRWAY_URI: jdbc:postgresql://sh-jade-gcloud-sqlproxy.sh:5432/stairway-sh
   DB_DATAREPO_URI: jdbc:postgresql://sh-jade-gcloud-sqlproxy.sh:5432/datarepo-sh
-  DB_MIGRATE_DROPALLONSTART: true
+  DB_MIGRATE_DROPALLONSTART: false
   DATAREPO_DNSNAME: jade-sh.datarepo-dev.broadinstitute.org
   IT_JADE_API_URL: https://jade-sh.datarepo-dev.broadinstitute.org
   AZURE_CREDENTIALS_APPLICATIONID: 22cb243c-f1a5-43d8-8f12-6566bcce6542
