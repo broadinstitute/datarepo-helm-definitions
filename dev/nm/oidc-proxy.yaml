@@ -2,7 +2,8 @@
 env:
   PROXY_URL: http://nm-jade-datarepo-ui.nm:8080/
   PROXY_URL2: http://nm-jade-datarepo-api.nm:8080/api
-  PROXY_URL3: http://nm-jade-datarepo-api.nm:8080/register
+  PROXY_URL3: http://nm-jade-datarepo-api.nm:8080/ga4gh
+  PROXY_PATH3: /ga4gh
   LOG_LEVEL: debug
   SERVER_NAME: jade.datarepo-dev.broadinstitute.org
   REMOTE_USER_CLAIM: sub
