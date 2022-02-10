@@ -76,7 +76,7 @@ oidc-proxy:
     PROXY_URL2: http://dev-jade-datarepo-api.dev:8080/api
     PROXY_URL3: http://dev-jade-datarepo-api.dev:8080/ga4gh
     PROXY_PATH3: /ga4gh
-    LOG_LEVEL: debug
+    LOG_LEVEL: info
     SERVER_NAME: jade.datarepo-dev.broadinstitute.org
     REMOTE_USER_CLAIM: sub
     ENABLE_STACKDRIVER: yes

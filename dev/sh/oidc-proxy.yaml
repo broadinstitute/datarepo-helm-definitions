@@ -3,7 +3,7 @@ env:
   PROXY_URL: http://sh-jade-datarepo-ui.sh:8080/
   PROXY_URL2: http://sh-jade-datarepo-api.sh:8080/api
   PROXY_URL3: http://sh-jade-datarepo-api.sh:8080/register
-  LOG_LEVEL: debug
+  LOG_LEVEL: info
   SERVER_NAME: jade.datarepo-dev.broadinstitute.org
   REMOTE_USER_CLAIM: sub
   ENABLE_STACKDRIVER: yes
