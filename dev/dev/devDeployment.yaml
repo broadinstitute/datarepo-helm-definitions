@@ -18,7 +18,7 @@ gcloud-sqlproxy:
 datarepo-api:
   enabled: true
   image:
-    tag: 096544c3-develop
+    tag: a80b6eab-develop
   env:
     GOOGLE_ALLOWREUSEEXISTINGBUCKETS: true
     GOOGLE_ALLOWREUSEEXISTINGPROJECTS: true
@@ -60,7 +60,7 @@ datarepo-api:
 datarepo-ui:
   enabled: true
   image:
-    tag: 5a3864d-develop
+    tag: dbd0f06-develop
   proxyPass:
     status: http://dev-jade-datarepo-api.dev:8080/status
     swagger: http://dev-jade-datarepo-api.dev:8080/swagger-ui.html
@@ -76,7 +76,7 @@ oidc-proxy:
     PROXY_URL2: http://dev-jade-datarepo-api.dev:8080/api
     PROXY_URL3: http://dev-jade-datarepo-api.dev:8080/ga4gh
     PROXY_PATH3: /ga4gh
-    LOG_LEVEL: debug
+    LOG_LEVEL: info
     SERVER_NAME: jade.datarepo-dev.broadinstitute.org
     REMOTE_USER_CLAIM: sub
     ENABLE_STACKDRIVER: yes
