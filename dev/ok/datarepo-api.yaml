@@ -1,9 +1,6 @@
 ---
-image:
-  tag: 1.233.0
 env:
   GOOGLE_ALLOWREUSEEXISTINGBUCKETS: true
-  GOOGLE_ALLOWREUSEEXISTINGPROJECTS: true
   DB_DATAREPO_USERNAME: drmanager
   SPRING_PROFILES_ACTIVE: google,cloudsql,dev,ok
   DB_STAIRWAY_USERNAME: drmanager
