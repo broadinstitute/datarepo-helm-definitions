@@ -1,0 +1,34 @@
+---
+env:
+  GOOGLE_ALLOWREUSEEXISTINGBUCKETS: true
+  DB_DATAREPO_USERNAME: drmanager
+  SPRING_PROFILES_ACTIVE: google,cloudsql,dev,ok
+  DB_STAIRWAY_USERNAME: drmanager
+  DB_STAIRWAY_URI: jdbc:postgresql://ok-jade-gcloud-sqlproxy.ok:5432/stairway-ok
+  DB_DATAREPO_URI: jdbc:postgresql://ok-jade-gcloud-sqlproxy.ok:5432/datarepo-ok
+  DATAREPO_DNSNAME: jade-ok.datarepo-dev.broadinstitute.org
+  IT_JADE_API_URL: https://jade-ok.datarepo-dev.broadinstitute.org
+  AZURE_CREDENTIALS_APPLICATIONID: 22cb243c-f1a5-43d8-8f12-6566bcce6542
+  AZURE_CREDENTIALS_HOMETENANTID: fad90753-2022-4456-9b0a-c7e5b934e408
+  RBS_ENABLED: true
+  RBS_POOL_ID: datarepo_v3
+  RBS_INSTANCE_URL: https://buffer.dsde-dev.broadinstitute.org
+  TERRA_COMMON_TRACING_STACKDRIVER_EXPORT_ENABLED: false
+  OPENCENCUS_SPRING_ENABLED: false
+  GOOGLE_SECURE_FOLDER_RESOURCE_ID: "753276429356"
+serviceAccount:
+  create: true
+rbac:
+  create: true
+  pspEnabled: true
+existingSecretDB: "database-pwd-ok"
+existingDatarepoDbSecretKey: "datarepopassword"
+existingStairwayDbSecretKey: "stairwaypassword"
+existingSecretSA: "jade-sa"
+existingServiceAccountSecretKey: "datareposerviceaccount"
+existingSecretAzure: "azure-ok"
+existingApplicationSecretSecretKey: "applicationsecret"
+existingSynapseUserSecretKey: "synapse-us-east-sql-admin-user"
+existingSynapsePasswordSecretKey: "synapse-us-east-sql-admin-password"
+existingSecretRBS: "rbs-sa-ok"
+existingRBSSecretKey: "rbsserviceaccount"
