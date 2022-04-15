@@ -1,6 +1,4 @@
 ---
-image:
-  tag: 0.0.86
 proxyPass:
   status: http://nm-jade-datarepo-api.nm:8080/status
   swagger: http://nm-jade-datarepo-api.nm:8080/swagger-ui.html
