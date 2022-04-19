@@ -25,7 +25,7 @@ env:
   OIDC_CLIENTID: 970791974390-1581mjhtp2b3jmg4avhor1vabs13b7ur.apps.googleusercontent.com
   OIDC_AUTHORITYENDPOINT: https://accounts.google.com
   OIDC_ADDCLIENTIDTOSCOPE: false
-  OIDC_EXTRAAUTHPARAMS:
+  OIDC_EXTRAAUTHPARAMS: ""
 serviceAccount:
   create: true
 rbac:
