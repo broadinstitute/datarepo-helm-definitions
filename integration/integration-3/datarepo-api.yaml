@@ -19,6 +19,10 @@ env:
   TERRA_COMMON_TRACING_STACKDRIVER_EXPORT_ENABLED: false
   OPENCENCUS_SPRING_ENABLED: false
   GOOGLE_SECURE_FOLDER_RESOURCE_ID: "753276429356"
+  OIDC_CLIENTID: 970791974390-1581mjhtp2b3jmg4avhor1vabs13b7ur.apps.googleusercontent.com
+  OIDC_AUTHORITYENDPOINT: https://accounts.google.com
+  OIDC_ADDCLIENTIDTOSCOPE: false
+  OIDC_EXTRAAUTHPARAMS:
 serviceAccount:
   create: true
 rbac:
@@ -37,3 +41,5 @@ nodeSelector:
   cloud.google.com/gke-nodepool: integration-node
 existingSecretRBS: "rbs-sa-integration-3"
 existingRBSSecretKey: "rbsserviceaccount"
+existingSecretNameOauth: "oauth-integration-3"
+existingOauthClientSecretSecretKey: "client-secret"

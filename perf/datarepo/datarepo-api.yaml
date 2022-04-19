@@ -22,6 +22,10 @@ env:
   OPENCENCUS_SPRING_ENABLED: false
   GOOGLE_SECURE_FOLDER_RESOURCE_ID: "753276429356"
   GOOGLE_FIRESTORERETRIES: 12
+  OIDC_CLIENTID: 970791974390-1581mjhtp2b3jmg4avhor1vabs13b7ur.apps.googleusercontent.com
+  OIDC_AUTHORITYENDPOINT: https://accounts.google.com
+  OIDC_ADDCLIENTIDTOSCOPE: false
+  OIDC_EXTRAAUTHPARAMS:
 serviceAccount:
   create: true
 rbac:
@@ -38,3 +42,5 @@ existingSynapseUserSecretKey: "synapse-us-east-sql-admin-user"
 existingSynapsePasswordSecretKey: "synapse-us-east-sql-admin-password"
 existingSecretRBS: "rbs-sa-tools"
 existingRBSSecretKey: "rbsserviceaccount"
+existingSecretNameOauth: "oauth-perf"
+existingOauthClientSecretSecretKey: "client-secret"
