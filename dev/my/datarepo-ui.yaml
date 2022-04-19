@@ -1,9 +1,0 @@
----
-proxyPass:
-  status: http://my-jade-datarepo-api.my:8080/status
-  swagger: http://my-jade-datarepo-api.my:8080/swagger-ui.html
-  api: http://my-jade-datarepo-api.my:8080
-serviceAccount:
-  create: true
-rbac:
-  create: true
