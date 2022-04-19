@@ -13,6 +13,10 @@ env:
   IT_JADE_API_URL: https://jade-tn.datarepo-dev.broadinstitute.org
   AZURE_CREDENTIALS_APPLICATIONID: 22cb243c-f1a5-43d8-8f12-6566bcce6542
   AZURE_CREDENTIALS_HOMETENANTID: fad90753-2022-4456-9b0a-c7e5b934e408
+  OIDC_CLIENTID: 970791974390-1581mjhtp2b3jmg4avhor1vabs13b7ur.apps.googleusercontent.com
+  OIDC_AUTHORITYENDPOINT: https://accounts.google.com
+  OIDC_ADDCLIENTIDTOSCOPE: false
+  OIDC_EXTRAAUTHPARAMS:
 serviceAccount:
   create: true
 rbac:
@@ -29,3 +33,5 @@ existingSynapseUserSecretKey: "synapse-us-east-sql-admin-user"
 existingSynapsePasswordSecretKey: "synapse-us-east-sql-admin-password"
 existingSecretRBS: "rbs-sa-tn"
 existingRBSSecretKey: "rbsserviceaccount"
+existingSecretNameOauth: "oauth-dev-tn"
+existingOauthClientSecretSecretKey: "client-secret"
