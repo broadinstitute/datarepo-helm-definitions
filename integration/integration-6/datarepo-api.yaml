@@ -42,4 +42,3 @@ existingSecretRBS: "rbs-sa-integration-6"
 existingRBSSecretKey: "rbsserviceaccount"
 existingSecretNameOauth: "oauth-integration-6"
 existingOauthClientSecretSecretKey: "client-secret"
-
