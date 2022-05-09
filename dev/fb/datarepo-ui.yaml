@@ -2,7 +2,6 @@
 proxyPass:
   status: http://fb-jade-datarepo-api.fb:8080/status
   swagger: http://fb-jade-datarepo-api.fb:8080/swagger-ui.html
-  shutdown: http://fb-jade-datarepo-api.fb:8080/shutdown
   api: http://fb-jade-datarepo-api.fb:8080
 serviceAccount:
   create: true

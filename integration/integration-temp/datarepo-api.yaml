@@ -1,10 +1,8 @@
 ---
 enabled: true
 image:
-  tag: 1.0.167
+  tag: 1.233.0
 env:
-  GOOGLE_PROJECTID: broad-jade-integration
-  GOOGLE_SINGLEDATAPROJECTID: broad-jade-integration-data
   GOOGLE_ALLOWREUSEEXISTINGBUCKETS: true
   GOOGLE_ALLOWREUSEEXISTINGPROJECTS: true
   DB_DATAREPO_USERNAME: drmanager
@@ -19,6 +17,13 @@ env:
   RBS_ENABLED: true
   RBS_POOL_ID: datarepo_v1
   RBS_INSTANCE_URL: https://buffer.tools.integ.envs.broadinstitute.org
+  TERRA_COMMON_TRACING_STACKDRIVER_EXPORT_ENABLED: false
+  OPENCENCUS_SPRING_ENABLED: false
+  GOOGLE_SECURE_FOLDER_RESOURCE_ID: "753276429356"
+  OIDC_CLIENTID: 970791974390-1581mjhtp2b3jmg4avhor1vabs13b7ur.apps.googleusercontent.com
+  OIDC_AUTHORITYENDPOINT: https://accounts.google.com
+  OIDC_ADDCLIENTIDTOSCOPE: false
+  OIDC_EXTRAAUTHPARAMS: ""
 serviceAccount:
   create: true
 rbac:
@@ -35,3 +40,5 @@ nodeSelector:
   cloud.google.com/gke-nodepool: integration-node
 existingSecretRBS: "rbs-sa-integration-temp"
 existingRBSSecretKey: "rbsserviceaccount"
+existingSecretNameOauth: "oauth-integration-temp"
+existingOauthClientSecretSecretKey: "client-secret"

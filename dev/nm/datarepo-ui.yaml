@@ -1,9 +1,6 @@
 ---
-image:
-  tag: 0.0.86
 proxyPass:
   status: http://nm-jade-datarepo-api.nm:8080/status
-  shutdown: http://nm-jade-datarepo-api.nm:8080/shutdown
   swagger: http://nm-jade-datarepo-api.nm:8080/swagger-ui.html
   api: http://nm-jade-datarepo-api.nm:8080
 serviceAccount:

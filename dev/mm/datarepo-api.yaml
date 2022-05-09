@@ -2,8 +2,6 @@
 image:
   tag: marikoJul11f
 env:
-  GOOGLE_PROJECTID: broad-jade-dev
-  GOOGLE_SINGLEDATAPROJECTID: broad-jade-mm-data
   GOOGLE_ALLOWREUSEEXISTINGBUCKETS: true
   GOOGLE_ALLOWREUSEEXISTINGPROJECTS: true
   DB_DATAREPO_USERNAME: drmanager
@@ -17,6 +15,10 @@ env:
   dbMigrateDropallonstart: true
   AZURE_CREDENTIALS_APPLICATIONID: 22cb243c-f1a5-43d8-8f12-6566bcce6542
   AZURE_CREDENTIALS_HOMETENANTID: fad90753-2022-4456-9b0a-c7e5b934e408
+  OIDC_CLIENTID: 970791974390-1581mjhtp2b3jmg4avhor1vabs13b7ur.apps.googleusercontent.com
+  OIDC_AUTHORITYENDPOINT: https://accounts.google.com
+  OIDC_ADDCLIENTIDTOSCOPE: false
+  OIDC_EXTRAAUTHPARAMS: ""
 serviceAccount:
   create: true
 rbac:
@@ -29,3 +31,5 @@ existingSecretSA: "jade-sa"
 existingServiceAccountSecretKey: "datareposerviceaccount"
 existingSecretAzure: "azure-mm"
 existingApplicationSecretSecretKey: "applicationsecret"
+existingSecretNameOauth: "oauth-dev-mm"
+existingOauthClientSecretSecretKey: "client-secret"

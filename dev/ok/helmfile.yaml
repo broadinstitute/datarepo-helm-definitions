@@ -8,41 +8,41 @@ repositories:
 
 # helm releases to be deployed
 releases:
-  - name: my-jade-create-secret-manager-secret    # release name
-    namespace: my   # target namespace
+  - name: ok-jade-create-secret-manager-secret    # release name
+    namespace: ok   # target namespace
     createNamespace: true
     chart: datarepo-helm/create-secret-manager-secret   # chart name
     version: 0.0.6   #    Chart version
     missingFileHandler: Warn
     values:
       - create-secret-manager-secret.yaml      # Value files passed via --values
-  - name: my-jade-gcloud-sqlproxy    # release name
-    namespace: my   # target namespace
+  - name: ok-jade-gcloud-sqlproxy    # release name
+    namespace: ok   # target namespace
     createNamespace: true
     chart: datarepo-helm/gcloud-sqlproxy   # chart name
     version: 0.19.7 #    Chart version
     missingFileHandler: Warn
     values:
       - gcloud-sqlproxy.yaml    # Value files passed via --values
-  - name: my-jade-datarepo-api   # name of this release
-    namespace: my   # target namespace
+  - name: ok-jade-datarepo-api   # name of this release
+    namespace: ok   # target namespace
     createNamespace: true
     chart: datarepo-helm/datarepo-api   # the chart name
     missingFileHandler: Warn
     values:
       - datarepo-api.yaml   # Value files passed via --values
-  - name: my-jade-datarepo-ui   # name of this release
-    namespace: my   # target namespace
+  - name: ok-jade-datarepo-ui   # name of this release
+    namespace: ok   # target namespace
     createNamespace: true
     chart: datarepo-helm/datarepo-ui   # the chart name
     missingFileHandler: Warn
     values:
       - datarepo-ui.yaml   # Value files passed via --values
-  - name: my-jade-oidc-proxy   # name of this release
-    namespace: my   # target namespace
+  - name: ok-jade-oidc-proxy   # name of this release
+    namespace: ok   # target namespace
     createNamespace: true
     chart: datarepo-helm/oidc-proxy   # the chart name
-    version: 0.0.24    # chart version
+    version: 0.0.31    # chart version
     missingFileHandler: Warn
     values:
       - oidc-proxy.yaml   # Value files passed via --values

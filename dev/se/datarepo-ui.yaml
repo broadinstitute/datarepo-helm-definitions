@@ -4,7 +4,6 @@ image:
 proxyPass:
   status: http://se-jade-datarepo-api.se:8080/status
   swagger: http://se-jade-datarepo-api.se:8080/swagger-ui.html
-  shutdown: http://se-jade-datarepo-api.se:8080/shutdown
   api: http://se-jade-datarepo-api.se:8080
 serviceAccount:
   create: true

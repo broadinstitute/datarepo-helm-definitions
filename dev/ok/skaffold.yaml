@@ -1,0 +1,58 @@
+## Be sure to add the helm repos
+## helm repo add datarepo-helm https://broadinstitute.github.io/datarepo-helm && helm repo update
+apiVersion: skaffold/v2alpha2
+kind: Config
+build:
+  tagPolicy:
+    gitCommit:
+      variant: AbbrevCommitSha
+  artifacts:
+  - image: gcr.io/broad-jade-dev/jade-data-repo
+    jib:
+      args:
+      - jib
+      type: gradle
+deploy:
+  helm:
+    flags:
+      upgrade:
+        - --install
+        - --debug
+    releases:
+    # create secrets
+    - name: ok-jade-create-secret-manager-secret
+      chartPath: datarepo-helm/create-secret-manager-secret
+      namespace: ok
+      remote: true
+      valuesFiles:
+      - https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/ok/create-secret-manager-secret.yaml
+    # gcp sqlproxy
+    - name: ok-jade-gcloud-sqlproxy
+      chartPath: datarepo-helm/gcloud-sqlproxy
+      namespace: ok
+      remote: true
+      valuesFiles:
+      - https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/ok/gcloud-sqlproxy.yaml
+    # datarepo-api
+    - name: ok-jade-datarepo-api
+      chartPath: datarepo-helm/datarepo-api
+      namespace: ok
+      remote: true
+      values:
+        imageName: gcr.io/broad-jade-dev/jade-data-repo
+      valuesFiles:
+      - https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/ok/datarepo-api.yaml
+    # datarepo-ui
+    - name: ok-jade-datarepo-ui
+      chartPath: datarepo-helm/datarepo-ui
+      namespace: ok
+      remote: true
+      valuesFiles:
+      - https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/ok/datarepo-ui.yaml
+    # oidc-proxy
+    - name: ok-jade-oidc-proxy
+      chartPath: datarepo-helm/oidc-proxy
+      namespace: ok
+      remote: true
+      valuesFiles:
+      - https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/ok/oidc-proxy.yaml

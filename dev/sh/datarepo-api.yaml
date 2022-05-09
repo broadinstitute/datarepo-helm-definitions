@@ -1,6 +1,4 @@
 env:
-  GOOGLE_PROJECTID: broad-jade-dev
-  GOOGLE_SINGLEDATAPROJECTID: broad-jade-sh-data
   GOOGLE_ALLOWREUSEEXISTINGBUCKETS: true
   GOOGLE_ALLOWREUSEEXISTINGPROJECTS: true
   DB_DATAREPO_USERNAME: drmanager
@@ -8,14 +6,21 @@ env:
   DB_STAIRWAY_USERNAME: drmanager
   DB_STAIRWAY_URI: jdbc:postgresql://sh-jade-gcloud-sqlproxy.sh:5432/stairway-sh
   DB_DATAREPO_URI: jdbc:postgresql://sh-jade-gcloud-sqlproxy.sh:5432/datarepo-sh
-  DB_MIGRATE_DROPALLONSTART: true
+  DB_MIGRATE_DROPALLONSTART: false
   DATAREPO_DNSNAME: jade-sh.datarepo-dev.broadinstitute.org
   IT_JADE_API_URL: https://jade-sh.datarepo-dev.broadinstitute.org
   AZURE_CREDENTIALS_APPLICATIONID: 22cb243c-f1a5-43d8-8f12-6566bcce6542
   AZURE_CREDENTIALS_HOMETENANTID: fad90753-2022-4456-9b0a-c7e5b934e408
   RBS_ENABLED: true
-  RBS_POOL_ID: datarepo_v1
-  RBS_INSTANCE_URL: https://buffer.tools.integ.envs.broadinstitute.org
+  RBS_POOL_ID: datarepo_v3
+  RBS_INSTANCE_URL: https://buffer.dsde-dev.broadinstitute.org
+  TERRA_COMMON_TRACING_STACKDRIVER_EXPORT_ENABLED: false
+  OPENCENCUS_SPRING_ENABLED: false
+  GOOGLE_SECURE_FOLDER_RESOURCE_ID: "753276429356"
+  OIDC_CLIENTID: 970791974390-1581mjhtp2b3jmg4avhor1vabs13b7ur.apps.googleusercontent.com
+  OIDC_AUTHORITYENDPOINT: https://accounts.google.com
+  OIDC_ADDCLIENTIDTOSCOPE: false
+  OIDC_EXTRAAUTHPARAMS: ""
 serviceAccount:
   create: true
 rbac:
@@ -32,3 +37,5 @@ existingSynapseUserSecretKey: "synapse-us-east-sql-admin-user"
 existingSynapsePasswordSecretKey: "synapse-us-east-sql-admin-password"
 existingSecretRBS: "rbs-sa-tools-sh"
 existingRBSSecretKey: "rbsserviceaccount"
+existingSecretNameOauth: "oauth-dev-sh"
+existingOauthClientSecretSecretKey: "client-secret"

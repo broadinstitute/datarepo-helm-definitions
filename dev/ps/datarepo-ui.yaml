@@ -3,7 +3,6 @@ image:
   tag: 0.0.86
 proxyPass:
   status: http://ps-jade-datarepo-api.ps:8080/status
-  shutdown: http://ps-jade-datarepo-api.ps:8080/shutdown
   swagger: http://ps-jade-datarepo-api.ps:8080/swagger-ui.html
   api: http://ps-jade-datarepo-api.ps:8080
 serviceAccount:

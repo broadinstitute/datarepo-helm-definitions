@@ -1,27 +1,21 @@
-image:
-  tag: 1.340.0
-replicaCount: 3
+---
 env:
-  DB_DATAREPO_USERNAME: drmanager
-  SPRING_PROFILES_ACTIVE: google,cloudsql,perftest,integration
-  DB_STAIRWAY_USERNAME: drmanager
-  DB_STAIRWAY_URI: jdbc:postgresql://perf-jade-gcloud-sqlproxy.perf:5432/stairway
-  DB_DATAREPO_URI: jdbc:postgresql://perf-jade-gcloud-sqlproxy.perf:5432/datarepo
-  DATAREPO_DNSNAME: jade-perf.datarepo-perf.broadinstitute.org
-  IT_JADE_API_URL: https://jade-perf.datarepo-perf.broadinstitute.org
-  DATAREPO_RESOURCEID: broad-jade-dev
-  SAM_STEWARDSGROUPEMAIL: JadeStewards-dev@dev.test.firecloud.org
   GOOGLE_ALLOWREUSEEXISTINGBUCKETS: true
-  GOOGLE_ALLOWREUSEEXISTINGPROJECTS: true
+  DB_DATAREPO_USERNAME: drmanager
+  SPRING_PROFILES_ACTIVE: google,cloudsql,dev,ok
+  DB_STAIRWAY_USERNAME: drmanager
+  DB_STAIRWAY_URI: jdbc:postgresql://ok-jade-gcloud-sqlproxy.ok:5432/stairway-ok
+  DB_DATAREPO_URI: jdbc:postgresql://ok-jade-gcloud-sqlproxy.ok:5432/datarepo-ok
+  DATAREPO_DNSNAME: jade-ok.datarepo-dev.broadinstitute.org
+  IT_JADE_API_URL: https://jade-ok.datarepo-dev.broadinstitute.org
   AZURE_CREDENTIALS_APPLICATIONID: 22cb243c-f1a5-43d8-8f12-6566bcce6542
   AZURE_CREDENTIALS_HOMETENANTID: fad90753-2022-4456-9b0a-c7e5b934e408
   RBS_ENABLED: true
-  RBS_POOL_ID: datarepo_v1
-  RBS_INSTANCE_URL: https://buffer.tools.integ.envs.broadinstitute.org
+  RBS_POOL_ID: datarepo_v3
+  RBS_INSTANCE_URL: https://buffer.dsde-dev.broadinstitute.org
   TERRA_COMMON_TRACING_STACKDRIVER_EXPORT_ENABLED: false
   OPENCENCUS_SPRING_ENABLED: false
   GOOGLE_SECURE_FOLDER_RESOURCE_ID: "753276429356"
-  GOOGLE_FIRESTORERETRIES: 12
   OIDC_CLIENTID: 970791974390-1581mjhtp2b3jmg4avhor1vabs13b7ur.apps.googleusercontent.com
   OIDC_AUTHORITYENDPOINT: https://accounts.google.com
   OIDC_ADDCLIENTIDTOSCOPE: false
@@ -31,16 +25,16 @@ serviceAccount:
 rbac:
   create: true
   pspEnabled: true
-existingSecretDB: "database-pwd-perf"
+existingSecretDB: "database-pwd-ok"
 existingDatarepoDbSecretKey: "datarepopassword"
 existingStairwayDbSecretKey: "stairwaypassword"
 existingSecretSA: "jade-sa"
 existingServiceAccountSecretKey: "datareposerviceaccount"
-existingSecretAzure: "azure-perf"
+existingSecretAzure: "azure-ok"
 existingApplicationSecretSecretKey: "applicationsecret"
 existingSynapseUserSecretKey: "synapse-us-east-sql-admin-user"
 existingSynapsePasswordSecretKey: "synapse-us-east-sql-admin-password"
-existingSecretRBS: "rbs-sa-tools"
+existingSecretRBS: "rbs-sa-ok"
 existingRBSSecretKey: "rbsserviceaccount"
-existingSecretNameOauth: "oauth-perf"
+existingSecretNameOauth: "oauth-dev-ok"
 existingOauthClientSecretSecretKey: "client-secret"

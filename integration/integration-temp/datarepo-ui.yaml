@@ -4,7 +4,6 @@ image:
   tag: f3b1ba6-develop
 proxyPass:
   status: http://integration-temp-jade-datarepo-api.integration-temp:8080/status
-  shutdown: http://integration-temp-jade-datarepo-api.integration-temp:8080/shutdown
   swagger: http://integration-temp-jade-datarepo-api.integration-temp:8080/swagger-ui.html
   api: http://integration-temp-jade-datarepo-api.integration-temp:8080
 serviceAccount:
