@@ -1,6 +1,4 @@
 ---
-image:
-  tag: 0b002f6-develop
 proxyPass:
   status: http://perf-jade-datarepo-api.perf:8080/status
   swagger: http://perf-jade-datarepo-api.perf:8080/swagger-ui.html
