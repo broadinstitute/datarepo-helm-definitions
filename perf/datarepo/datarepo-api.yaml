@@ -1,5 +1,5 @@
 image:
-  tag: 1.384.0
+  tag: 1.385.0
 replicaCount: 3
 env:
   DB_DATAREPO_USERNAME: drmanager
