@@ -32,7 +32,6 @@ releases:
   - name: perf-jade-gcloud-sqlproxy    # release name
     namespace: perf   # target namespace
     chart: datarepo-helm/gcloud-sqlproxy   # chart name
-    version: 0.19.7 #    Chart version
     missingFileHandler: Warn
     values:
       - datarepo/gcloud-sqlproxy.yaml    # Value files passed via --values
