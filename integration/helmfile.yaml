@@ -40,28 +40,24 @@ releases:
   - name: {{ .Environment.Name }}-jade-gcloud-sqlproxy    # release name
     namespace: {{ .Environment.Name }}   # target namespace
     chart: datarepo-helm/gcloud-sqlproxy   # chart name
-    version: 0.19.7 #    Chart version
     missingFileHandler: Warn
     values:
       - {{ .Environment.Name }}/gcloud-sqlproxy.yaml    # Value files passed via --values
   - name: {{ .Environment.Name }}-jade-datarepo-api   # name of this release
     namespace: {{ .Environment.Name }}   # target namespace
     chart: datarepo-helm/datarepo-api   # the chart name
-    version: 0.0.303    # chart version
     missingFileHandler: Warn
     values:
       - {{ .Environment.Name }}/datarepo-api.yaml   # Value files passed via --values
   - name: {{ .Environment.Name }}-jade-datarepo-ui   # name of this release
     namespace: {{ .Environment.Name }}   # target namespace
     chart: datarepo-helm/datarepo-ui   # the chart name
-    version: 0.0.129    # chart version
     missingFileHandler: Warn
     values:
       - {{ .Environment.Name }}/datarepo-ui.yaml   # Value files passed via --values
   - name: {{ .Environment.Name }}-jade-oidc-proxy   # name of this release
     namespace: {{ .Environment.Name }}   # target namespace
     chart: datarepo-helm/oidc-proxy   # the chart name
-    version: 0.0.31    # chart version
     missingFileHandler: Warn
     values:
       - {{ .Environment.Name }}/oidc-proxy.yaml   # Value files passed via --values

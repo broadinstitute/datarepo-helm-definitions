@@ -17,7 +17,7 @@ ingress:
   annotations:
     kubernetes.io/ingress.global-static-ip-name: integration-ip-6
   paths:
-  - /*
+  - /
   hosts:
   - jade-6.datarepo-integration.broadinstitute.org
 serviceAccount:
