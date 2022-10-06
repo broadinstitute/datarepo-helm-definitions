@@ -17,7 +17,7 @@ ingress:
     kubernetes.io/ingress.global-static-ip-name: jade-dev-se
     networking.gke.io/v1beta1.FrontendConfig: se-jade-oidc-proxy
   paths:
-    - /*
+    - /
   hosts:
     - jade-se.datarepo-dev.broadinstitute.org
 serviceAccount:
