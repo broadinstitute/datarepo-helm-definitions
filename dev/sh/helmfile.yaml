@@ -8,38 +8,40 @@ repositories:
 
 # helm releases to be deployed
 releases:
-  - name: sh-jade-create-secret-manager-secret    # release name
-    namespace: sh   # target namespace
-    createNamespace: true
-    chart: datarepo-helm/create-secret-manager-secret   # chart name
-    missingFileHandler: Warn
-    values:
-      - create-secret-manager-secret.yaml      # Value files passed via --values
-  - name: sh-jade-gcloud-sqlproxy    # release name
-    namespace: sh   # target namespace
-    createNamespace: true
-    chart: datarepo-helm/gcloud-sqlproxy   # chart name
-    missingFileHandler: Warn
-    values:
-      - gcloud-sqlproxy.yaml    # Value files passed via --values
+  # - name: sh-jade-create-secret-manager-secret    # release name
+  #   namespace: sh   # target namespace
+  #   createNamespace: true
+  #   chart: datarepo-helm/create-secret-manager-secret   # chart name
+  #   missingFileHandler: Warn
+  #   values:
+  #     - create-secret-manager-secret.yaml      # Value files passed via --values
+  # - name: sh-jade-gcloud-sqlproxy    # release name
+  #   namespace: sh   # target namespace
+  #   createNamespace: true
+  #   chart: datarepo-helm/gcloud-sqlproxy   # chart name
+  #   missingFileHandler: Warn
+  #   values:
+  #     - gcloud-sqlproxy.yaml    # Value files passed via --values
   - name: sh-jade-datarepo-api   # name of this release
     namespace: sh   # target namespace
     createNamespace: true
     chart: datarepo-helm/datarepo-api   # the chart name
     missingFileHandler: Warn
     values:
-      - datarepo-api.yaml   # Value files passed via --values
-  - name: sh-jade-datarepo-ui   # name of this release
-    namespace: sh   # target namespace
-    createNamespace: true
-    chart: datarepo-helm/datarepo-ui   # the chart name
-    missingFileHandler: Warn
-    values:
-      - datarepo-ui.yaml   # Value files passed via --values
-  - name: sh-jade-oidc-proxy   # name of this release
-    namespace: sh   # target namespace
-    createNamespace: true
-    chart: datarepo-helm/oidc-proxy   # the chart name
-    missingFileHandler: Warn
-    values:
-      - oidc-proxy.yaml   # Value files passed via --values
+      #- /bogus/path.yaml
+      - /Users/sholden/broad/datarepo-helm/charts/datarepo-api/Chart.yaml
+      #- datarepo-api.yaml   # Value files passed via --values
+  # - name: sh-jade-datarepo-ui   # name of this release
+  #   namespace: sh   # target namespace
+  #   createNamespace: true
+  #   chart: datarepo-helm/datarepo-ui   # the chart name
+  #   missingFileHandler: Warn
+  #   values:
+  #     - datarepo-ui.yaml   # Value files passed via --values
+  # - name: sh-jade-oidc-proxy   # name of this release
+  #   namespace: sh   # target namespace
+  #   createNamespace: true
+  #   chart: datarepo-helm/oidc-proxy   # the chart name
+  #   missingFileHandler: Warn
+  #   values:
+  #     - oidc-proxy.yaml   # Value files passed via --values
