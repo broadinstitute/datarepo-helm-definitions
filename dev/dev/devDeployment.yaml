@@ -46,6 +46,8 @@ datarepo-api:
     OIDC_AUTHORITYENDPOINT: https://terradevb2c.b2clogin.com/terradevb2c.onmicrosoft.com/B2C_1A_SIGNUP_SIGNIN/v2.0
     OIDC_ADDCLIENTIDTOSCOPE: true
     OIDC_EXTRAAUTHPARAMS: prompt=login
+    SENTRY_DSN: https://a3d46c70bbc74f32bfc5153fb8f915a6@o54426.ingest.sentry.io/4504044616089600
+    SENTRY_ENVIRONMENT: development  
   serviceAccount:
     create: true
   rbac:
