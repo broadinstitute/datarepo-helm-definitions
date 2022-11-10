@@ -9,7 +9,7 @@ prometheus:
     annotations:
       iam.gke.io/gcp-service-account: prometheus-sa@broad-jade-perf.iam.gserviceaccount.com      # workloadID annotation for sidecar to write to stackdriver
   ingress:
-    enabled: true
+    enabled: false
     annotations:
       kubernetes.io/ingress.global-static-ip-name: datarepo-prometheus-ip
       kubernetes.io/ingress.allow-http: "false"
@@ -95,7 +95,7 @@ grafana:
       cloud.google.com/backend-config: '{"ports": {"80":"datarepomonitoring-backend-config"}}'
     type: NodePort
   ingress:
-    enabled: true
+    enabled: false
     path: /*
     hosts:
       - datarepo-grafana.datarepo-perf.broadinstitute.org
