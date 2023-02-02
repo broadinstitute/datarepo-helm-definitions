@@ -8,7 +8,7 @@ jobs:
   lintAllTheThings:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: yaml-lint
         uses: broadinstitute/action-yamllint@v1
         with:
