@@ -48,7 +48,6 @@ datarepo-api:
     OIDC_EXTRAAUTHPARAMS: prompt=login
     SENTRY_ENABLED: true
     SENTRY_ENVIRONMENT: development
-    CORS_REGEX: \\Qhttps://jade.datarepo-dev.broadinstitute.org\\E
   serviceAccount:
     create: true
   rbac:
@@ -91,6 +90,7 @@ oidc-proxy:
     ENABLE_STACKDRIVER: yes
     FILTER2: AddOutputFilterByType DEFLATE application/json text/plain text/html application/javascript
       application/x-javascript
+    CORS_REGEX: \\Qhttps://jade.datarepo-dev.broadinstitute.org\\E
   ingress:
     sslPolicy: global-ssl-policy
     enabled: true
