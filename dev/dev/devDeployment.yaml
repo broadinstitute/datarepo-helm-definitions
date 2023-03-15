@@ -48,6 +48,7 @@ datarepo-api:
     OIDC_EXTRAAUTHPARAMS: prompt=login
     SENTRY_ENABLED: true
     SENTRY_ENVIRONMENT: development
+    DUOS_SYNCUSERS_SCHEDULE: "@hourly"
   serviceAccount:
     create: true
   rbac:
