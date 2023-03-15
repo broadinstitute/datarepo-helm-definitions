@@ -20,6 +20,7 @@ env:
   OIDC_AUTHORITYENDPOINT: https://accounts.google.com
   OIDC_ADDCLIENTIDTOSCOPE: false
   OIDC_EXTRAAUTHPARAMS: ""
+  DUOS_SYNCUSERS_SCHEDULE: "@hourly"
 serviceAccount:
   create: true
 rbac:
