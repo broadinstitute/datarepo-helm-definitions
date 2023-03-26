@@ -3,6 +3,9 @@ repositories:
   - name: datarepo-helm
     url: https://broadinstitute.github.io/datarepo-helm
 
+  - name: datarepo-helm-local
+    url: http://localhost:8000
+
   - name: prometheus-community
     url: https://prometheus-community.github.io/helm-charts
 
@@ -19,6 +22,12 @@ releases:
   - name: datarepo-monitoring-backend-config   # release name
     namespace: monitoring   # target namespace
     chart: datarepo-helm/backend-config   # chart name
+    version: 0.1.0
+    missingFileHandler: Warn
+
+  - name: datarepo-monitoring-frontend-config   # release name
+    namespace: monitoring   # target namespace
+    chart: datarepo-helm/frontend-config   # chart name
     version: 0.1.0
     missingFileHandler: Warn
 
