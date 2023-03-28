@@ -1,5 +1,5 @@
 image:
-  tag: 0.236.0
+  tag: 0.237.0
 proxyPass:
   status: http://integration-6-jade-datarepo-api.integration-6:8080/status
   swagger: http://integration-6-jade-datarepo-api.integration-6:8080/swagger-ui.html
