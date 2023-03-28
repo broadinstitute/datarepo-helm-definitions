@@ -49,6 +49,7 @@ datarepo-api:
     SENTRY_ENABLED: true
     SENTRY_ENVIRONMENT: development
     DUOS_SYNCUSERS_SCHEDULE: "@hourly"
+    DATAREPO_COMPACTIDPREFIXALLOWLIST_0_: foo.0
   serviceAccount:
     create: true
   rbac:
