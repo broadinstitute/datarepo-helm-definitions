@@ -21,6 +21,7 @@ env:
   OIDC_AUTHORITYENDPOINT: https://accounts.google.com
   OIDC_ADDCLIENTIDTOSCOPE: false
   OIDC_EXTRAAUTHPARAMS: ""
+  DATAREPO_COMPACTIDPREFIXALLOWLIST_0_: foo.0
 serviceAccount:
   create: true
 rbac:
