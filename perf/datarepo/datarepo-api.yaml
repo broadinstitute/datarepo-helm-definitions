@@ -26,6 +26,7 @@ env:
   OIDC_AUTHORITYENDPOINT: https://accounts.google.com
   OIDC_ADDCLIENTIDTOSCOPE: false
   OIDC_EXTRAAUTHPARAMS: ""
+  SAM_OPERATIONTIMEOUTSECONDS: 120
 serviceAccount:
   create: true
 rbac:
