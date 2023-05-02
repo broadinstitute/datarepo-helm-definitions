@@ -43,7 +43,7 @@ datarepo-api:
     GOOGLE_SECURE_FOLDER_RESOURCE_ID: "753276429356"
     USERMETRICS_BARDBASEPATH: https://terra-bard-dev.appspot.com
     OIDC_CLIENTID: bbd07d43-01cb-4b69-8fd0-5746d9a5c9fe
-    OIDC_AUTHORITYENDPOINT: https://terradevb2c.b2clogin.com/terradevb2c.onmicrosoft.com/B2C_1A_SIGNUP_SIGNIN/v2.0
+    OIDC_AUTHORITYENDPOINT: https://terradevb2c.b2clogin.com/terradevb2c.onmicrosoft.com/B2C_1A_SIGNUP_SIGNIN_TDR/v2.0
     OIDC_ADDCLIENTIDTOSCOPE: true
     OIDC_EXTRAAUTHPARAMS: prompt=login
     SENTRY_ENABLED: true
