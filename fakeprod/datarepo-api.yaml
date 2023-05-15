@@ -21,6 +21,7 @@ env:
   RBS_ENABLED: false
   RBS_POOL_ID: datarepo_v1
   RBS_INSTANCE_URL: https://buffer.dsde-prod.broadinstitute.org
+  TPS_ENABLED: false
 serviceAccount:
   create: true
 rbac:
