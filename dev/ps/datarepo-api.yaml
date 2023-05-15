@@ -24,6 +24,8 @@ env:
   OIDC_AUTHORITYENDPOINT: https://terradevb2c.b2clogin.com/terradevb2c.onmicrosoft.com/B2C_1A_SIGNUP_SIGNIN_TDR/v2.0
   OIDC_ADDCLIENTIDTOSCOPE: true
   OIDC_EXTRAAUTHPARAMS: prompt=login
+  TPS_ENABLED: true
+  TPS_BASE_PATH: https://tps.dsde-dev.broadinstitute.org
 serviceAccount:
   create: true
 rbac:
