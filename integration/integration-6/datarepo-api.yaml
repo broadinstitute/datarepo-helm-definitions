@@ -24,6 +24,8 @@ env:
   OIDC_ADDCLIENTIDTOSCOPE: true
   OIDC_EXTRAAUTHPARAMS: prompt=login
   SAM_OPERATIONTIMEOUTSECONDS: 120
+  TPS_ENABLED: true
+  TPS_BASE_PATH: https://tps.dsde-dev.broadinstitute.org
 serviceAccount:
   create: true
 rbac:
