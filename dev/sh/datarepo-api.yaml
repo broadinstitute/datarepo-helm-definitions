@@ -24,6 +24,8 @@ env:
   OIDC_EXTRAAUTHPARAMS: prompt=login
   TPS_ENABLED: true
   TPS_BASE_PATH: https://tps.dsde-dev.broadinstitute.org
+  SENTRY_DSN: https://a3d46c70bbc74f32bfc5153fb8f915a6@o54426.ingest.sentry.io/4504044616089600
+  SENTRY_ENVIRONMENT: sh-dev
 serviceAccount:
   create: true
 rbac:
