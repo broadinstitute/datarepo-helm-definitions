@@ -1,5 +1,5 @@
 image:
-  tag: 1.494.0
+  tag: 1.495.0
 replicaCount: 3
 env:
   SERVER_MAX_HTTP_HEADER_SIZE: "1048576"
