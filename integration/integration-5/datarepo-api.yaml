@@ -39,6 +39,7 @@ existingSecretAzure: "azure-integration-5"
 existingApplicationSecretSecretKey: "applicationsecret"
 existingSynapseUserSecretKey: "synapse-us-east-sql-admin-user"
 existingSynapsePasswordSecretKey: "synapse-us-east-sql-admin-password"
+existingSynapseEncryptionKeySecretKey: "synapse-us-east-encryption-key"
 nodeSelector:
   cloud.google.com/gke-nodepool: integration-node
 existingSecretRBS: "rbs-sa-integration-5"
