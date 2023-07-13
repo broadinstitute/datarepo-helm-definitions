@@ -47,8 +47,8 @@ datarepo-api:
     OIDC_AUTHORITYENDPOINT: https://terradevb2c.b2clogin.com/terradevb2c.onmicrosoft.com/B2C_1A_SIGNUP_SIGNIN_TDR/v2.0
     OIDC_ADDCLIENTIDTOSCOPE: true
     OIDC_EXTRAAUTHPARAMS: prompt=login
-    SENTRY_ENABLED: true
     SENTRY_ENVIRONMENT: development
+    SENTRY_DSN: https://a3d46c70bbc74f32bfc5153fb8f915a6@o54426.ingest.sentry.io/4504044616089600
     DUOS_SYNCUSERS_SCHEDULE: "@hourly"
     DATAREPO_COMPACTIDPREFIXALLOWLIST_0_: foo.0
     TPS_ENABLED: true
