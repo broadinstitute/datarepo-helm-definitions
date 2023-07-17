@@ -12,8 +12,10 @@ env:
   DATAREPO_DNSNAME: jade-2.datarepo-integration.broadinstitute.org
   IT_JADE_API_URL: https://jade-2.datarepo-integration.broadinstitute.org
   DB_MIGRATE_DROPALLONSTART: true
-  AZURE_CREDENTIALS_APPLICATIONID: 22cb243c-f1a5-43d8-8f12-6566bcce6542
+  AZURE_CREDENTIALS_APPLICATIONID: 4ab53258-0938-4e70-a25c-757b02b2af5a
   AZURE_CREDENTIALS_HOMETENANTID: fad90753-2022-4456-9b0a-c7e5b934e408
+  AZURE_SYNAPSE_WORKSPACENAME: tdr-synapse-east-us-ondemand.sql.azuresynapse.net
+  AZURE_SYNAPSE_INITIALIZE: true
   RBS_ENABLED: true
   RBS_POOL_ID: datarepo_v1
   RBS_INSTANCE_URL: https://buffer.tools.integ.envs.broadinstitute.org
