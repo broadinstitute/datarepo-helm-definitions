@@ -10,8 +10,10 @@ env:
   DB_STAIRWAY_URI: jdbc:postgresql://integration-5-jade-gcloud-sqlproxy.integration-5:5432/stairway-5
   DB_DATAREPO_URI: jdbc:postgresql://integration-5-jade-gcloud-sqlproxy.integration-5:5432/datarepo-5
   IT_JADE_API_URL: https://jade-5.datarepo-integration.broadinstitute.org
-  AZURE_CREDENTIALS_APPLICATIONID: 22cb243c-f1a5-43d8-8f12-6566bcce6542
+  AZURE_CREDENTIALS_APPLICATIONID: 0e29ec36-04e8-44d5-ae7c-50dc15135571
   AZURE_CREDENTIALS_HOMETENANTID: fad90753-2022-4456-9b0a-c7e5b934e408
+  AZURE_SYNAPSE_WORKSPACENAME: tdr-snps-int-east-us-ondemand.sql.azuresynapse.net
+  AZURE_SYNAPSE_INITIALIZE: true
   RBS_ENABLED: true
   RBS_POOL_ID: datarepo_v3
   RBS_INSTANCE_URL: https://buffer.dsde-dev.broadinstitute.org
