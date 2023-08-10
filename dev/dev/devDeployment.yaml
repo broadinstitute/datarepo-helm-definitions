@@ -35,6 +35,15 @@ datarepo-api:
     AZURE_CREDENTIALS_HOMETENANTID: fad90753-2022-4456-9b0a-c7e5b934e408
     AZURE_SYNAPSE_WORKSPACENAME: tdr-synapse-east-us-ondemand.sql.azuresynapse.net
     AZURE_SYNAPSE_INITIALIZE: true
+    AZURE_MONITORING_NOTIFICATIONAPPLICATIONID: /subscriptions/c5f8eca3-f512-48cb-b01f-f19f1af9014c/resourceGroups/terra-dev-audit-logs-rg/providers/Microsoft.Logic/workflows/terra-protected-data-slack-notification
+    AZURE_MONITORING_LOGCOLLECTIONCONFIGS_0__REGION: eastus
+    AZURE_MONITORING_LOGCOLLECTIONCONFIGS_0__TARGETSTORAGEACCOUNTRESOURCEID: /subscriptions/c5f8eca3-f512-48cb-b01f-f19f1af9014c/resourceGroups/terra-dev-protected-data-logs-rg/providers/Microsoft.Storage/storageAccounts/ltslogsdeveastus
+    AZURE_MONITORING_LOGCOLLECTIONCONFIGS_1__REGION: eastus2
+    AZURE_MONITORING_LOGCOLLECTIONCONFIGS_1__TARGETSTORAGEACCOUNTRESOURCEID: /subscriptions/c5f8eca3-f512-48cb-b01f-f19f1af9014c/resourceGroups/terra-dev-protected-data-logs-rg/providers/Microsoft.Storage/storageAccounts/ltslogsdeveastus2
+    AZURE_MONITORING_LOGCOLLECTIONCONFIGS_2__REGION: centralus
+    AZURE_MONITORING_LOGCOLLECTIONCONFIGS_2__TARGETSTORAGEACCOUNTRESOURCEID: /subscriptions/c5f8eca3-f512-48cb-b01f-f19f1af9014c/resourceGroups/terra-dev-protected-data-logs-rg/providers/Microsoft.Storage/storageAccounts/ltslogsdevcentralus
+    AZURE_MONITORING_LOGCOLLECTIONCONFIGS_3__REGION: southcentralus
+    AZURE_MONITORING_LOGCOLLECTIONCONFIGS_3__TARGETSTORAGEACCOUNTRESOURCEID: /subscriptions/c5f8eca3-f512-48cb-b01f-f19f1af9014c/resourceGroups/terra-dev-protected-data-logs-rg/providers/Microsoft.Storage/storageAccounts/ltslogsdevsthcntrlus
     FEATURES_SEARCH_API: enabled
     ELASTICSEARCH_HOSTNAME: 10.0.21.132
     RBS_ENABLED: true
