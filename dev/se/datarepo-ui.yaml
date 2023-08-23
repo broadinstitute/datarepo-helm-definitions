@@ -1,6 +1,4 @@
 ---
-image:
-  tag: fcd1b81-develop
 proxyPass:
   status: http://se-jade-datarepo-api.se:8080/status
   swagger: http://se-jade-datarepo-api.se:8080/swagger-ui.html
