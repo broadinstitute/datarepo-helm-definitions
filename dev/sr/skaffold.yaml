@@ -1,0 +1,62 @@
+## sr env specific skaffold.yaml
+apiVersion: skaffold/v2alpha2
+kind: Config
+build:
+  tagPolicy:
+    gitCommit:
+      variant: AbbrevCommitSha
+  artifacts:
+  - image: gcr.io/broad-jade-dev/jade-data-repo
+    jib:
+      args:
+      - jib
+      type: gradle
+deploy:
+  helm:
+    flags:
+      upgrade:
+        - --install
+        - --debug
+    releases:
+# create secrets
+    - name: sr-jade-create-secret-manager-secret
+      chartPath: https://github.com/broadinstitute/datarepo-helm/releases/download/create-secret-manager-secret-0.0.6/create-secret-manager-secret-0.0.6.tgz
+      version: 0.0.6
+      namespace: sr
+      remote: true
+      valuesFiles:
+      - https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/sr/create-secret-manager-secret.yaml
+# gcp sqlproxy
+    - name: sr-jade-gcloud-sqlproxy
+      chartPath: https://github.com/broadinstitute/datarepo-helm/releases/download/gcloud-sqlproxy-0.19.7/gcloud-sqlproxy-0.19.7.tgz
+      version: 0.19.7
+      namespace: sr
+      remote: true
+      valuesFiles:
+      - https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/sr/gcloud-sqlproxy.yaml
+# datarepo-api
+    - name: sr-jade-datarepo-api
+      chartPath: https://github.com/broadinstitute/datarepo-helm/releases/download/datarepo-api-0.0.21/datarepo-api-0.0.21.tgz
+      version: 0.0.21
+      namespace: sr
+      remote: true
+      values:
+        imageName: gcr.io/broad-jade-dev/jade-data-repo
+      valuesFiles:
+      - https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/sr/datarepo-api.yaml
+# datarepo-ui
+    - name: sr-jade-datarepo-ui
+      chartPath: https://github.com/broadinstitute/datarepo-helm/releases/download/datarepo-ui-0.0.14/datarepo-ui-0.0.14.tgz
+      version: 0.0.14
+      namespace: sr
+      remote: true
+      valuesFiles:
+      - https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/sr/datarepo-ui.yaml
+# oidc-proxy
+    - name: sr-jade-oidc-proxy
+      chartPath: https://github.com/broadinstitute/datarepo-helm/releases/download/oidc-proxy-0.0.25/oidc-proxy-0.0.25.tgz
+      version: 0.0.25
+      namespace: sr
+      remote: true
+      valuesFiles:
+      - https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dev/sr/oidc-proxy.yaml
