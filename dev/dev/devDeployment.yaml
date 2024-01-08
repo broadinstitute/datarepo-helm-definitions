@@ -45,7 +45,6 @@ datarepo-api:
     AZURE_MONITORING_LOGCOLLECTIONCONFIGS_3__REGION: southcentralus
     AZURE_MONITORING_LOGCOLLECTIONCONFIGS_3__TARGETSTORAGEACCOUNTRESOURCEID: /subscriptions/c5f8eca3-f512-48cb-b01f-f19f1af9014c/resourceGroups/terra-dev-protected-data-logs-rg/providers/Microsoft.Storage/storageAccounts/ltslogsdevsthcntrlus
     FEATURES_SEARCH_API: enabled
-    ELASTICSEARCH_HOSTNAME: 10.0.21.132
     RBS_ENABLED: true
     RBS_POOL_ID: datarepo_v3
     RBS_INSTANCE_URL: https://buffer.dsde-dev.broadinstitute.org
@@ -123,5 +122,3 @@ oidc-proxy:
   rbac:
     create: true
     pspEnabled: true
-de-elasticsearch:
-  enabled: true
