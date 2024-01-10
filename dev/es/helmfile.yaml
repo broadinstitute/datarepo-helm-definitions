@@ -1,0 +1,45 @@
+# single env example file
+# helm file dependencies
+# helm plugin install https://github.com/databus23/helm-diff
+# repositories to be installed
+repositories:
+  - name: datarepo-helm
+    url: https://broadinstitute.github.io/datarepo-helm
+
+# helm releases to be deployed
+releases:
+  - name: es-jade-create-secret-manager-secret    # release name
+    namespace: es   # target namespace
+    createNamespace: true
+    chart: datarepo-helm/create-secret-manager-secret   # chart name
+    missingFileHandler: Warn
+    values:
+      - create-secret-manager-secret.yaml      # Value files passed via --values
+  - name: es-jade-gcloud-sqlproxy    # release name
+    namespace: es   # target namespace
+    createNamespace: true
+    chart: datarepo-helm/gcloud-sqlproxy   # chart name
+    missingFileHandler: Warn
+    values:
+      - gcloud-sqlproxy.yaml    # Value files passed via --values
+  - name: es-jade-datarepo-api   # name of this release
+    namespace: es   # target namespace
+    createNamespace: true
+    chart: datarepo-helm/datarepo-api   # the chart name
+    missingFileHandler: Warn
+    values:
+      - datarepo-api.yaml   # Value files passed via --values
+  - name: es-jade-datarepo-ui   # name of this release
+    namespace: es   # target namespace
+    createNamespace: true
+    chart: datarepo-helm/datarepo-ui   # the chart name
+    missingFileHandler: Warn
+    values:
+      - datarepo-ui.yaml   # Value files passed via --values
+  - name: es-jade-oidc-proxy   # name of this release
+    namespace: es   # target namespace
+    createNamespace: true
+    chart: datarepo-helm/oidc-proxy   # the chart name
+    missingFileHandler: Warn
+    values:
+      - oidc-proxy.yaml   # Value files passed via --values
