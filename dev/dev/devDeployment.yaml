@@ -10,7 +10,8 @@ gcloud-sqlproxy:
       # Port number for the proxy to expose for this instance.
       port: 5432
   rbac:
-    create: false
+    create: true
+    pspEnabled: false
   networkPolicy:
     enabled: false
   existingSecret: sqlproxy-sa-dev
@@ -68,7 +69,7 @@ datarepo-api:
   serviceAccount:
     create: true
   rbac:
-    create: false
+    create: true
     pspEnabled: false
   existingSecretDB: "database-pwd-dev"
   existingDatarepoDbSecretKey: "datarepopassword"
