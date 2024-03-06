@@ -7,6 +7,6 @@ proxyPass:
 serviceAccount:
   create: true
 rbac:
-  create: true
+  create: false
 nodeSelector:
   cloud.google.com/gke-nodepool: integration-node

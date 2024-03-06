@@ -22,5 +22,5 @@ ingress:
 serviceAccount:
   create: true
 rbac:
-  create: true
-  pspEnabled: true
+  create: false
+  pspEnabled: false

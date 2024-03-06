@@ -22,7 +22,7 @@ ingress:
 serviceAccount:
   create: true
 rbac:
-  create: true
-  pspEnabled: true
+  create: false
+  pspEnabled: false
 nodeSelector:
   cloud.google.com/gke-nodepool: integration-node

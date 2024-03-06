@@ -13,5 +13,6 @@ cloudsql:
       port: 5432
 rbac:
   create: true
+  pspEnabled: false
 networkPolicy:
   enabled: false

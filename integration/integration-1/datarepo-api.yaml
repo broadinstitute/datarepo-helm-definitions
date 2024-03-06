@@ -32,7 +32,7 @@ serviceAccount:
   create: true
 rbac:
   create: true
-  pspEnabled: true
+  pspEnabled: false
 existingSecretDB: "database-pwd-integration-1"
 existingDatarepoDbSecretKey: "datarepopassword"
 existingStairwayDbSecretKey: "stairwaypassword"

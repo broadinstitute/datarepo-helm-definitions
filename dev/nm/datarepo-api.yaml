@@ -31,7 +31,7 @@ serviceAccount:
   create: true
 rbac:
   create: true
-  pspEnabled: true
+  pspEnabled: false
 existingSecretDB: "database-pwd-nm"
 existingDatarepoDbSecretKey: "datarepopassword"
 existingStairwayDbSecretKey: "stairwaypassword"

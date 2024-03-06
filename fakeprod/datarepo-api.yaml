@@ -25,7 +25,7 @@ serviceAccount:
   create: true
 rbac:
   create: true
-  pspEnabled: true
+  pspEnabled: false
 existingSecretDB: "api-secrets"
 existingDatarepoDbSecretKey: "datarepo-password"
 existingStairwayDbSecretKey: "stairway-password"
