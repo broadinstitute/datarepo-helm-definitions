@@ -74,8 +74,8 @@ grafana:
       jvm-dashboard:
         url: https://raw.githubusercontent.com/broadinstitute/datarepo-helm-definitions/master/dashboards/jvm-dashboard.json
   rbac:
-    create: true
-    pspEnabled: true
+    create: false
+    pspEnabled: false
   plugins: ["doitintl-bigquery-datasource"]
   env:
     GF_USERS_AUTO_ASSIGN_ORG_ROLE: "Editor"

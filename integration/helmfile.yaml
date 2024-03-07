@@ -26,7 +26,7 @@ releases:
   - name: descheduler   # release name
     namespace: kube-system   # target namespace
     chart: descheduler/descheduler   # chart name
-    version: v0.20.0 # chart version (note more recent charts break)
+    version: v0.29.0 # chart version (note more recent charts break)
     missingFileHandler: Warn
     values:
       - schedule: "0 * * * *"

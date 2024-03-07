@@ -14,4 +14,4 @@ configureRepositories:
     - name: datarepo-helm
       url: https://broadinstitute.github.io/datarepo-helm
 rbac:
-  pspEnabled: true
+  pspEnabled: false

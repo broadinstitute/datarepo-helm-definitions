@@ -6,4 +6,4 @@ proxyPass:
 serviceAccount:
   create: true
 rbac:
-  create: true
+  create: false
