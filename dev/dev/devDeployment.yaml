@@ -19,7 +19,7 @@ gcloud-sqlproxy:
 datarepo-api:
   enabled: true
   image:
-    tag: ee8a651-develop
+    tag: 081eb7e-develop
   env:
     SERVER_MAX_HTTP_HEADER_SIZE: "1048576"
     GOOGLE_ALLOWREUSEEXISTINGBUCKETS: true
