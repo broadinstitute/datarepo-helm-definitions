@@ -1,9 +1,0 @@
----
-proxyPass:
-  status: http://terra-jade-datarepo-api.data-repo:8080/status
-  swagger: http://terra-jade-datarepo-api.data-repo:8080/swagger-ui.html
-  api: http://terra-jade-datarepo-api.data-repo:8080
-serviceAccount:
-  create: true
-rbac:
-  create: true
