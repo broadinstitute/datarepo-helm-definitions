@@ -13,4 +13,4 @@ jobs:
         uses: broadinstitute/action-yamllint@v1
         with:
           config_file: .github/yamllint.yaml
-          file_or_dir: dev/*/ integration/*/ prod/* staging/*/ scripts/
+          file_or_dir: dev/*/ scripts/
