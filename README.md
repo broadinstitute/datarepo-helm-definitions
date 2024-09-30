@@ -47,7 +47,7 @@ in the secret manager.
 ### When finished testing, shut down the environment by running `helmfile destroy`
 ```
 cd datarepo-helm-definitions/dev/ZZ
-helmfile destory
+helmfile destroy
 ```
 
 **Note: Deleting a namespace or deployment manually/in the gcloud console is not advised as it will leave Rbac and Psp
