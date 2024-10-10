@@ -1,97 +1,61 @@
 # datarepo-helm-definitions
 
+### Holdover repository until [datarepo-helm](https://github.com/broadinstitute/datarepo-helm) is fully migrated to [terra-helmfile](https://github.com/broadinstitute/terra-helmfile) to enable testing of helm chart changes.
+
 ## Overview
-This repository contains helm files for every Jade team member and environment. The core philosophy for the deployment is following [GITOPS](https://www.weave.works/blog/what-is-gitops-really) which means that the source of truth for the deployments will be this repository. The 3 key files each team member will have to track for their indivdual deployment are  `< initials >Deployment.yaml` and `< initials >Secrets.yaml`  These are end state definitions and may require some prerequisites.
+This repository used to contain the helm files for every Terra Data Repo (TDR) environment and personal developer environments. All
+helm definitions for the main data repo environments (Dev, Staging and production) have been moved to [Terra-Helmfile](https://github.com/broadinstitute/terra-helmfile).
+
+However, until datarepo-helm is fully migrated to terra-helmfile, these charts are the only way to test helm chart changes.
+
+We need to test changes relatively infrequently, so we expect for users to spin up and shut down their own environments as needed.
+
+
+### Testing with Personal Environments
 
 ### Prerequisites
-- CRDS
-  - [secrets-manager](https://github.com/tuenti/secrets-manager)
-  - [Datarepo-helm repositories](https://github.com/broadinstitute/datarepo-helm)
-- [helmv3](https://helm.sh/)
-
-## Deployment Overview
-### Install CRDS
-#### [secrets-manager](https://github.com/tuenti/secrets-manager)
-- secrets-manager will login to Vault using AppRole credentials and it will start a reconciliation loop watching for changes in SecretsDefinition objects. In background it will run two main operations:
-
-- If Vault token is close to expire and if that's the case, renewing it. If it can't renew, it will try to re-login.
-- It will re-queue SecretsDefinition events and in every event loop it will verify if the current Kubernetes secret it is in the desired state by comparing it with the data in Vault and creating/updating them accordingly
-
-
-#### Create namespaces
-- helm 3 no longer support the creation of namespaces
-- namespace will be created by [namepace plugin required](https://github.com/thomastaylor312/helm-namespace)
-
-
-Helm values are derived from the URL as a source of truth for the deployment if you would like to manually over write a field without commiting to master you can set the following field in the yaml
-
-### Deployment files
-
-#### < initials >Secrets.yaml
-- Contains all secret locations in vault and uses the secret-manager crd to sync between vault and [kubernetes secrets](https://kubernetes.io/docs/concepts/configuration/secret/)
-- ##### THIS MUST BE INSTALLED  BEFORE THE < initials >Deployment.yaml IF MANUALLY INSTALLED
-
-#### < initials >Deployment.yaml
-- Contains all values for the complete [datarepo helm chart](https://github.com/broadinstitute/datarepo-helm/tree/master/charts/datarepo)
--  This chart references 4 sub charts
-
-- < initials >Secrets.yaml will be installed first
-- < initials >Deployment.yaml will be installed second
-
-### TLDR deployment process
-- ##### [Script Documentation](https://github.com/broadinstitute/datarepo-helm-definitions/blob/master/scripts/README.md)
-
-- ##### install crd secret-manager
-  - `sh ./scripts/crds/secret-manager/installSecretManager.sh`
-    - [installSecretManager.sh](https://github.com/broadinstitute/datarepo-helm-definitions/blob/master/scripts/crds/secrets-manager/installSecretManager.sh)
-
-## One click helm install script for osx
-Run [`$sh ./helmInstallHelper.sh`](https://github.com/broadinstitute/datarepo-helm-definitions/blob/master/scripts/helmInstallHelper.sh)
-
-
-
-## Folder Structure
+* Clone the [datarepo-helm-definitions](https://github.com/broadinstitute/datarepo-helm-definitions) repository
+* Install needed resources: helm and helmfile
 ```
-├── README.md
-├── dev  <--- ENVIRONMENT
-│   ├── dd
-│   ├── dev
-│   ├── jh
-│   ├── mm
-│   ├── ms  <--- user initials set $ENVIRONMENT to this for helper script
-│       ├── msDeployment.yaml  <--- Datarepo Helm Deployment Values
-|       └── msSecrets.yaml  <--- Datarepo Helm Secrets Values
-│  
-│  
-├── integration
-├── prod
-└── scripts  <-- Helper scripts for static folder structure
-    ├── README.md
-    ├── helmChartHelper.sh
-    ├── helmInstallHelper.sh
-    ├── vaultCrdHelper.sh
-    └── vaultbase64toplaintxt.sh
+brew install helm
+brew install helmfile
 ```
-### Helm Repositories
-- [Datarepo-helm](https://github.com/broadinstitute/datarepo-helm)
-- [helm Stable](https://github.com/helm/charts/tree/master/stable)
+* Connect to the non-split VPN
+* Connect to the dev cluster
+```
+gcloud auth login
+gcloud container clusters get-credentials dev-master --region us-central1 --project broad-jade-dev
+```
 
-## Deleting a namespace or deployment manually is not advised as it will leave Rbac and Psp articfacts behind and they will need to be manually deleted
+### Spin up environment 
+Note: It can take up to 10-15 minutes for an environment to fully spin up (ingress and cert creation)
+1. Select a namespace to work in. These previously used to be named after a developer, but they are now available for general use. (Available options include: nm, ok, ps, se, and sh). We'll refer to these initials as `ZZ` in these instructions.
+2. Change directory to a namespace folder in `datarepo-helm-definitions` (e.g. `cd datarepo-helm-definitions/dev/ZZ`)
+and run `helmfile apply` to spin up the environment.
+```
+cd datarepo-helm-definitions/dev/ZZ
+helmfile apply
 
-## If you deployed with helm you should delete your deployment with helm
+# check that the deployments were created
+helm list --namespace ZZ
+```
+4. You can access the instance at the following address: `https://jade-ZZ.datarepo-dev.broadinstitute.org`
+5. You can connect to the postgres instance in the SQL studio in the broad-jade-dev google project. The database password is
+in the secret manager. 
 
-#### Helm list deployment
-`helm ls -n <SomeNamspace>`
 
-#### Helm manual installs Examples ([namepace plugin required](https://github.com/thomastaylor312/helm-namespace) below)
-`helm namespace upgrade temp-secrets datarepo-helm/create-secret-manager-secret --version=0.0.4 --install --namespace temp -f tempSecrets.yaml`
+### When finished testing, shut down the environment by running `helmfile destroy`
+```
+cd datarepo-helm-definitions/dev/ZZ
+helmfile destroy
+```
 
-`helm namespace upgrade temp-jade datarepo-helm/datarepo --version=0.0.6 --install --namespace temp -f tempDeployment.yaml
-`
-#### Helm manual delete Examples
-`helm delete <SomeDeploy> --namespace <SomeNamspace>`
+**Note: Deleting a namespace or deployment manually/in the gcloud console is not advised as it will leave Rbac and Psp
+artifacts behind and they will need to be manually deleted.
+If you deployed with helm you should delete your deployment with helm.**
 
-`helm delete jade --namespace <SomeNamspace>`
+**Helpful hints**
 
-### Learn Helm!!
-[Helm v3 Docs](https://helm.sh/docs/intro/)
+By default, you can leave release chart versions unspecified in your `helmfile.yaml` so that  latest versions are
+automatically picked up when running helmfile commands. Otherwise, verify that specified versions match the
+   [latest dependency versions](https://github.com/broadinstitute/datarepo-helm/blob/master/charts/datarepo/Chart.lock).
